@@ -2,3 +2,167 @@
 2026-08-02 19:05:33 | INFO     | Loading transactions.csv
 2026-08-02 19:05:33 | WARNING  | Duplicate transaction detected.
 2026-08-02 19:05:33 | ERROR    | Unable to connect to database.
+2026-08-02 21:03:42 | INFO     | Discovered 5 datasets
+2026-08-02 21:03:42 | INFO     | Loading merchants.csv
+2026-08-02 21:03:42 | INFO     | merchants.csv loaded successfully (94 rows)
+2026-08-02 21:03:43 | INFO     | Saved merchants.parquet
+2026-08-02 21:03:43 | INFO     | Loading settlements.csv
+2026-08-02 21:03:44 | INFO     | settlements.csv loaded successfully (152,414 rows)
+2026-08-02 21:03:44 | INFO     | Saved settlements.parquet
+2026-08-02 21:03:44 | INFO     | Loading switch_log.csv
+2026-08-02 21:03:45 | INFO     | switch_log.csv loaded successfully (204,983 rows)
+2026-08-02 21:03:45 | INFO     | Saved switch_log.parquet
+2026-08-02 21:03:45 | INFO     | Loading tickets.csv
+2026-08-02 21:03:45 | INFO     | tickets.csv loaded successfully (1,450 rows)
+2026-08-02 21:03:45 | INFO     | Saved tickets.parquet
+2026-08-02 21:03:45 | INFO     | Loading transactions.csv
+2026-08-02 21:03:46 | INFO     | transactions.csv loaded successfully (180,720 rows)
+2026-08-02 21:03:47 | INFO     | Saved transactions.parquet
+2026-08-02 21:03:47 | INFO     | Landing layer completed successfully
+2026-08-02 21:54:36 | INFO     | ============================================================
+2026-08-02 21:54:36 | INFO     | PAYFLOW INTELLIGENCE PIPELINE
+2026-08-02 21:54:36 | INFO     | ============================================================
+2026-08-02 21:54:36 | INFO     | Discovered 5 datasets.
+2026-08-02 21:54:36 | INFO     | Loading merchants.csv
+2026-08-02 21:54:36 | INFO     | merchants.csv loaded successfully (94 rows)
+2026-08-02 21:54:36 | INFO     | Saved merchants.parquet
+2026-08-02 21:54:36 | INFO     | Loading settlements.csv
+2026-08-02 21:54:36 | INFO     | settlements.csv loaded successfully (152,414 rows)
+2026-08-02 21:54:36 | INFO     | Saved settlements.parquet
+2026-08-02 21:54:36 | INFO     | Loading switch_log.csv
+2026-08-02 21:54:38 | INFO     | switch_log.csv loaded successfully (204,983 rows)
+2026-08-02 21:54:38 | INFO     | Saved switch_log.parquet
+2026-08-02 21:54:38 | INFO     | Loading tickets.csv
+2026-08-02 21:54:38 | INFO     | tickets.csv loaded successfully (1,450 rows)
+2026-08-02 21:54:38 | INFO     | Saved tickets.parquet
+2026-08-02 21:54:38 | INFO     | Loading transactions.csv
+2026-08-02 21:54:39 | INFO     | transactions.csv loaded successfully (180,720 rows)
+2026-08-02 21:54:39 | INFO     | Saved transactions.parquet
+2026-08-02 21:54:39 | INFO     | Landing Layer completed.
+2026-08-02 21:54:39 | ERROR    | Landing Layer failed.
+Traceback (most recent call last):
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\src\pipeline\orchestrator.py", line 44, in run
+    PipelineHistory.save(metadata)
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\src\ingestion\history.py", line 25, in save
+    existing = pd.read_csv(cls.FILE)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 873, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 300, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1645, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1922, in _make_engine
+    return mapping[engine](f, **self.options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\io\parsers\c_parser_wrapper.py", line 95, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/parsers.pyx", line 575, in pandas._libs.parsers.TextReader.__cinit__
+pandas.errors.EmptyDataError: No columns to parse from file
+2026-08-02 21:54:39 | INFO     | ------------------------------------------------------------
+2026-08-02 21:54:39 | INFO     | Pipeline completed in 3.46 seconds
+2026-08-02 21:54:39 | INFO     | Successful datasets: 5
+2026-08-02 21:54:39 | INFO     | Failed datasets: 1
+2026-08-02 21:54:39 | INFO     | ------------------------------------------------------------
+2026-08-02 21:56:14 | INFO     | ============================================================
+2026-08-02 21:56:14 | INFO     | PAYFLOW INTELLIGENCE PIPELINE
+2026-08-02 21:56:14 | INFO     | ============================================================
+2026-08-02 21:56:14 | INFO     | Discovered 5 datasets.
+2026-08-02 21:56:14 | INFO     | Loading merchants.csv
+2026-08-02 21:56:14 | INFO     | merchants.csv loaded successfully (94 rows)
+2026-08-02 21:56:15 | INFO     | Saved merchants.parquet
+2026-08-02 21:56:15 | INFO     | Loading settlements.csv
+2026-08-02 21:56:15 | INFO     | settlements.csv loaded successfully (152,414 rows)
+2026-08-02 21:56:15 | INFO     | Saved settlements.parquet
+2026-08-02 21:56:15 | INFO     | Loading switch_log.csv
+2026-08-02 21:56:16 | INFO     | switch_log.csv loaded successfully (204,983 rows)
+2026-08-02 21:56:16 | INFO     | Saved switch_log.parquet
+2026-08-02 21:56:16 | INFO     | Loading tickets.csv
+2026-08-02 21:56:16 | INFO     | tickets.csv loaded successfully (1,450 rows)
+2026-08-02 21:56:16 | INFO     | Saved tickets.parquet
+2026-08-02 21:56:16 | INFO     | Loading transactions.csv
+2026-08-02 21:56:17 | INFO     | transactions.csv loaded successfully (180,720 rows)
+2026-08-02 21:56:17 | INFO     | Saved transactions.parquet
+2026-08-02 21:56:17 | INFO     | Landing Layer completed.
+2026-08-02 21:56:17 | ERROR    | Landing Layer failed.
+Traceback (most recent call last):
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\src\pipeline\orchestrator.py", line 44, in run
+    PipelineHistory.save(metadata)
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\src\ingestion\history.py", line 25, in save
+    existing = pd.read_csv(cls.FILE)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 873, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 300, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1645, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1922, in _make_engine
+    return mapping[engine](f, **self.options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\io\parsers\c_parser_wrapper.py", line 95, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/parsers.pyx", line 575, in pandas._libs.parsers.TextReader.__cinit__
+pandas.errors.EmptyDataError: No columns to parse from file
+2026-08-02 21:56:17 | INFO     | ------------------------------------------------------------
+2026-08-02 21:56:17 | INFO     | Pipeline completed in 2.94 seconds
+2026-08-02 21:56:17 | INFO     | Successful datasets: 5
+2026-08-02 21:56:17 | INFO     | Failed datasets: 1
+2026-08-02 21:56:17 | INFO     | ------------------------------------------------------------
+2026-08-02 22:17:46 | INFO     | ============================================================
+2026-08-02 22:17:46 | INFO     | PAYFLOW INTELLIGENCE PIPELINE
+2026-08-02 22:17:46 | INFO     | ============================================================
+2026-08-02 22:17:46 | INFO     | Discovered 5 datasets.
+2026-08-02 22:17:46 | INFO     | Loading merchants.csv
+2026-08-02 22:17:46 | INFO     | merchants.csv loaded successfully (94 rows)
+2026-08-02 22:17:46 | INFO     | Saved merchants.parquet
+2026-08-02 22:17:46 | INFO     | Loading settlements.csv
+2026-08-02 22:17:47 | INFO     | settlements.csv loaded successfully (152,414 rows)
+2026-08-02 22:17:47 | INFO     | Saved settlements.parquet
+2026-08-02 22:17:47 | INFO     | Loading switch_log.csv
+2026-08-02 22:17:47 | INFO     | switch_log.csv loaded successfully (204,983 rows)
+2026-08-02 22:17:48 | INFO     | Saved switch_log.parquet
+2026-08-02 22:17:48 | INFO     | Loading tickets.csv
+2026-08-02 22:17:48 | INFO     | tickets.csv loaded successfully (1,450 rows)
+2026-08-02 22:17:48 | INFO     | Saved tickets.parquet
+2026-08-02 22:17:48 | INFO     | Loading transactions.csv
+2026-08-02 22:17:48 | INFO     | transactions.csv loaded successfully (180,720 rows)
+2026-08-02 22:17:49 | INFO     | Saved transactions.parquet
+2026-08-02 22:17:49 | INFO     | Landing completed (Success=5, Failed=0)
+2026-08-02 22:17:49 | ERROR    | Landing Layer failed.
+Traceback (most recent call last):
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\src\pipeline\orchestrator.py", line 46, in run
+    PipelineHistory.save(metadata)
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\src\ingestion\history.py", line 25, in save
+    existing = pd.read_csv(cls.FILE)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 873, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 300, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1645, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1922, in _make_engine
+    return mapping[engine](f, **self.options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\io\parsers\c_parser_wrapper.py", line 95, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/parsers.pyx", line 575, in pandas._libs.parsers.TextReader.__cinit__
+pandas.errors.EmptyDataError: No columns to parse from file
+2026-08-02 22:17:49 | INFO     | ------------------------------------------------------------
+2026-08-02 22:17:49 | INFO     | Pipeline completed in 3.05 seconds
+2026-08-02 22:17:49 | INFO     | Successful datasets: 5
+2026-08-02 22:17:49 | INFO     | Failed datasets: 0
+2026-08-02 22:17:49 | INFO     | ------------------------------------------------------------

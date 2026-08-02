@@ -1,11 +1,15 @@
-from src.utils.logger import get_logger
+from src.ingestion.loader import DataLoader
 
-logger = get_logger()
+loader = DataLoader()
 
-logger.info("Pipeline started.")
+datasets, metadata = loader.run()
 
-logger.info("Loading transactions.csv")
+print("\nLoaded datasets:")
 
-logger.warning("Duplicate transaction detected.")
+for name, df in datasets.items():
+    print(f"{name}: {len(df):,} rows")
 
-logger.error("Unable to connect to database.")
+print("\nMetadata:")
+
+for item in metadata:
+    print(item)
