@@ -4,7 +4,7 @@ Centralised project paths.
 This module provides a single source of truth for all directories used
 throughout the PayFlow Intelligence Platform.
 
-Author: SimbaraShe Munatsi
+Author: Simba Munatsi
 Project: PayFlow Intelligence Platform
 """
 
