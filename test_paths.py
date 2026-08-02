@@ -1,7 +1,11 @@
-from src.utils.config import config
+from src.utils.logger import get_logger
 
-print(config.APP_NAME)
-print(config.APP_ENV)
-print(config.DB_PASSWORD)
-print(config.DB_HOST)
-print(config.PIPELINE_BATCH_SIZE)
+logger = get_logger()
+
+logger.info("Pipeline started.")
+
+logger.info("Loading transactions.csv")
+
+logger.warning("Duplicate transaction detected.")
+
+logger.error("Unable to connect to database.")
