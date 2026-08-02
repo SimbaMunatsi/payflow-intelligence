@@ -1,0 +1,4 @@
+2026-08-02 19:05:33 | INFO     | Pipeline started.
+2026-08-02 19:05:33 | INFO     | Loading transactions.csv
+2026-08-02 19:05:33 | WARNING  | Duplicate transaction detected.
+2026-08-02 19:05:33 | ERROR    | Unable to connect to database.
