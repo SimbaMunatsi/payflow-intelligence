@@ -166,3 +166,79 @@ pandas.errors.EmptyDataError: No columns to parse from file
 2026-08-02 22:17:49 | INFO     | Successful datasets: 5
 2026-08-02 22:17:49 | INFO     | Failed datasets: 0
 2026-08-02 22:17:49 | INFO     | ------------------------------------------------------------
+2026-08-03 00:21:11 | INFO     | Discovered 5 datasets.
+2026-08-03 00:21:11 | INFO     | Loading merchants.csv
+2026-08-03 00:21:11 | INFO     | merchants.csv loaded successfully (94 rows)
+2026-08-03 00:21:11 | INFO     | Saved merchants.parquet
+2026-08-03 00:21:11 | INFO     | Loading settlements.csv
+2026-08-03 00:21:12 | INFO     | settlements.csv loaded successfully (152,414 rows)
+2026-08-03 00:21:12 | INFO     | Saved settlements.parquet
+2026-08-03 00:21:12 | INFO     | Loading switch_log.csv
+2026-08-03 00:21:13 | INFO     | switch_log.csv loaded successfully (204,983 rows)
+2026-08-03 00:21:13 | INFO     | Saved switch_log.parquet
+2026-08-03 00:21:13 | INFO     | Loading tickets.csv
+2026-08-03 00:21:13 | INFO     | tickets.csv loaded successfully (1,450 rows)
+2026-08-03 00:21:13 | INFO     | Saved tickets.parquet
+2026-08-03 00:21:13 | INFO     | Loading transactions.csv
+2026-08-03 00:21:14 | INFO     | transactions.csv loaded successfully (180,720 rows)
+2026-08-03 00:21:15 | INFO     | Saved transactions.parquet
+2026-08-03 00:21:15 | INFO     | Landing completed (Success=5, Failed=0)
+2026-08-03 00:21:15 | INFO     | Validating merchants
+2026-08-03 00:21:15 | INFO     | Validating settlements
+2026-08-03 00:21:15 | INFO     | Validating switch_log
+2026-08-03 00:21:15 | INFO     | Validating tickets
+2026-08-03 00:21:15 | INFO     | Validating transactions
+2026-08-03 08:32:04 | INFO     | Discovered 5 datasets.
+2026-08-03 08:32:04 | INFO     | Loading merchants.csv
+2026-08-03 08:32:05 | INFO     | merchants.csv loaded successfully (94 rows)
+2026-08-03 08:32:05 | INFO     | Saved merchants.parquet
+2026-08-03 08:32:05 | INFO     | Loading settlements.csv
+2026-08-03 08:32:05 | INFO     | settlements.csv loaded successfully (152,414 rows)
+2026-08-03 08:32:06 | INFO     | Saved settlements.parquet
+2026-08-03 08:32:06 | INFO     | Loading switch_log.csv
+2026-08-03 08:32:07 | INFO     | switch_log.csv loaded successfully (204,983 rows)
+2026-08-03 08:32:07 | INFO     | Saved switch_log.parquet
+2026-08-03 08:32:07 | INFO     | Loading tickets.csv
+2026-08-03 08:32:08 | INFO     | tickets.csv loaded successfully (1,450 rows)
+2026-08-03 08:32:08 | INFO     | Saved tickets.parquet
+2026-08-03 08:32:08 | INFO     | Loading transactions.csv
+2026-08-03 08:32:10 | INFO     | transactions.csv loaded successfully (180,720 rows)
+2026-08-03 08:32:10 | INFO     | Saved transactions.parquet
+2026-08-03 08:32:10 | INFO     | Landing completed (Success=5, Failed=0)
+2026-08-03 08:32:10 | INFO     | Validating merchants
+2026-08-03 08:32:10 | INFO     | [PASS]Dataset Not Empty
+2026-08-03 08:32:10 | INFO     | Validating settlements
+2026-08-03 08:32:10 | INFO     | [PASS]Dataset Not Empty
+2026-08-03 08:32:10 | INFO     | Validating switch_log
+2026-08-03 08:32:10 | INFO     | [PASS]Dataset Not Empty
+2026-08-03 08:32:10 | INFO     | Validating tickets
+2026-08-03 08:32:10 | INFO     | [PASS]Dataset Not Empty
+2026-08-03 08:32:10 | INFO     | Validating transactions
+2026-08-03 08:32:10 | INFO     | [PASS]Dataset Not Empty
+2026-08-03 08:37:20 | INFO     | Discovered 5 datasets.
+2026-08-03 08:37:20 | INFO     | Loading merchants.csv
+2026-08-03 08:37:20 | INFO     | merchants.csv loaded successfully (94 rows)
+2026-08-03 08:37:20 | INFO     | Saved merchants.parquet
+2026-08-03 08:37:20 | INFO     | Loading settlements.csv
+2026-08-03 08:37:21 | INFO     | settlements.csv loaded successfully (152,414 rows)
+2026-08-03 08:37:21 | INFO     | Saved settlements.parquet
+2026-08-03 08:37:21 | INFO     | Loading switch_log.csv
+2026-08-03 08:37:22 | INFO     | switch_log.csv loaded successfully (204,983 rows)
+2026-08-03 08:37:23 | INFO     | Saved switch_log.parquet
+2026-08-03 08:37:23 | INFO     | Loading tickets.csv
+2026-08-03 08:37:23 | INFO     | tickets.csv loaded successfully (1,450 rows)
+2026-08-03 08:37:23 | INFO     | Saved tickets.parquet
+2026-08-03 08:37:23 | INFO     | Loading transactions.csv
+2026-08-03 08:37:23 | INFO     | transactions.csv loaded successfully (180,720 rows)
+2026-08-03 08:37:24 | INFO     | Saved transactions.parquet
+2026-08-03 08:37:24 | INFO     | Landing completed (Success=5, Failed=0)
+2026-08-03 08:37:24 | INFO     | Validating merchants
+2026-08-03 08:37:24 | INFO     | [PASS]Dataset Not Empty
+2026-08-03 08:37:24 | INFO     | Validating settlements
+2026-08-03 08:37:24 | INFO     | [PASS]Dataset Not Empty
+2026-08-03 08:37:24 | INFO     | Validating switch_log
+2026-08-03 08:37:24 | INFO     | [PASS]Dataset Not Empty
+2026-08-03 08:37:24 | INFO     | Validating tickets
+2026-08-03 08:37:24 | INFO     | [PASS]Dataset Not Empty
+2026-08-03 08:37:24 | INFO     | Validating transactions
+2026-08-03 08:37:24 | INFO     | [PASS]Dataset Not Empty
