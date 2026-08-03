@@ -1,24 +1,47 @@
+"""
+Tests the Staging Engine.
+
+Author: Simba Munatsi
+"""
+
 from src.ingestion.loader import DataLoader
-from src.validation.validator import Validator
+from src.transformation.staging import (
+    StagingEngine,
+)
 
-loader = DataLoader()
 
-datasets, metadata, summary = loader.run()
+def main():
 
-validator = Validator()
+    loader = DataLoader()
 
-for dataset_name, dataframe in datasets.items():
+    datasets, metadata, summary = loader.run()
 
-    results = validator.validate_dataset(
-        dataset_name,
-        dataframe,
+    staging = StagingEngine()
+
+    staged_datasets, results = staging.run(
         datasets,
     )
 
-    print()
+    print("\n")
 
-    print(dataset_name)
+    print("=" * 70)
+    print("STAGING DATASETS")
+    print("=" * 70)
 
-    for r in results:
+    for name, df in staged_datasets.items():
 
-        print(r.to_dict())
+        print(f"{name:15} {len(df):>10,} rows")
+
+    print("\n")
+
+    print("=" * 70)
+    print("TRANSFORMATION RESULTS")
+    print("=" * 70)
+
+    for result in results:
+
+        print(result.to_dict())
+
+
+if __name__ == "__main__":
+    main()
