@@ -285,3 +285,56 @@ pandas.errors.EmptyDataError: No columns to parse from file
 2026-08-03 10:31:53 | INFO     | Cleaning completed (7 values changed)
 2026-08-03 10:39:11 | INFO     | Standardizing transactions
 2026-08-03 10:39:11 | INFO     | transactions standardized (6 values changed)
+2026-08-03 10:45:37 | INFO     | Discovered 5 datasets.
+2026-08-03 10:45:37 | INFO     | Loading merchants.csv
+2026-08-03 10:45:37 | INFO     | merchants.csv loaded successfully (94 rows)
+2026-08-03 10:45:37 | INFO     | Saved merchants.parquet
+2026-08-03 10:45:37 | INFO     | Loading settlements.csv
+2026-08-03 10:45:37 | INFO     | settlements.csv loaded successfully (152,414 rows)
+2026-08-03 10:45:37 | INFO     | Saved settlements.parquet
+2026-08-03 10:45:37 | INFO     | Loading switch_log.csv
+2026-08-03 10:45:38 | INFO     | switch_log.csv loaded successfully (204,983 rows)
+2026-08-03 10:45:38 | INFO     | Saved switch_log.parquet
+2026-08-03 10:45:38 | INFO     | Loading tickets.csv
+2026-08-03 10:45:38 | INFO     | tickets.csv loaded successfully (1,450 rows)
+2026-08-03 10:45:38 | INFO     | Saved tickets.parquet
+2026-08-03 10:45:38 | INFO     | Loading transactions.csv
+2026-08-03 10:45:39 | INFO     | transactions.csv loaded successfully (180,720 rows)
+2026-08-03 10:45:40 | INFO     | Saved transactions.parquet
+2026-08-03 10:45:40 | INFO     | Landing completed (Success=5, Failed=0)
+2026-08-03 10:45:40 | INFO     | ============================================================
+2026-08-03 10:45:40 | INFO     | STARTING STAGING LAYER
+2026-08-03 10:45:40 | INFO     | ============================================================
+2026-08-03 10:45:40 | INFO     | Processing merchants
+2026-08-03 10:45:40 | INFO     | Cleaning merchants
+2026-08-03 10:45:40 | INFO     | Cleaning completed (388 values changed)
+2026-08-03 10:45:40 | INFO     | Standardizing merchants
+2026-08-03 10:45:40 | INFO     | merchants standardized (410 values changed)
+2026-08-03 10:45:40 | INFO     | Saved staging dataset: merchants.parquet
+2026-08-03 10:45:40 | INFO     | Processing settlements
+2026-08-03 10:45:40 | INFO     | Cleaning settlements
+2026-08-03 10:45:40 | INFO     | Cleaning completed (10665 values changed)
+2026-08-03 10:45:40 | INFO     | Standardizing settlements
+2026-08-03 10:45:41 | INFO     | settlements standardized (165841 values changed)
+2026-08-03 10:45:41 | INFO     | Saved staging dataset: settlements.parquet
+2026-08-03 10:45:41 | INFO     | Processing switch_log
+2026-08-03 10:45:41 | INFO     | Cleaning switch_log
+2026-08-03 10:45:41 | INFO     | Cleaning completed (0 values changed)
+2026-08-03 10:45:41 | INFO     | Standardizing switch_log
+2026-08-03 10:45:42 | INFO     | switch_log standardized (0 values changed)
+2026-08-03 10:45:42 | INFO     | Saved staging dataset: switch_log.parquet
+2026-08-03 10:45:42 | INFO     | Processing tickets
+2026-08-03 10:45:42 | INFO     | Cleaning tickets
+2026-08-03 10:45:42 | INFO     | Cleaning completed (408 values changed)
+2026-08-03 10:45:42 | INFO     | Standardizing tickets
+2026-08-03 10:45:42 | INFO     | tickets standardized (3308 values changed)
+2026-08-03 10:45:42 | INFO     | Saved staging dataset: tickets.parquet
+2026-08-03 10:45:42 | INFO     | Processing transactions
+2026-08-03 10:45:42 | INFO     | Cleaning transactions
+2026-08-03 10:45:43 | INFO     | Cleaning completed (180720 values changed)
+2026-08-03 10:45:43 | INFO     | Standardizing transactions
+2026-08-03 10:45:45 | INFO     | transactions standardized (187948 values changed)
+2026-08-03 10:45:45 | INFO     | Saved staging dataset: transactions.parquet
+2026-08-03 10:45:45 | INFO     | ============================================================
+2026-08-03 10:45:45 | INFO     | STAGING LAYER COMPLETED
+2026-08-03 10:45:45 | INFO     | ============================================================
