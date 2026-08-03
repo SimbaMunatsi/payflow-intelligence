@@ -20,6 +20,10 @@ from src.validation.structural.missing_required_values import (
     MissingRequiredValuesRule,
 )
 
+from src.validation.structural.duplicate_primary_key import (
+    DuplicatePrimaryKeyRule,
+)
+
 class RuleRegistry:
     """
     Registry of all validation rules.
@@ -35,6 +39,7 @@ class RuleRegistry:
             DatasetNotEmptyRule(dataset_name),
             RequiredColumnsRule(dataset_name),
             MissingRequiredValuesRule(dataset_name),
+            DuplicatePrimaryKeyRule(dataset_name),
         ]
 
         return rules

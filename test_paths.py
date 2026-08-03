@@ -1,11 +1,11 @@
 """
-Tests MissingRequiredValuesRule.
+Tests DuplicatePrimaryKeyRule.
 """
 
 import pandas as pd
 
-from src.validation.structural.missing_required_values import (
-    MissingRequiredValuesRule,
+from src.validation.structural.duplicate_primary_key import (
+    DuplicatePrimaryKeyRule,
 )
 
 
@@ -16,35 +16,22 @@ def main():
             "txn_ref": [
                 "TXN001",
                 "TXN002",
+                "TXN001",
             ],
             "merchant_id": [
                 "MER001",
-                None,
-            ],
-            "rail": [
-                "ECOCASH_MM",
-                "ZIPIT_BANK",
-            ],
-            "currency": [
-                "USD",
-                "USD",
+                "MER002",
+                "MER003",
             ],
             "amount": [
-                120,
-                None,
-            ],
-            "status": [
-                "SUCCESS",
-                "SUCCESS",
-            ],
-            "initiated_at": [
-                "2026-03-01",
-                None,
+                100,
+                200,
+                150,
             ],
         }
     )
 
-    rule = MissingRequiredValuesRule(
+    rule = DuplicatePrimaryKeyRule(
         "transactions"
     )
 

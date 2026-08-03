@@ -20,6 +20,10 @@ METADATA_REGISTRY = {
 
     "transactions": {
 
+        "primary_key": [
+            "txn_ref",
+        ],
+
         "required": [
             "txn_ref",
             "merchant_id",
@@ -91,6 +95,10 @@ METADATA_REGISTRY = {
 
     "switch_log": {
 
+        "primary_key": [
+            "switch_ref",
+        ],
+
         "required": [
             "switch_ref",
             "txn_ref",
@@ -122,6 +130,11 @@ METADATA_REGISTRY = {
     # ======================================================
 
     "settlements": {
+
+        "primary_key": [
+            "settlement_batch_id",
+            "rail_reference",
+        ],
 
         "required": [
             "settlement_batch_id",
@@ -174,6 +187,12 @@ METADATA_REGISTRY = {
 
     "merchants": {
 
+        "primary_key": [
+            "merchant_id",
+            "currency",
+            "effective_from",
+        ],
+
         "required": [
             "merchant_id",
             "merchant_name",
@@ -213,6 +232,10 @@ METADATA_REGISTRY = {
     # ======================================================
 
     "tickets": {
+
+        "primary_key": [
+            "ticket_id",
+        ],
 
         "required": [
             "ticket_id",
