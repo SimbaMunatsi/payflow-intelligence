@@ -12,6 +12,9 @@ from src.validation.structural.dataset_not_empty import (
     DatasetNotEmptyRule,
 )
 
+from src.validation.structural.required_columns import (
+    RequiredColumnsRule,
+)
 
 class RuleRegistry:
     """
@@ -26,6 +29,7 @@ class RuleRegistry:
 
         rules = [
             DatasetNotEmptyRule(dataset_name),
+            RequiredColumnsRule(dataset_name),
         ]
 
         return rules

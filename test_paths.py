@@ -1,46 +1,41 @@
 """
-Tests the Staging Engine.
+Tests RequiredColumnsRule.
 
 Author: Simba Munatsi
 """
 
-from src.ingestion.loader import DataLoader
-from src.transformation.staging import (
-    StagingEngine,
+import pandas as pd
+
+from src.validation.structural.required_columns import (
+    RequiredColumnsRule,
 )
 
 
 def main():
 
-    loader = DataLoader()
-
-    datasets, metadata, summary = loader.run()
-
-    staging = StagingEngine()
-
-    staged_datasets, results = staging.run(
-        datasets,
+    df = pd.DataFrame(
+        {
+            "txn_ref": ["TXN001"],
+           # "merchant_id": ["MER001"],
+            "amount": [100],
+            "currency": ["USD"],
+            "rail": ["ECOCASH_MM"],
+            "status": ["SUCCESS"],
+            "initiated_at": ["2026-03-01"],
+        }
     )
 
-    print("\n")
+    rule = RequiredColumnsRule(
+        "transactions"
+    )
 
-    print("=" * 70)
-    print("STAGING DATASETS")
-    print("=" * 70)
+    result = rule.execute(df)
 
-    for name, df in staged_datasets.items():
+    print(result)
 
-        print(f"{name:15} {len(df):>10,} rows")
+    print()
 
-    print("\n")
-
-    print("=" * 70)
-    print("TRANSFORMATION RESULTS")
-    print("=" * 70)
-
-    for result in results:
-
-        print(result.to_dict())
+    print(result.to_dict())
 
 
 if __name__ == "__main__":
