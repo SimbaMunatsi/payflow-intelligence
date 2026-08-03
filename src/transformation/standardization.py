@@ -10,8 +10,10 @@ Project: PayFlow Intelligence Platform
 
 import pandas as pd
 
-from src.transformation.metadata_registry import SCHEMA_REGISTRY
+from src.transformation.metadata_registry import METADATA_REGISTRY
 from src.utils.logger import get_logger
+from time import perf_counter
+from src.transformation.results import TransformationResult
 
 logger = get_logger(__name__)
 
@@ -25,18 +27,27 @@ class DataStandardizer:
         self,
         dataset_name: str,
         dataframe: pd.DataFrame,
-    ) -> pd.DataFrame:
+    ):
+        """
+        Standardize a cleaned dataset.
+
+        Returns
+        -------
+        tuple[pd.DataFrame, list[TransformationResult]]
+        """
 
         df = dataframe.copy()
 
-        logger.info(
-            f"Standardizing {dataset_name}"
-        )
+        logger.info(f"Standardizing {dataset_name}")
 
-        schema = SCHEMA_REGISTRY.get(
+        schema = METADATA_REGISTRY.get(
             dataset_name,
             {},
         )
+
+        start = perf_counter()
+
+        before = df.copy()
 
         self._convert_datetimes(
             df,
@@ -58,11 +69,31 @@ class DataStandardizer:
             schema.get("uppercase", []),
         )
 
-        logger.info(
-            f"{dataset_name} standardized"
+        duration = (perf_counter() - start) * 1000
+
+        values_changed = (
+            before.astype(str)
+            .ne(df.astype(str))
+            .sum()
+            .sum()
         )
 
-        return df
+        result = TransformationResult(
+            stage="Transformation",
+            operation="Standardization",
+            dataset=dataset_name,
+            success=True,
+            records_processed=len(df),
+            values_changed=int(values_changed),
+            execution_time_ms=duration,
+        )
+
+        logger.info(
+            f"{dataset_name} standardized "
+            f"({values_changed} values changed)"
+        )
+
+        return df, [result]
 
     def _convert_datetimes(
         self,

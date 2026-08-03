@@ -1,5 +1,5 @@
 """
-Tests the DataCleaner transformation engine.
+Tests the DataStandardizer.
 
 Author: Simba Munatsi
 Project: PayFlow Intelligence Platform
@@ -7,50 +7,56 @@ Project: PayFlow Intelligence Platform
 
 import pandas as pd
 
-from src.transformation.cleaning import DataCleaner
+from src.transformation.standardization import (
+    DataStandardizer,
+)
 
 
 def main():
 
-    # Sample dirty data
     df = pd.DataFrame(
         {
-            "merchant": [
-                " MER001 ",
-                "MER002 ",
-                "",
+            "currency": [
+                "usd",
+                "zwg",
             ],
             "status": [
-                " SUCCESS ",
-                "FAILED ",
-                " NULL ",
+                "success",
+                "failed",
             ],
             "amount": [
                 "100.50",
-                "250.00",
-                "",
+                "250",
+            ],
+            "attempt_count": [
+                "1",
+                "2",
+            ],
+            "initiated_at": [
+                "2026-03-01 08:00:00",
+                "2026-03-02 10:15:00",
             ],
         }
     )
 
-    cleaner = DataCleaner()
+    standardizer = DataStandardizer()
 
-    cleaned_df, results = cleaner.clean(
-        dataset_name="transactions",
-        dataframe=df,
+    standardized_df, results = standardizer.standardize(
+        "transactions",
+        df,
     )
 
     print("=" * 70)
-    print("CLEANED DATAFRAME")
+    print("STANDARDIZED DATAFRAME")
     print("=" * 70)
-    print(cleaned_df)
+    print(standardized_df)
 
     print("\n")
 
     print("=" * 70)
     print("DATA TYPES")
     print("=" * 70)
-    print(cleaned_df.dtypes)
+    print(standardized_df.dtypes)
 
     print("\n")
 

@@ -12,7 +12,7 @@ Author: Simba Munatsi
 Project: PayFlow Intelligence Platform
 """
 
-SCHEMA_REGISTRY = {
+METADATA_REGISTRY = {
 
     # ======================================================
     # TRANSACTIONS
