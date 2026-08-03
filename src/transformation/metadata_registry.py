@@ -20,6 +20,10 @@ METADATA_REGISTRY = {
 
     "transactions": {
 
+        "primary_key": [
+            "txn_ref",
+        ],
+
         "required": [
             "txn_ref",
             "merchant_id",
@@ -29,6 +33,13 @@ METADATA_REGISTRY = {
             "status",
             "initiated_at",
         ],
+
+        "foreign_keys": {
+            "merchant_id": {
+                "dataset": "merchants",
+                "column": "merchant_id",
+            }
+        },
 
         "datetime": [
             "initiated_at",
@@ -91,6 +102,10 @@ METADATA_REGISTRY = {
 
     "switch_log": {
 
+        "primary_key": [
+            "switch_ref",
+        ],
+
         "required": [
             "switch_ref",
             "txn_ref",
@@ -98,6 +113,13 @@ METADATA_REGISTRY = {
             "attempt_no",
             "submitted_at",
         ],
+
+        "foreign_keys": {
+            "txn_ref": {
+                "dataset": "transactions",
+                "column": "txn_ref",
+            }
+        },
 
         "datetime": [
             "submitted_at",
@@ -123,6 +145,11 @@ METADATA_REGISTRY = {
 
     "settlements": {
 
+        "primary_key": [
+            "settlement_batch_id",
+            "rail_reference",
+        ],
+
         "required": [
             "settlement_batch_id",
             "merchant_id",
@@ -132,6 +159,13 @@ METADATA_REGISTRY = {
             "net_amount",
             "line_type",
         ],
+
+        "foreign_keys": {
+            "merchant_id": {
+                "dataset": "merchants",
+                "column": "merchant_id",
+            }
+        },
 
         "datetime": [
             "value_date",
@@ -174,6 +208,12 @@ METADATA_REGISTRY = {
 
     "merchants": {
 
+        "primary_key": [
+            "merchant_id",
+            "currency",
+            "effective_from",
+        ],
+
         "required": [
             "merchant_id",
             "merchant_name",
@@ -214,6 +254,10 @@ METADATA_REGISTRY = {
 
     "tickets": {
 
+        "primary_key": [
+            "ticket_id",
+        ],
+
         "required": [
             "ticket_id",
             "merchant_id",
@@ -221,6 +265,18 @@ METADATA_REGISTRY = {
             "channel",
             "status",
         ],
+
+        "foreign_keys": {
+            "merchant_id": {
+                "dataset": "merchants",
+                "column": "merchant_id",
+            },
+            "txn_ref": {
+                "dataset": "transactions",
+                "column": "txn_ref",
+                "nullable": True,
+            }
+        },
 
         "datetime": [
             "opened_at",
@@ -303,5 +359,44 @@ GLOBAL_STANDARDIZATION = {
         "MASTERCARD_CARD",
 
     ]
+
+}
+
+PAYMENT_RAILS = {
+
+    "ECOCASH_MM": {
+        "settlement_lag_days": 1,
+        "charge_rate": 0.0125,
+    },
+
+    "ONEMONEY_MM": {
+        "settlement_lag_days": 2,
+        "charge_rate": 0.0140,
+    },
+
+    "INNBUCKS_MM": {
+        "settlement_lag_days": 2,
+        "charge_rate": 0.0150,
+    },
+
+    "ZIPIT_BANK": {
+        "settlement_lag_days": 1,
+        "charge_rate": 0.0080,
+    },
+
+    "RTGS_BANK": {
+        "settlement_lag_days": 3,
+        "charge_rate": 0.0045,
+    },
+
+    "VISA_CARD": {
+        "settlement_lag_days": 2,
+        "charge_rate": 0.0195,
+    },
+
+    "MASTERCARD_CARD": {
+        "settlement_lag_days": 2,
+        "charge_rate": 0.0200,
+    },
 
 }

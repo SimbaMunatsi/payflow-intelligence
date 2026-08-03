@@ -1,46 +1,51 @@
-"""
-Tests the Staging Engine.
+import pandas as pd
 
-Author: Simba Munatsi
-"""
-
-from src.ingestion.loader import DataLoader
-from src.transformation.staging import (
-    StagingEngine,
+from src.validation.business.settlement_lag import (
+    SettlementLagRule,
 )
 
 
 def main():
 
-    loader = DataLoader()
+    transactions = pd.DataFrame(
+        {
+            "txn_ref": ["TXN001"],
+            "authorised_at": ["2026-03-02"],   # Monday
+        }
+    )
 
-    datasets, metadata, summary = loader.run()
+    switch_log = pd.DataFrame(
+        {
+            "txn_ref": ["TXN001"],
+            "rail_reference": ["RR001"],
+        }
+    )
 
-    staging = StagingEngine()
+    settlements = pd.DataFrame(
+        {
+            "rail_reference": ["RR001"],
+            "rail": ["ECOCASH_MM"],
+            "value_date": ["2026-03-04"],      # Tuesday (T+1)
+        }
+    )
 
-    staged_datasets, results = staging.run(
+    datasets = {
+        "transactions": transactions,
+        "switch_log": switch_log,
+    }
+
+    rule = SettlementLagRule(
+        "settlements"
+    )
+
+    result = rule.execute(
+        settlements,
         datasets,
     )
 
-    print("\n")
-
-    print("=" * 70)
-    print("STAGING DATASETS")
-    print("=" * 70)
-
-    for name, df in staged_datasets.items():
-
-        print(f"{name:15} {len(df):>10,} rows")
-
-    print("\n")
-
-    print("=" * 70)
-    print("TRANSFORMATION RESULTS")
-    print("=" * 70)
-
-    for result in results:
-
-        print(result.to_dict())
+    print(result)
+    print()
+    print(result.to_dict())
 
 
 if __name__ == "__main__":
