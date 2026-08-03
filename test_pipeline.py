@@ -1,73 +1,46 @@
-"""
-Runs the complete PayFlow Intelligence pipeline.
-
-Author: Simba Munatsi
-"""
-
-from src.pipeline.orchestrator import (
-    PipelineOrchestrator,
+from src.analytics.warehouse.dimensions import (
+    DimensionBuilder,
 )
+from src.ingestion.loader import DataLoader
+from src.transformation.staging import StagingEngine
 
 
 def main():
 
-    pipeline = PipelineOrchestrator()
+    loader = DataLoader()
 
-    result = pipeline.run()
+    datasets, _, _ = loader.run()
 
-    dashboard = result["validation_dashboard"]
+    staging = StagingEngine()
 
-    print()
+    staged, _ = staging.run(datasets)
 
-    print("=" * 70)
-    print("PIPELINE COMPLETE")
-    print("=" * 70)
+    builder = DimensionBuilder()
 
-    print()
-
-    print(
-        f"Quality Score : {dashboard.quality_score}"
-    )
-
-    print()
-
-    print(
-        f"Rules Checked : {dashboard.summary.total_rules}"
-    )
-
-    print(
-        f"Passed        : {dashboard.summary.passed}"
-    )
-
-    print(
-        f"Failed        : {dashboard.summary.failed}"
-    )
+    dimensions, results = builder.build(staged)
 
     print()
 
     print("=" * 70)
-    print("DATASETS")
+    print("DIMENSIONS")
     print("=" * 70)
 
-    for dataset in dashboard.summary.datasets.values():
+    for name, df in dimensions.items():
 
-        print(dataset)
+        print(
+            f"{name:<20}"
+            f"{len(df):>10,} rows"
+        )
 
     print()
 
     print("=" * 70)
-    print("CATEGORIES")
+    print("RESULTS")
     print("=" * 70)
 
-    for category, values in (
-        dashboard.summary.categories.items()
-    ):
+    for result in results:
 
-        print(category)
-
-        print(values)
-
-        print()
+        print(result)
 
 
 if __name__ == "__main__":
