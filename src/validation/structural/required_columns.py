@@ -36,6 +36,10 @@ class RequiredColumnsRule(ValidationRule):
 
         return "CRITICAL"
 
+    @property
+    def category(self):
+        return "Structural"
+
     def validate(
         self,
         dataframe,
@@ -69,6 +73,8 @@ class RequiredColumnsRule(ValidationRule):
             rule_name=self.rule_name,
 
             dataset=self.dataset_name,
+
+            category="Structural",
 
             passed=passed,
 

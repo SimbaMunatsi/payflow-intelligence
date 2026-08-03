@@ -33,6 +33,19 @@ class ValidationRule(ABC):
         pass
 
     @property
+    @abstractmethod
+    def category(self):
+        """
+        Validation category.
+
+        Examples:
+            Structural
+            Referential
+            Business
+        """
+        pass
+
+    @property
     def severity(self) -> str:
         """
         Default severity.

@@ -36,6 +36,10 @@ class MerchantExistsRule(ValidationRule):
     def severity(self):
         return "CRITICAL"
 
+    @property
+    def category(self):
+        return "Referential"
+
     def validate(
         self,
         dataframe: pd.DataFrame,
@@ -58,6 +62,7 @@ class MerchantExistsRule(ValidationRule):
             return ValidationResult(
                 rule_name=self.rule_name,
                 dataset=self.dataset_name,
+                category=self.category,
                 passed=True,
                 severity="INFO",
                 message="Dataset has no merchant relationship.",
@@ -68,6 +73,7 @@ class MerchantExistsRule(ValidationRule):
             return ValidationResult(
                 rule_name=self.rule_name,
                 dataset=self.dataset_name,
+                category=self.category,
                 passed=False,
                 severity="CRITICAL",
                 message="Merchants dataset not available.",
@@ -100,6 +106,8 @@ class MerchantExistsRule(ValidationRule):
             rule_name=self.rule_name,
 
             dataset=self.dataset_name,
+
+            category=self.category,
 
             passed=passed,
 

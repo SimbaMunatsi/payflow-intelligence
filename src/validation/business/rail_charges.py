@@ -37,6 +37,10 @@ class RailChargesRule(ValidationRule):
     def severity(self):
         return "CRITICAL"
 
+    @property
+    def category(self):
+        return "Business"
+
     def validate(
         self,
         dataframe: pd.DataFrame,
@@ -48,6 +52,7 @@ class RailChargesRule(ValidationRule):
             return ValidationResult(
                 rule_name=self.rule_name,
                 dataset=self.dataset_name,
+                category=self.category,
                 passed=True,
                 severity="INFO",
                 message="Rule not applicable.",
@@ -64,11 +69,31 @@ class RailChargesRule(ValidationRule):
             axis=1,
         )
 
-        valid = np.isclose(
-            df["expected_charge"],
-            df["rail_charges"],
+        comparison_mask = (
+            df["gross_amount"].notna()
+            &
+            df["rail_charges"].notna()
+        )
+
+        valid = np.ones(
+            len(df),
+            dtype=bool,
+        )
+
+        valid[comparison_mask] = np.isclose(
+
+            df.loc[
+                comparison_mask,
+                "expected_charge",
+            ],
+
+            df.loc[
+                comparison_mask,
+                "rail_charges",
+            ],
+
             atol=0.01,
-            equal_nan=True,
+
         )
 
         invalid_rows = df.loc[~valid]
@@ -80,6 +105,8 @@ class RailChargesRule(ValidationRule):
             rule_name=self.rule_name,
 
             dataset=self.dataset_name,
+
+            category=self.category,
 
             passed=passed,
 
@@ -120,23 +147,37 @@ class RailChargesRule(ValidationRule):
     def _calculate_expected_charge(
         self,
         row,
-    ) -> float:
+    ):
+        """
+        Calculate the expected rail charge.
+
+        Returns NaN when the calculation
+        cannot be performed.
+        """
 
         rail = row["rail"]
 
         gross = row["gross_amount"]
 
+        # ------------------------------------
+        # Missing values
+        # ------------------------------------
+
+        if pd.isna(gross):
+
+            return float("nan")
+
         metadata = PAYMENT_RAILS.get(
-            rail,
+            rail
         )
 
         if metadata is None:
 
-            return np.nan
+            return float("nan")
 
         rate = metadata["charge_rate"]
 
         return round(
-            gross * rate,
+            float(gross) * rate,
             2,
         )

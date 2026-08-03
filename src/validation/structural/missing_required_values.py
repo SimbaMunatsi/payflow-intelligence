@@ -36,6 +36,10 @@ class MissingRequiredValuesRule(ValidationRule):
     def severity(self):
         return "ERROR"
 
+    @property
+    def category(self):
+        return "Structural"
+
     def validate(
         self,
         dataframe: pd.DataFrame,
@@ -76,6 +80,8 @@ class MissingRequiredValuesRule(ValidationRule):
             rule_name=self.rule_name,
 
             dataset=self.dataset_name,
+
+            category="Structural",
 
             passed=passed,
 

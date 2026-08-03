@@ -391,3 +391,437 @@ pandas.errors.EmptyDataError: No columns to parse from file
 2026-08-03 11:00:17 | INFO     | ============================================================
 2026-08-03 11:00:17 | INFO     | STAGING LAYER COMPLETED
 2026-08-03 11:00:17 | INFO     | ============================================================
+2026-08-03 18:12:44 | INFO     | ============================================================
+2026-08-03 18:12:44 | INFO     | PAYFLOW INTELLIGENCE PIPELINE
+2026-08-03 18:12:44 | INFO     | ============================================================
+2026-08-03 18:12:44 | INFO     | Discovered 5 datasets.
+2026-08-03 18:12:44 | INFO     | Loading merchants.csv
+2026-08-03 18:12:44 | INFO     | merchants.csv loaded successfully (94 rows)
+2026-08-03 18:12:44 | INFO     | Saved merchants.parquet
+2026-08-03 18:12:44 | INFO     | Loading settlements.csv
+2026-08-03 18:12:46 | INFO     | settlements.csv loaded successfully (152,414 rows)
+2026-08-03 18:12:46 | INFO     | Saved settlements.parquet
+2026-08-03 18:12:46 | INFO     | Loading switch_log.csv
+2026-08-03 18:12:49 | INFO     | switch_log.csv loaded successfully (204,983 rows)
+2026-08-03 18:12:49 | INFO     | Saved switch_log.parquet
+2026-08-03 18:12:49 | INFO     | Loading tickets.csv
+2026-08-03 18:12:49 | INFO     | tickets.csv loaded successfully (1,450 rows)
+2026-08-03 18:12:49 | INFO     | Saved tickets.parquet
+2026-08-03 18:12:49 | INFO     | Loading transactions.csv
+2026-08-03 18:12:51 | INFO     | transactions.csv loaded successfully (180,720 rows)
+2026-08-03 18:12:52 | INFO     | Saved transactions.parquet
+2026-08-03 18:12:52 | INFO     | Landing completed (Success=5, Failed=0)
+2026-08-03 18:12:52 | ERROR    | Pipeline execution failed.
+Traceback (most recent call last):
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\src\pipeline\orchestrator.py", line 78, in run
+    PipelineHistory.save(
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\src\ingestion\history.py", line 25, in save
+    existing = pd.read_csv(cls.FILE)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 873, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 300, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1645, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1922, in _make_engine
+    return mapping[engine](f, **self.options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\io\parsers\c_parser_wrapper.py", line 95, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/parsers.pyx", line 575, in pandas._libs.parsers.TextReader.__cinit__
+pandas.errors.EmptyDataError: No columns to parse from file
+2026-08-03 18:12:52 | INFO     | ------------------------------------------------------------
+2026-08-03 18:12:52 | INFO     | Pipeline completed in 8.26 seconds
+2026-08-03 18:12:52 | INFO     | Successful datasets : 5
+2026-08-03 18:12:52 | INFO     | Failed datasets     : 0
+2026-08-03 18:12:52 | INFO     | Transformation operations : 0
+2026-08-03 18:12:52 | INFO     | Validation rules executed : 0
+2026-08-03 18:12:52 | INFO     | ------------------------------------------------------------
+2026-08-03 18:15:47 | INFO     | ============================================================
+2026-08-03 18:15:47 | INFO     | PAYFLOW INTELLIGENCE PIPELINE
+2026-08-03 18:15:47 | INFO     | ============================================================
+2026-08-03 18:15:47 | INFO     | Discovered 5 datasets.
+2026-08-03 18:15:47 | INFO     | Loading merchants.csv
+2026-08-03 18:15:47 | INFO     | merchants.csv loaded successfully (94 rows)
+2026-08-03 18:15:47 | INFO     | Saved merchants.parquet
+2026-08-03 18:15:47 | INFO     | Loading settlements.csv
+2026-08-03 18:15:47 | INFO     | settlements.csv loaded successfully (152,414 rows)
+2026-08-03 18:15:47 | INFO     | Saved settlements.parquet
+2026-08-03 18:15:47 | INFO     | Loading switch_log.csv
+2026-08-03 18:15:48 | INFO     | switch_log.csv loaded successfully (204,983 rows)
+2026-08-03 18:15:48 | INFO     | Saved switch_log.parquet
+2026-08-03 18:15:48 | INFO     | Loading tickets.csv
+2026-08-03 18:15:48 | INFO     | tickets.csv loaded successfully (1,450 rows)
+2026-08-03 18:15:48 | INFO     | Saved tickets.parquet
+2026-08-03 18:15:48 | INFO     | Loading transactions.csv
+2026-08-03 18:15:49 | INFO     | transactions.csv loaded successfully (180,720 rows)
+2026-08-03 18:15:49 | INFO     | Saved transactions.parquet
+2026-08-03 18:15:49 | INFO     | Landing completed (Success=5, Failed=0)
+2026-08-03 18:15:49 | ERROR    | Pipeline execution failed.
+Traceback (most recent call last):
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\src\pipeline\orchestrator.py", line 78, in run
+    PipelineHistory.save(
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\src\ingestion\history.py", line 25, in save
+    existing = pd.read_csv(cls.FILE)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 873, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 300, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1645, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1922, in _make_engine
+    return mapping[engine](f, **self.options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\io\parsers\c_parser_wrapper.py", line 95, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "pandas/_libs/parsers.pyx", line 575, in pandas._libs.parsers.TextReader.__cinit__
+pandas.errors.EmptyDataError: No columns to parse from file
+2026-08-03 18:15:49 | INFO     | ------------------------------------------------------------
+2026-08-03 18:15:49 | INFO     | Pipeline completed in 2.54 seconds
+2026-08-03 18:15:49 | INFO     | Successful datasets : 5
+2026-08-03 18:15:49 | INFO     | Failed datasets     : 0
+2026-08-03 18:15:49 | INFO     | Transformation operations : 0
+2026-08-03 18:15:49 | INFO     | Validation rules executed : 0
+2026-08-03 18:15:49 | INFO     | ------------------------------------------------------------
+2026-08-03 18:21:01 | INFO     | ============================================================
+2026-08-03 18:21:01 | INFO     | PAYFLOW INTELLIGENCE PIPELINE
+2026-08-03 18:21:01 | INFO     | ============================================================
+2026-08-03 18:21:01 | INFO     | Discovered 5 datasets.
+2026-08-03 18:21:01 | INFO     | Loading merchants.csv
+2026-08-03 18:21:01 | INFO     | merchants.csv loaded successfully (94 rows)
+2026-08-03 18:21:01 | INFO     | Saved merchants.parquet
+2026-08-03 18:21:01 | INFO     | Loading settlements.csv
+2026-08-03 18:21:02 | INFO     | settlements.csv loaded successfully (152,414 rows)
+2026-08-03 18:21:02 | INFO     | Saved settlements.parquet
+2026-08-03 18:21:02 | INFO     | Loading switch_log.csv
+2026-08-03 18:21:02 | INFO     | switch_log.csv loaded successfully (204,983 rows)
+2026-08-03 18:21:03 | INFO     | Saved switch_log.parquet
+2026-08-03 18:21:03 | INFO     | Loading tickets.csv
+2026-08-03 18:21:03 | INFO     | tickets.csv loaded successfully (1,450 rows)
+2026-08-03 18:21:03 | INFO     | Saved tickets.parquet
+2026-08-03 18:21:03 | INFO     | Loading transactions.csv
+2026-08-03 18:21:03 | INFO     | transactions.csv loaded successfully (180,720 rows)
+2026-08-03 18:21:04 | INFO     | Saved transactions.parquet
+2026-08-03 18:21:04 | INFO     | Landing completed (Success=5, Failed=0)
+2026-08-03 18:21:04 | INFO     | Creating ingestion history.
+2026-08-03 18:21:04 | INFO     | Landing Layer completed successfully.
+2026-08-03 18:21:04 | INFO     | ============================================================
+2026-08-03 18:21:04 | INFO     | STARTING STAGING LAYER
+2026-08-03 18:21:04 | INFO     | ============================================================
+2026-08-03 18:21:04 | INFO     | Processing merchants
+2026-08-03 18:21:04 | INFO     | Cleaning merchants
+2026-08-03 18:21:04 | INFO     | Cleaning completed (388 values changed)
+2026-08-03 18:21:04 | INFO     | Standardizing merchants
+2026-08-03 18:21:04 | INFO     | merchants standardized (410 values changed)
+2026-08-03 18:21:04 | INFO     | Saved staging dataset: merchants.parquet
+2026-08-03 18:21:04 | INFO     | Processing settlements
+2026-08-03 18:21:04 | INFO     | Cleaning settlements
+2026-08-03 18:21:04 | INFO     | Cleaning completed (10665 values changed)
+2026-08-03 18:21:04 | INFO     | Standardizing settlements
+2026-08-03 18:21:05 | INFO     | settlements standardized (165841 values changed)
+2026-08-03 18:21:05 | INFO     | Saved staging dataset: settlements.parquet
+2026-08-03 18:21:05 | INFO     | Processing switch_log
+2026-08-03 18:21:05 | INFO     | Cleaning switch_log
+2026-08-03 18:21:05 | INFO     | Cleaning completed (0 values changed)
+2026-08-03 18:21:05 | INFO     | Standardizing switch_log
+2026-08-03 18:21:06 | INFO     | switch_log standardized (0 values changed)
+2026-08-03 18:21:07 | INFO     | Saved staging dataset: switch_log.parquet
+2026-08-03 18:21:07 | INFO     | Processing tickets
+2026-08-03 18:21:07 | INFO     | Cleaning tickets
+2026-08-03 18:21:07 | INFO     | Cleaning completed (408 values changed)
+2026-08-03 18:21:07 | INFO     | Standardizing tickets
+2026-08-03 18:21:07 | INFO     | tickets standardized (3308 values changed)
+2026-08-03 18:21:07 | INFO     | Saved staging dataset: tickets.parquet
+2026-08-03 18:21:07 | INFO     | Processing transactions
+2026-08-03 18:21:07 | INFO     | Cleaning transactions
+2026-08-03 18:21:07 | INFO     | Cleaning completed (180720 values changed)
+2026-08-03 18:21:07 | INFO     | Standardizing transactions
+2026-08-03 18:21:09 | INFO     | transactions standardized (187948 values changed)
+2026-08-03 18:21:09 | INFO     | Saved staging dataset: transactions.parquet
+2026-08-03 18:21:09 | INFO     | ============================================================
+2026-08-03 18:21:09 | INFO     | STAGING LAYER COMPLETED
+2026-08-03 18:21:09 | INFO     | ============================================================
+2026-08-03 18:21:09 | INFO     | Staging Layer completed successfully.
+2026-08-03 18:21:09 | INFO     | ============================================================
+2026-08-03 18:21:09 | INFO     | STARTING VALIDATION LAYER
+2026-08-03 18:21:09 | INFO     | ============================================================
+2026-08-03 18:21:09 | INFO     | Validating merchants
+2026-08-03 18:21:09 | ERROR    | Pipeline execution failed.
+Traceback (most recent call last):
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\src\pipeline\orchestrator.py", line 108, in run
+    ) = self.validator.validate_all(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\src\validation\validator.py", line 96, in validate_all
+    dataset_results = self.validate_dataset(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\src\validation\validator.py", line 52, in validate_dataset
+    result = rule.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\src\validation\framework\rules.py", line 64, in execute
+    result = self.validate(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\src\validation\structural\dataset_not_empty.py", line 32, in validate
+    category=self.category,
+             ^^^^^^^^^^^^^
+AttributeError: 'DatasetNotEmptyRule' object has no attribute 'category'
+2026-08-03 18:21:09 | INFO     | ------------------------------------------------------------
+2026-08-03 18:21:09 | INFO     | Pipeline completed in 8.26 seconds
+2026-08-03 18:21:09 | INFO     | Successful datasets : 5
+2026-08-03 18:21:09 | INFO     | Failed datasets     : 0
+2026-08-03 18:21:09 | INFO     | Transformation operations : 10
+2026-08-03 18:21:09 | INFO     | Validation rules executed : 0
+2026-08-03 18:21:09 | INFO     | ------------------------------------------------------------
+2026-08-03 18:33:25 | INFO     | ============================================================
+2026-08-03 18:33:25 | INFO     | PAYFLOW INTELLIGENCE PIPELINE
+2026-08-03 18:33:25 | INFO     | ============================================================
+2026-08-03 18:33:25 | INFO     | Discovered 5 datasets.
+2026-08-03 18:33:25 | INFO     | Loading merchants.csv
+2026-08-03 18:33:25 | INFO     | merchants.csv loaded successfully (94 rows)
+2026-08-03 18:33:25 | INFO     | Saved merchants.parquet
+2026-08-03 18:33:25 | INFO     | Loading settlements.csv
+2026-08-03 18:33:25 | INFO     | settlements.csv loaded successfully (152,414 rows)
+2026-08-03 18:33:25 | INFO     | Saved settlements.parquet
+2026-08-03 18:33:25 | INFO     | Loading switch_log.csv
+2026-08-03 18:33:26 | INFO     | switch_log.csv loaded successfully (204,983 rows)
+2026-08-03 18:33:27 | INFO     | Saved switch_log.parquet
+2026-08-03 18:33:27 | INFO     | Loading tickets.csv
+2026-08-03 18:33:27 | INFO     | tickets.csv loaded successfully (1,450 rows)
+2026-08-03 18:33:27 | INFO     | Saved tickets.parquet
+2026-08-03 18:33:27 | INFO     | Loading transactions.csv
+2026-08-03 18:33:27 | INFO     | transactions.csv loaded successfully (180,720 rows)
+2026-08-03 18:33:28 | INFO     | Saved transactions.parquet
+2026-08-03 18:33:28 | INFO     | Landing completed (Success=5, Failed=0)
+2026-08-03 18:33:28 | INFO     | History updated (10 total records).
+2026-08-03 18:33:28 | INFO     | Landing Layer completed successfully.
+2026-08-03 18:33:28 | INFO     | ============================================================
+2026-08-03 18:33:28 | INFO     | STARTING STAGING LAYER
+2026-08-03 18:33:28 | INFO     | ============================================================
+2026-08-03 18:33:28 | INFO     | Processing merchants
+2026-08-03 18:33:28 | INFO     | Cleaning merchants
+2026-08-03 18:33:28 | INFO     | Cleaning completed (388 values changed)
+2026-08-03 18:33:28 | INFO     | Standardizing merchants
+2026-08-03 18:33:28 | INFO     | merchants standardized (410 values changed)
+2026-08-03 18:33:28 | INFO     | Saved staging dataset: merchants.parquet
+2026-08-03 18:33:28 | INFO     | Processing settlements
+2026-08-03 18:33:28 | INFO     | Cleaning settlements
+2026-08-03 18:33:28 | INFO     | Cleaning completed (10665 values changed)
+2026-08-03 18:33:28 | INFO     | Standardizing settlements
+2026-08-03 18:33:29 | INFO     | settlements standardized (165841 values changed)
+2026-08-03 18:33:29 | INFO     | Saved staging dataset: settlements.parquet
+2026-08-03 18:33:29 | INFO     | Processing switch_log
+2026-08-03 18:33:29 | INFO     | Cleaning switch_log
+2026-08-03 18:33:29 | INFO     | Cleaning completed (0 values changed)
+2026-08-03 18:33:29 | INFO     | Standardizing switch_log
+2026-08-03 18:33:30 | INFO     | switch_log standardized (0 values changed)
+2026-08-03 18:33:31 | INFO     | Saved staging dataset: switch_log.parquet
+2026-08-03 18:33:31 | INFO     | Processing tickets
+2026-08-03 18:33:31 | INFO     | Cleaning tickets
+2026-08-03 18:33:31 | INFO     | Cleaning completed (408 values changed)
+2026-08-03 18:33:31 | INFO     | Standardizing tickets
+2026-08-03 18:33:31 | INFO     | tickets standardized (3308 values changed)
+2026-08-03 18:33:31 | INFO     | Saved staging dataset: tickets.parquet
+2026-08-03 18:33:31 | INFO     | Processing transactions
+2026-08-03 18:33:31 | INFO     | Cleaning transactions
+2026-08-03 18:33:32 | INFO     | Cleaning completed (180720 values changed)
+2026-08-03 18:33:32 | INFO     | Standardizing transactions
+2026-08-03 18:33:33 | INFO     | transactions standardized (187948 values changed)
+2026-08-03 18:33:33 | INFO     | Saved staging dataset: transactions.parquet
+2026-08-03 18:33:33 | INFO     | ============================================================
+2026-08-03 18:33:33 | INFO     | STAGING LAYER COMPLETED
+2026-08-03 18:33:33 | INFO     | ============================================================
+2026-08-03 18:33:33 | INFO     | Staging Layer completed successfully.
+2026-08-03 18:33:33 | INFO     | ============================================================
+2026-08-03 18:33:33 | INFO     | STARTING VALIDATION LAYER
+2026-08-03 18:33:33 | INFO     | ============================================================
+2026-08-03 18:33:33 | INFO     | Validating merchants
+2026-08-03 18:33:33 | INFO     | [PASS] Dataset Not Empty
+2026-08-03 18:33:33 | INFO     | [PASS] Required Columns
+2026-08-03 18:33:33 | INFO     | [PASS] Missing Required Values
+2026-08-03 18:33:33 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-03 18:33:33 | INFO     | [PASS] Merchant Exists
+2026-08-03 18:33:33 | INFO     | [PASS] Transaction Exists
+2026-08-03 18:33:33 | INFO     | [PASS] Net Amount Validation
+2026-08-03 18:33:33 | INFO     | [PASS] Rail Charges Validation
+2026-08-03 18:33:33 | INFO     | [PASS] Settlement Lag Validation
+2026-08-03 18:33:33 | INFO     | Validating settlements
+2026-08-03 18:33:33 | INFO     | [PASS] Dataset Not Empty
+2026-08-03 18:33:33 | INFO     | [PASS] Required Columns
+2026-08-03 18:33:33 | WARNING  | [FAIL] Missing Required Values
+2026-08-03 18:33:33 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-03 18:33:34 | WARNING  | [FAIL] Merchant Exists
+2026-08-03 18:33:34 | INFO     | [PASS] Transaction Exists
+2026-08-03 18:33:34 | WARNING  | [FAIL] Net Amount Validation
+2026-08-03 18:33:34 | ERROR    | Pipeline execution failed.
+Traceback (most recent call last):
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\src\pipeline\orchestrator.py", line 108, in run
+    ) = self.validator.validate_all(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\src\validation\validator.py", line 96, in validate_all
+    dataset_results = self.validate_dataset(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\src\validation\validator.py", line 52, in validate_dataset
+    result = rule.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\src\validation\framework\rules.py", line 77, in execute
+    result = self.validate(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\src\validation\business\rail_charges.py", line 67, in validate
+    df["expected_charge"] = df.apply(
+                            ^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\core\frame.py", line 12437, in apply
+    return op.apply().__finalize__(self, method="apply")
+           ^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\core\apply.py", line 1015, in apply
+    return self.apply_standard()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\core\apply.py", line 1167, in apply_standard
+    results, res_index = self.apply_series_generator()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\venv\Lib\site-packages\pandas\core\apply.py", line 1183, in apply_series_generator
+    results[i] = self.func(v, *self.args, **self.kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\AI_PROJECTS\payflow-intelligence\src\validation\business\rail_charges.py", line 146, in _calculate_expected_charge
+    return round(
+           ^^^^^^
+TypeError: type NAType doesn't define __round__ method
+2026-08-03 18:33:34 | INFO     | ------------------------------------------------------------
+2026-08-03 18:33:34 | INFO     | Pipeline completed in 9.26 seconds
+2026-08-03 18:33:34 | INFO     | Successful datasets : 5
+2026-08-03 18:33:34 | INFO     | Failed datasets     : 0
+2026-08-03 18:33:34 | INFO     | Transformation operations : 10
+2026-08-03 18:33:34 | INFO     | Validation rules executed : 0
+2026-08-03 18:33:34 | INFO     | ------------------------------------------------------------
+2026-08-03 18:42:46 | INFO     | ============================================================
+2026-08-03 18:42:46 | INFO     | PAYFLOW INTELLIGENCE PIPELINE
+2026-08-03 18:42:46 | INFO     | ============================================================
+2026-08-03 18:42:46 | INFO     | Discovered 5 datasets.
+2026-08-03 18:42:46 | INFO     | Loading merchants.csv
+2026-08-03 18:42:46 | INFO     | merchants.csv loaded successfully (94 rows)
+2026-08-03 18:42:47 | INFO     | Saved merchants.parquet
+2026-08-03 18:42:47 | INFO     | Loading settlements.csv
+2026-08-03 18:42:47 | INFO     | settlements.csv loaded successfully (152,414 rows)
+2026-08-03 18:42:48 | INFO     | Saved settlements.parquet
+2026-08-03 18:42:48 | INFO     | Loading switch_log.csv
+2026-08-03 18:42:49 | INFO     | switch_log.csv loaded successfully (204,983 rows)
+2026-08-03 18:42:49 | INFO     | Saved switch_log.parquet
+2026-08-03 18:42:49 | INFO     | Loading tickets.csv
+2026-08-03 18:42:49 | INFO     | tickets.csv loaded successfully (1,450 rows)
+2026-08-03 18:42:49 | INFO     | Saved tickets.parquet
+2026-08-03 18:42:49 | INFO     | Loading transactions.csv
+2026-08-03 18:42:50 | INFO     | transactions.csv loaded successfully (180,720 rows)
+2026-08-03 18:42:50 | INFO     | Saved transactions.parquet
+2026-08-03 18:42:50 | INFO     | Landing completed (Success=5, Failed=0)
+2026-08-03 18:42:50 | INFO     | History updated (15 total records).
+2026-08-03 18:42:50 | INFO     | Landing Layer completed successfully.
+2026-08-03 18:42:50 | INFO     | ============================================================
+2026-08-03 18:42:50 | INFO     | STARTING STAGING LAYER
+2026-08-03 18:42:50 | INFO     | ============================================================
+2026-08-03 18:42:50 | INFO     | Processing merchants
+2026-08-03 18:42:50 | INFO     | Cleaning merchants
+2026-08-03 18:42:50 | INFO     | Cleaning completed (388 values changed)
+2026-08-03 18:42:50 | INFO     | Standardizing merchants
+2026-08-03 18:42:50 | INFO     | merchants standardized (410 values changed)
+2026-08-03 18:42:50 | INFO     | Saved staging dataset: merchants.parquet
+2026-08-03 18:42:50 | INFO     | Processing settlements
+2026-08-03 18:42:50 | INFO     | Cleaning settlements
+2026-08-03 18:42:51 | INFO     | Cleaning completed (10665 values changed)
+2026-08-03 18:42:51 | INFO     | Standardizing settlements
+2026-08-03 18:42:51 | INFO     | settlements standardized (165841 values changed)
+2026-08-03 18:42:51 | INFO     | Saved staging dataset: settlements.parquet
+2026-08-03 18:42:51 | INFO     | Processing switch_log
+2026-08-03 18:42:51 | INFO     | Cleaning switch_log
+2026-08-03 18:42:52 | INFO     | Cleaning completed (0 values changed)
+2026-08-03 18:42:52 | INFO     | Standardizing switch_log
+2026-08-03 18:42:52 | INFO     | switch_log standardized (0 values changed)
+2026-08-03 18:42:52 | INFO     | Saved staging dataset: switch_log.parquet
+2026-08-03 18:42:52 | INFO     | Processing tickets
+2026-08-03 18:42:52 | INFO     | Cleaning tickets
+2026-08-03 18:42:53 | INFO     | Cleaning completed (408 values changed)
+2026-08-03 18:42:53 | INFO     | Standardizing tickets
+2026-08-03 18:42:53 | INFO     | tickets standardized (3308 values changed)
+2026-08-03 18:42:53 | INFO     | Saved staging dataset: tickets.parquet
+2026-08-03 18:42:53 | INFO     | Processing transactions
+2026-08-03 18:42:53 | INFO     | Cleaning transactions
+2026-08-03 18:42:53 | INFO     | Cleaning completed (180720 values changed)
+2026-08-03 18:42:53 | INFO     | Standardizing transactions
+2026-08-03 18:42:55 | INFO     | transactions standardized (187948 values changed)
+2026-08-03 18:42:55 | INFO     | Saved staging dataset: transactions.parquet
+2026-08-03 18:42:55 | INFO     | ============================================================
+2026-08-03 18:42:55 | INFO     | STAGING LAYER COMPLETED
+2026-08-03 18:42:55 | INFO     | ============================================================
+2026-08-03 18:42:55 | INFO     | Staging Layer completed successfully.
+2026-08-03 18:42:55 | INFO     | ============================================================
+2026-08-03 18:42:55 | INFO     | STARTING VALIDATION LAYER
+2026-08-03 18:42:55 | INFO     | ============================================================
+2026-08-03 18:42:55 | INFO     | Validating merchants
+2026-08-03 18:42:55 | INFO     | [PASS] Dataset Not Empty
+2026-08-03 18:42:55 | INFO     | [PASS] Required Columns
+2026-08-03 18:42:55 | INFO     | [PASS] Missing Required Values
+2026-08-03 18:42:55 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-03 18:42:55 | INFO     | [PASS] Merchant Exists
+2026-08-03 18:42:55 | INFO     | [PASS] Transaction Exists
+2026-08-03 18:42:55 | INFO     | [PASS] Net Amount Validation
+2026-08-03 18:42:55 | INFO     | [PASS] Rail Charges Validation
+2026-08-03 18:42:55 | INFO     | [PASS] Settlement Lag Validation
+2026-08-03 18:42:55 | INFO     | Validating settlements
+2026-08-03 18:42:55 | INFO     | [PASS] Dataset Not Empty
+2026-08-03 18:42:55 | INFO     | [PASS] Required Columns
+2026-08-03 18:42:55 | WARNING  | [FAIL] Missing Required Values
+2026-08-03 18:42:55 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-03 18:42:55 | WARNING  | [FAIL] Merchant Exists
+2026-08-03 18:42:55 | INFO     | [PASS] Transaction Exists
+2026-08-03 18:42:55 | WARNING  | [FAIL] Net Amount Validation
+2026-08-03 18:42:57 | WARNING  | [FAIL] Rail Charges Validation
+2026-08-03 18:43:03 | WARNING  | [FAIL] Settlement Lag Validation
+2026-08-03 18:43:03 | INFO     | Validating switch_log
+2026-08-03 18:43:03 | INFO     | [PASS] Dataset Not Empty
+2026-08-03 18:43:03 | INFO     | [PASS] Required Columns
+2026-08-03 18:43:03 | INFO     | [PASS] Missing Required Values
+2026-08-03 18:43:03 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-03 18:43:03 | INFO     | [PASS] Merchant Exists
+2026-08-03 18:43:04 | INFO     | [PASS] Transaction Exists
+2026-08-03 18:43:04 | INFO     | [PASS] Net Amount Validation
+2026-08-03 18:43:04 | INFO     | [PASS] Rail Charges Validation
+2026-08-03 18:43:04 | INFO     | [PASS] Settlement Lag Validation
+2026-08-03 18:43:04 | INFO     | Validating tickets
+2026-08-03 18:43:04 | INFO     | [PASS] Dataset Not Empty
+2026-08-03 18:43:04 | INFO     | [PASS] Required Columns
+2026-08-03 18:43:04 | INFO     | [PASS] Missing Required Values
+2026-08-03 18:43:04 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-03 18:43:04 | INFO     | [PASS] Merchant Exists
+2026-08-03 18:43:04 | INFO     | [PASS] Transaction Exists
+2026-08-03 18:43:04 | INFO     | [PASS] Net Amount Validation
+2026-08-03 18:43:04 | INFO     | [PASS] Rail Charges Validation
+2026-08-03 18:43:04 | INFO     | [PASS] Settlement Lag Validation
+2026-08-03 18:43:04 | INFO     | Validating transactions
+2026-08-03 18:43:04 | INFO     | [PASS] Dataset Not Empty
+2026-08-03 18:43:04 | INFO     | [PASS] Required Columns
+2026-08-03 18:43:04 | WARNING  | [FAIL] Missing Required Values
+2026-08-03 18:43:04 | WARNING  | [FAIL] Duplicate Primary Keys
+2026-08-03 18:43:05 | INFO     | [PASS] Merchant Exists
+2026-08-03 18:43:05 | INFO     | [PASS] Transaction Exists
+2026-08-03 18:43:05 | INFO     | [PASS] Net Amount Validation
+2026-08-03 18:43:05 | INFO     | [PASS] Rail Charges Validation
+2026-08-03 18:43:05 | INFO     | [PASS] Settlement Lag Validation
+2026-08-03 18:43:05 | INFO     | ============================================================
+2026-08-03 18:43:05 | INFO     | VALIDATION LAYER COMPLETED
+2026-08-03 18:43:05 | INFO     | ============================================================
+2026-08-03 18:43:05 | INFO     | Validation Layer completed successfully.
+2026-08-03 18:43:05 | INFO     | ------------------------------------------------------------
+2026-08-03 18:43:05 | INFO     | Pipeline completed in 18.40 seconds
+2026-08-03 18:43:05 | INFO     | Successful datasets : 5
+2026-08-03 18:43:05 | INFO     | Failed datasets     : 0
+2026-08-03 18:43:05 | INFO     | Transformation operations : 10
+2026-08-03 18:43:05 | INFO     | Validation rules executed : 45
+2026-08-03 18:43:05 | INFO     | Data Quality Score : 40
+2026-08-03 18:43:05 | INFO     | ------------------------------------------------------------

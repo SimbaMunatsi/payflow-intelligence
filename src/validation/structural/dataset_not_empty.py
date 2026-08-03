@@ -15,6 +15,10 @@ class DatasetNotEmptyRule(ValidationRule):
 
         return "Dataset Not Empty"
 
+    @property
+    def category(self):
+        return "Structural"
+
     def validate(
         self,
         dataframe,
@@ -28,6 +32,8 @@ class DatasetNotEmptyRule(ValidationRule):
             rule_name=self.rule_name,
 
             dataset=self.dataset_name,
+
+            category=self.category,
 
             passed=passed,
 

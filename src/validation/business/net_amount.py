@@ -31,6 +31,10 @@ class NetAmountRule(ValidationRule):
     def severity(self):
         return "CRITICAL"
 
+    @property
+    def category(self):
+        return "Business"
+
     def validate(
         self,
         dataframe: pd.DataFrame,
@@ -42,6 +46,7 @@ class NetAmountRule(ValidationRule):
             return ValidationResult(
                 rule_name=self.rule_name,
                 dataset=self.dataset_name,
+                category=self.category,
                 passed=True,
                 severity="INFO",
                 message="Rule not applicable.",
@@ -70,6 +75,8 @@ class NetAmountRule(ValidationRule):
             rule_name=self.rule_name,
 
             dataset=self.dataset_name,
+
+            category=self.category,
 
             passed=passed,
 

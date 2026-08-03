@@ -26,6 +26,10 @@ class SettlementLagRule(ValidationRule):
     def severity(self):
         return "CRITICAL"
 
+    @property
+    def category(self):
+        return "Business"
+
     def validate(
         self,
         dataframe: pd.DataFrame,
@@ -37,6 +41,7 @@ class SettlementLagRule(ValidationRule):
             return ValidationResult(
                 rule_name=self.rule_name,
                 dataset=self.dataset_name,
+                category=self.category,
                 passed=True,
                 severity="INFO",
                 message="Rule not applicable.",
@@ -47,6 +52,7 @@ class SettlementLagRule(ValidationRule):
             return ValidationResult(
                 rule_name=self.rule_name,
                 dataset=self.dataset_name,
+                category=self.category,
                 passed=False,
                 severity="CRITICAL",
                 message="Datasets unavailable.",
@@ -57,6 +63,7 @@ class SettlementLagRule(ValidationRule):
             return ValidationResult(
                 rule_name=self.rule_name,
                 dataset=self.dataset_name,
+                category=self.category,
                 passed=False,
                 severity="CRITICAL",
                 message="Transactions dataset unavailable.",
@@ -67,6 +74,7 @@ class SettlementLagRule(ValidationRule):
             return ValidationResult(
                 rule_name=self.rule_name,
                 dataset=self.dataset_name,
+                category=self.category,
                 passed=False,
                 severity="CRITICAL",
                 message="Switch Log dataset unavailable.",
@@ -174,6 +182,8 @@ class SettlementLagRule(ValidationRule):
             rule_name=self.rule_name,
 
             dataset=self.dataset_name,
+
+            category=self.category,
 
             passed=passed,
 
