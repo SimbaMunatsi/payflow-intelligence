@@ -1,15 +1,24 @@
 from src.ingestion.loader import DataLoader
+from src.validation.validator import Validator
 
 loader = DataLoader()
 
-datasets, metadata = loader.run()
+datasets, metadata, summary = loader.run()
 
-print("\nLoaded datasets:")
+validator = Validator()
 
-for name, df in datasets.items():
-    print(f"{name}: {len(df):,} rows")
+for dataset_name, dataframe in datasets.items():
 
-print("\nMetadata:")
+    results = validator.validate_dataset(
+        dataset_name,
+        dataframe,
+        datasets,
+    )
 
-for item in metadata:
-    print(item)
+    print()
+
+    print(dataset_name)
+
+    for r in results:
+
+        print(r.to_dict())
