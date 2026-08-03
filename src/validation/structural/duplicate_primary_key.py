@@ -36,6 +36,10 @@ class DuplicatePrimaryKeyRule(ValidationRule):
     def severity(self):
         return "CRITICAL"
 
+    @property
+    def category(self):
+        return "Structural"
+
     def validate(
         self,
         dataframe: pd.DataFrame,
@@ -57,6 +61,7 @@ class DuplicatePrimaryKeyRule(ValidationRule):
             return ValidationResult(
                 rule_name=self.rule_name,
                 dataset=self.dataset_name,
+                category=self.category,
                 passed=True,
                 severity="INFO",
                 message="No primary key defined.",
@@ -80,6 +85,8 @@ class DuplicatePrimaryKeyRule(ValidationRule):
             rule_name=self.rule_name,
 
             dataset=self.dataset_name,
+
+            category="Structural",
 
             passed=passed,
 

@@ -20,6 +20,8 @@ class ValidationResult:
 
     dataset: str
 
+    category: str
+
     passed: bool
 
     severity: str
@@ -43,6 +45,8 @@ class ValidationResult:
             "rule_name": self.rule_name,
 
             "dataset": self.dataset,
+
+            "category": self.category,
 
             "passed": self.passed,
 

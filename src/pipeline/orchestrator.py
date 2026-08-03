@@ -13,6 +13,7 @@ from src.ingestion.history import PipelineHistory
 from src.ingestion.loader import DataLoader
 from src.transformation.staging import StagingEngine
 from src.utils.logger import get_logger
+from src.validation.validator import Validator
 
 logger = get_logger(__name__)
 
@@ -22,14 +23,6 @@ class PipelineOrchestrator:
     Coordinates execution of all pipeline stages.
 
     Current Pipeline
-
-    Raw
-        ↓
-    Landing
-        ↓
-    Staging
-
-    Future Pipeline
 
     Raw
         ↓
@@ -50,6 +43,8 @@ class PipelineOrchestrator:
 
         self.staging_engine = StagingEngine()
 
+        self.validator = Validator()
+
     def run(self):
 
         logger.info("=" * 60)
@@ -64,9 +59,9 @@ class PipelineOrchestrator:
 
         transformation_results = []
 
-        successful = 0
+        validation_results = []
 
-        failed = 0
+        validation_dashboard = None
 
         summary = None
 
@@ -76,27 +71,47 @@ class PipelineOrchestrator:
             # LANDING LAYER
             # ==================================================
 
-            datasets, metadata, summary = self.loader.run()
+            datasets, metadata, summary = (
+                self.loader.run()
+            )
 
-            successful = summary.successful
+            PipelineHistory.save(
+                metadata
+            )
 
-            failed = summary.failed
-
-            PipelineHistory.save(metadata)
-
-            logger.info("Landing Layer completed successfully.")
+            logger.info(
+                "Landing Layer completed successfully."
+            )
 
             # ==================================================
             # STAGING LAYER
             # ==================================================
 
-            staged_datasets, transformation_results = (
-                self.staging_engine.run(
-                    datasets
-                )
+            (
+                staged_datasets,
+                transformation_results,
+            ) = self.staging_engine.run(
+                datasets
             )
 
-            logger.info("Staging Layer completed successfully.")
+            logger.info(
+                "Staging Layer completed successfully."
+            )
+
+            # ==================================================
+            # VALIDATION LAYER
+            # ==================================================
+
+            (
+                validation_results,
+                validation_dashboard,
+            ) = self.validator.validate_all(
+                staged_datasets
+            )
+
+            logger.info(
+                "Validation Layer completed successfully."
+            )
 
         except Exception:
 
@@ -104,9 +119,9 @@ class PipelineOrchestrator:
                 "Pipeline execution failed."
             )
 
-            failed += 1
-
-        duration = time.perf_counter() - start
+        duration = (
+            time.perf_counter() - start
+        )
 
         logger.info("-" * 60)
 
@@ -128,7 +143,9 @@ class PipelineOrchestrator:
 
                 logger.warning(
                     "Failed dataset(s): "
-                    + ", ".join(summary.failed_datasets)
+                    + ", ".join(
+                        summary.failed_datasets
+                    )
                 )
 
         logger.info(
@@ -136,12 +153,39 @@ class PipelineOrchestrator:
             f"{len(transformation_results)}"
         )
 
+        logger.info(
+            f"Validation rules executed : "
+            f"{len(validation_results)}"
+        )
+
+        if validation_dashboard:
+
+            logger.info(
+                f"Data Quality Score : "
+                f"{validation_dashboard.quality_score}"
+            )
+
         logger.info("-" * 60)
 
         return {
+
             "landing": datasets,
+
             "staging": staged_datasets,
-            "transformation_results": transformation_results,
-            "summary": summary,
-            "duration_seconds": round(duration, 2),
+
+            "transformation_results":
+                transformation_results,
+
+            "validation_results":
+                validation_results,
+
+            "validation_dashboard":
+                validation_dashboard,
+
+            "summary":
+                summary,
+
+            "duration_seconds":
+                round(duration, 2),
+
         }

@@ -36,6 +36,10 @@ class TransactionExistsRule(ValidationRule):
     def severity(self):
         return "CRITICAL"
 
+    @property
+    def category(self):
+        return "Referential"
+
     def validate(
         self,
         dataframe: pd.DataFrame,
@@ -57,6 +61,7 @@ class TransactionExistsRule(ValidationRule):
             return ValidationResult(
                 rule_name=self.rule_name,
                 dataset=self.dataset_name,
+                category=self.category,
                 passed=True,
                 severity="INFO",
                 message="Dataset has no transaction relationship.",
@@ -67,6 +72,7 @@ class TransactionExistsRule(ValidationRule):
             return ValidationResult(
                 rule_name=self.rule_name,
                 dataset=self.dataset_name,
+                category=self.category,
                 passed=False,
                 severity="CRITICAL",
                 message="Transactions dataset not available.",
@@ -115,6 +121,8 @@ class TransactionExistsRule(ValidationRule):
             rule_name=self.rule_name,
 
             dataset=self.dataset_name,
+
+            category=self.category,
 
             passed=passed,
 
