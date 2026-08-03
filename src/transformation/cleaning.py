@@ -15,6 +15,12 @@ import pandas as pd
 
 from src.utils.logger import get_logger
 
+
+from time import perf_counter
+
+from src.transformation.results import TransformationResult
+
+
 logger = get_logger(__name__)
 
 
@@ -26,32 +32,59 @@ class DataCleaner:
     to every dataset in the platform.
     """
 
-    def clean(self, dataframe: pd.DataFrame) -> pd.DataFrame:
+    def clean(
+        self,
+        dataset_name: str,
+        dataframe: pd.DataFrame,
+    ):
         """
-        Execute the full cleaning pipeline.
-
-        Parameters
-        ----------
-        dataframe : pd.DataFrame
+        Execute the cleaning pipeline.
 
         Returns
         -------
-        pd.DataFrame
+        tuple[pd.DataFrame, list[TransformationResult]]
         """
 
         df = dataframe.copy()
 
-        logger.info("Starting data cleaning")
+        results = []
+
+        logger.info(f"Cleaning {dataset_name}")
+
+        start = perf_counter()
+
+        before = df.copy()
 
         df = self.remove_duplicate_columns(df)
-
         df = self.trim_whitespace(df)
-
         df = self.standardize_missing_values(df)
 
-        logger.info("Data cleaning completed")
+        duration = (perf_counter() - start) * 1000
 
-        return df
+        values_changed = (
+            before.astype(str)
+            .ne(df.astype(str))
+            .sum()
+            .sum()
+        )
+
+        results.append(
+            TransformationResult(
+                stage="Transformation",
+                operation="Cleaning",
+                dataset=dataset_name,
+                success=True,
+                records_processed=len(df),
+                values_changed=int(values_changed),
+                execution_time_ms=duration,
+            )
+        )
+
+        logger.info(
+            f"Cleaning completed ({values_changed} values changed)"
+        )
+
+        return df, results
 
     def remove_duplicate_columns(
         self,

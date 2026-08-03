@@ -281,3 +281,5 @@ pandas.errors.EmptyDataError: No columns to parse from file
 2026-08-03 09:52:43 | INFO     | transactions standardized
 2026-08-03 09:54:57 | INFO     | Standardizing transactions
 2026-08-03 09:54:57 | INFO     | transactions standardized
+2026-08-03 10:31:53 | INFO     | Cleaning transactions
+2026-08-03 10:31:53 | INFO     | Cleaning completed (7 values changed)
