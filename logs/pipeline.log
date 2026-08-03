@@ -242,3 +242,32 @@ pandas.errors.EmptyDataError: No columns to parse from file
 2026-08-03 08:37:24 | INFO     | [PASS]Dataset Not Empty
 2026-08-03 08:37:24 | INFO     | Validating transactions
 2026-08-03 08:37:24 | INFO     | [PASS]Dataset Not Empty
+2026-08-03 08:46:33 | INFO     | Discovered 5 datasets.
+2026-08-03 08:46:33 | INFO     | Loading merchants.csv
+2026-08-03 08:46:33 | INFO     | merchants.csv loaded successfully (94 rows)
+2026-08-03 08:46:33 | INFO     | Saved merchants.parquet
+2026-08-03 08:46:33 | INFO     | Loading settlements.csv
+2026-08-03 08:46:34 | INFO     | settlements.csv loaded successfully (152,414 rows)
+2026-08-03 08:46:34 | INFO     | Saved settlements.parquet
+2026-08-03 08:46:34 | INFO     | Loading switch_log.csv
+2026-08-03 08:46:35 | INFO     | switch_log.csv loaded successfully (204,983 rows)
+2026-08-03 08:46:36 | INFO     | Saved switch_log.parquet
+2026-08-03 08:46:36 | INFO     | Loading tickets.csv
+2026-08-03 08:46:36 | INFO     | tickets.csv loaded successfully (1,450 rows)
+2026-08-03 08:46:36 | INFO     | Saved tickets.parquet
+2026-08-03 08:46:36 | INFO     | Loading transactions.csv
+2026-08-03 08:46:36 | INFO     | transactions.csv loaded successfully (180,720 rows)
+2026-08-03 08:46:37 | INFO     | Saved transactions.parquet
+2026-08-03 08:46:37 | INFO     | Landing completed (Success=5, Failed=0)
+2026-08-03 08:46:37 | INFO     | Validating merchants
+2026-08-03 08:46:37 | INFO     | [PASS]Dataset Not Empty
+2026-08-03 08:46:37 | INFO     | Validating settlements
+2026-08-03 08:46:37 | INFO     | [PASS]Dataset Not Empty
+2026-08-03 08:46:37 | INFO     | Validating switch_log
+2026-08-03 08:46:37 | INFO     | [PASS]Dataset Not Empty
+2026-08-03 08:46:37 | INFO     | Validating tickets
+2026-08-03 08:46:37 | INFO     | [PASS]Dataset Not Empty
+2026-08-03 08:46:37 | INFO     | Validating transactions
+2026-08-03 08:46:37 | INFO     | [PASS]Dataset Not Empty
+2026-08-03 09:18:39 | INFO     | Starting data cleaning
+2026-08-03 09:18:39 | INFO     | Data cleaning completed

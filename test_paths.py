@@ -1,24 +1,18 @@
-from src.ingestion.loader import DataLoader
-from src.validation.validator import Validator
+import pandas as pd
 
-loader = DataLoader()
+from src.transformation.cleaning import DataCleaner
 
-datasets, metadata, summary = loader.run()
+df = pd.DataFrame(
+    {
+        "merchant": [" MER001 ", "MER002 ", ""],
+        "status": [" SUCCESS ", "FAILED ", " NULL "],
+    }
+)
 
-validator = Validator()
+cleaner = DataCleaner()
 
-for dataset_name, dataframe in datasets.items():
+result = cleaner.clean(df)
 
-    results = validator.validate_dataset(
-        dataset_name,
-        dataframe,
-        datasets,
-    )
-
-    print()
-
-    print(dataset_name)
-
-    for r in results:
-
-        print(r.to_dict())
+print(result)
+print()
+print(result.dtypes)
