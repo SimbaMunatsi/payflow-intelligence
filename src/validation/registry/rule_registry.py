@@ -28,6 +28,14 @@ from src.validation.referential.merchant_exists import (
     MerchantExistsRule,
 )
 
+from src.validation.referential.transaction_exists import (
+    TransactionExistsRule,
+)
+
+from src.validation.business.net_amount import (
+    NetAmountRule,
+)
+
 class RuleRegistry:
     """
     Registry of all validation rules.
@@ -45,6 +53,8 @@ class RuleRegistry:
             MissingRequiredValuesRule(dataset_name),
             DuplicatePrimaryKeyRule(dataset_name),
             MerchantExistsRule(dataset_name),
+            TransactionExistsRule(dataset_name),
+            NetAmountRule(dataset_name),
         ]
 
         return rules

@@ -361,3 +361,42 @@ GLOBAL_STANDARDIZATION = {
     ]
 
 }
+
+PAYMENT_RAILS = {
+
+    "ECOCASH_MM": {
+        "settlement_lag_days": 1,
+        "charge_rate": 0.0125,
+    },
+
+    "ONEMONEY_MM": {
+        "settlement_lag_days": 2,
+        "charge_rate": 0.0140,
+    },
+
+    "INNBUCKS_MM": {
+        "settlement_lag_days": 2,
+        "charge_rate": 0.0150,
+    },
+
+    "ZIPIT_BANK": {
+        "settlement_lag_days": 1,
+        "charge_rate": 0.0080,
+    },
+
+    "RTGS_BANK": {
+        "settlement_lag_days": 3,
+        "charge_rate": 0.0045,
+    },
+
+    "VISA_CARD": {
+        "settlement_lag_days": 2,
+        "charge_rate": 0.0195,
+    },
+
+    "MASTERCARD_CARD": {
+        "settlement_lag_days": 2,
+        "charge_rate": 0.0200,
+    },
+
+}
