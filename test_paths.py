@@ -1,46 +1,50 @@
 import pandas as pd
 
-from src.validation.business.rail_charges import (
-    RailChargesRule,
+from src.validation.business.settlement_lag import (
+    SettlementLagRule,
 )
 
 
 def main():
 
-    settlements = pd.DataFrame(
+    transactions = pd.DataFrame(
         {
-            "rail": [
-                "ECOCASH_MM",
-                "ZIPIT_BANK",
-                "RTGS_BANK",
-            ],
-
-            "gross_amount": [
-                1000,
-                1000,
-                1000,
-            ],
-
-            "rail_charges": [
-                12.50,
-                8.00,
-                10.00,
-            ],
+            "txn_ref": ["TXN001"],
+            "authorised_at": ["2026-03-02"],   # Monday
         }
     )
 
-    rule = RailChargesRule(
+    switch_log = pd.DataFrame(
+        {
+            "txn_ref": ["TXN001"],
+            "rail_reference": ["RR001"],
+        }
+    )
+
+    settlements = pd.DataFrame(
+        {
+            "rail_reference": ["RR001"],
+            "rail": ["ECOCASH_MM"],
+            "value_date": ["2026-03-04"],      # Tuesday (T+1)
+        }
+    )
+
+    datasets = {
+        "transactions": transactions,
+        "switch_log": switch_log,
+    }
+
+    rule = SettlementLagRule(
         "settlements"
     )
 
     result = rule.execute(
-        settlements
+        settlements,
+        datasets,
     )
 
     print(result)
-
     print()
-
     print(result.to_dict())
 
 

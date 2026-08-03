@@ -40,6 +40,10 @@ from src.validation.business.rail_charges import (
     RailChargesRule,
 )
 
+from src.validation.business.settlement_lag import (
+    SettlementLagRule,
+)
+
 class RuleRegistry:
     """
     Registry of all validation rules.
@@ -60,6 +64,7 @@ class RuleRegistry:
             TransactionExistsRule(dataset_name),
             NetAmountRule(dataset_name),
             RailChargesRule(dataset_name),
+            SettlementLagRule(dataset_name),
         ]
 
         return rules
