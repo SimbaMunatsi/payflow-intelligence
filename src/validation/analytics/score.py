@@ -13,11 +13,11 @@ from src.validation.framework.results import ValidationResult
 
 PENALTIES = {
 
-    "CRITICAL": 10,
+    "CRITICAL": 3,
 
-    "ERROR": 5,
+    "ERROR": 2,
 
-    "WARNING": 2,
+    "WARNING": 1,
 
     "INFO": 0,
 

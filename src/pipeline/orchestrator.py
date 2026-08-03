@@ -9,6 +9,7 @@ Project: PayFlow Intelligence Platform
 
 import time
 
+from src.analytics.warehouse.builder import WarehouseBuilder
 from src.ingestion.history import PipelineHistory
 from src.ingestion.loader import DataLoader
 from src.transformation.staging import StagingEngine
@@ -22,7 +23,7 @@ class PipelineOrchestrator:
     """
     Coordinates execution of all pipeline stages.
 
-    Current Pipeline
+    Pipeline Flow
 
     Raw
         ↓
@@ -45,6 +46,8 @@ class PipelineOrchestrator:
 
         self.validator = Validator()
 
+        self.warehouse_builder = WarehouseBuilder()
+
     def run(self):
 
         logger.info("=" * 60)
@@ -57,11 +60,15 @@ class PipelineOrchestrator:
 
         staged_datasets = {}
 
+        warehouse = {}
+
         transformation_results = []
 
         validation_results = []
 
         validation_dashboard = None
+
+        warehouse_summary = None
 
         summary = None
 
@@ -111,6 +118,21 @@ class PipelineOrchestrator:
 
             logger.info(
                 "Validation Layer completed successfully."
+            )
+
+            # ==================================================
+            # WAREHOUSE LAYER
+            # ==================================================
+
+            (
+                warehouse,
+                warehouse_summary,
+            ) = self.warehouse_builder.build(
+                staged_datasets
+            )
+
+            logger.info(
+                "Warehouse Layer completed successfully."
             )
 
         except Exception:
@@ -165,6 +187,18 @@ class PipelineOrchestrator:
                 f"{validation_dashboard.quality_score}"
             )
 
+        if warehouse_summary:
+
+            logger.info(
+                f"Warehouse tables built : "
+                f"{warehouse_summary.total_tables}"
+            )
+
+            logger.info(
+                f"Warehouse success rate : "
+                f"{warehouse_summary.success_rate}%"
+            )
+
         logger.info("-" * 60)
 
         return {
@@ -181,6 +215,12 @@ class PipelineOrchestrator:
 
             "validation_dashboard":
                 validation_dashboard,
+
+            "warehouse":
+                warehouse,
+
+            "warehouse_summary":
+                warehouse_summary,
 
             "summary":
                 summary,
