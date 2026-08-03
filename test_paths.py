@@ -1,27 +1,22 @@
-import pandas as pd
+from src.transformation.results import TransformationResult
 
-from src.transformation.standardization import DataStandardizer
-
-df = pd.DataFrame(
-    {
-        "currency": ["usd", "zwg"],
-        "status": ["success", "failed"],
-        "amount": ["100.50", "250"],
-        "attempt_count": ["1", "2"],
-        "initiated_at": [
-            "2026-03-01 08:00:00",
-            "2026-03-02 10:15:00",
-        ],
-    }
-)
-
-standardizer = DataStandardizer()
-
-result = standardizer.standardize(
-    "transactions",
-    df,
+result = TransformationResult(
+    stage="Transformation",
+    operation="Trim Whitespace",
+    dataset="transactions",
+    success=True,
+    records_processed=180720,
+    values_changed=412,
+    details={
+        "columns": [
+            "merchant_id",
+            "status",
+        ]
+    },
 )
 
 print(result)
+
 print()
-print(result)
+
+print(result.to_dict())
