@@ -16,6 +16,10 @@ from src.validation.structural.required_columns import (
     RequiredColumnsRule,
 )
 
+from src.validation.structural.missing_required_values import (
+    MissingRequiredValuesRule,
+)
+
 class RuleRegistry:
     """
     Registry of all validation rules.
@@ -30,6 +34,7 @@ class RuleRegistry:
         rules = [
             DatasetNotEmptyRule(dataset_name),
             RequiredColumnsRule(dataset_name),
+            MissingRequiredValuesRule(dataset_name),
         ]
 
         return rules

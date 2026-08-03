@@ -1,13 +1,11 @@
 """
-Tests RequiredColumnsRule.
-
-Author: Simba Munatsi
+Tests MissingRequiredValuesRule.
 """
 
 import pandas as pd
 
-from src.validation.structural.required_columns import (
-    RequiredColumnsRule,
+from src.validation.structural.missing_required_values import (
+    MissingRequiredValuesRule,
 )
 
 
@@ -15,17 +13,38 @@ def main():
 
     df = pd.DataFrame(
         {
-            "txn_ref": ["TXN001"],
-           # "merchant_id": ["MER001"],
-            "amount": [100],
-            "currency": ["USD"],
-            "rail": ["ECOCASH_MM"],
-            "status": ["SUCCESS"],
-            "initiated_at": ["2026-03-01"],
+            "txn_ref": [
+                "TXN001",
+                "TXN002",
+            ],
+            "merchant_id": [
+                "MER001",
+                None,
+            ],
+            "rail": [
+                "ECOCASH_MM",
+                "ZIPIT_BANK",
+            ],
+            "currency": [
+                "USD",
+                "USD",
+            ],
+            "amount": [
+                120,
+                None,
+            ],
+            "status": [
+                "SUCCESS",
+                "SUCCESS",
+            ],
+            "initiated_at": [
+                "2026-03-01",
+                None,
+            ],
         }
     )
 
-    rule = RequiredColumnsRule(
+    rule = MissingRequiredValuesRule(
         "transactions"
     )
 
