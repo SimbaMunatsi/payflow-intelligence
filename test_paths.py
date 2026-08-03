@@ -1,7 +1,7 @@
 import pandas as pd
 
-from src.validation.business.net_amount import (
-    NetAmountRule,
+from src.validation.business.rail_charges import (
+    RailChargesRule,
 )
 
 
@@ -9,24 +9,27 @@ def main():
 
     settlements = pd.DataFrame(
         {
+            "rail": [
+                "ECOCASH_MM",
+                "ZIPIT_BANK",
+                "RTGS_BANK",
+            ],
+
             "gross_amount": [
-                100,
-                200,
+                1000,
+                1000,
+                1000,
             ],
 
             "rail_charges": [
-                5,
-                10,
-            ],
-
-            "net_amount": [
-                95,
-                180,
+                12.50,
+                8.00,
+                10.00,
             ],
         }
     )
 
-    rule = NetAmountRule(
+    rule = RailChargesRule(
         "settlements"
     )
 

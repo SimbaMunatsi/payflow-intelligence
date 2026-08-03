@@ -36,6 +36,10 @@ from src.validation.business.net_amount import (
     NetAmountRule,
 )
 
+from src.validation.business.rail_charges import (
+    RailChargesRule,
+)
+
 class RuleRegistry:
     """
     Registry of all validation rules.
@@ -55,6 +59,7 @@ class RuleRegistry:
             MerchantExistsRule(dataset_name),
             TransactionExistsRule(dataset_name),
             NetAmountRule(dataset_name),
+            RailChargesRule(dataset_name),
         ]
 
         return rules
