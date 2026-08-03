@@ -34,6 +34,13 @@ METADATA_REGISTRY = {
             "initiated_at",
         ],
 
+        "foreign_keys": {
+            "merchant_id": {
+                "dataset": "merchants",
+                "column": "merchant_id",
+            }
+        },
+
         "datetime": [
             "initiated_at",
             "authorised_at",
@@ -107,6 +114,13 @@ METADATA_REGISTRY = {
             "submitted_at",
         ],
 
+        "foreign_keys": {
+            "txn_ref": {
+                "dataset": "transactions",
+                "column": "txn_ref",
+            }
+        },
+
         "datetime": [
             "submitted_at",
             "responded_at",
@@ -145,6 +159,13 @@ METADATA_REGISTRY = {
             "net_amount",
             "line_type",
         ],
+
+        "foreign_keys": {
+            "merchant_id": {
+                "dataset": "merchants",
+                "column": "merchant_id",
+            }
+        },
 
         "datetime": [
             "value_date",
@@ -244,6 +265,18 @@ METADATA_REGISTRY = {
             "channel",
             "status",
         ],
+
+        "foreign_keys": {
+            "merchant_id": {
+                "dataset": "merchants",
+                "column": "merchant_id",
+            },
+            "txn_ref": {
+                "dataset": "transactions",
+                "column": "txn_ref",
+                "nullable": True,
+            }
+        },
 
         "datetime": [
             "opened_at",

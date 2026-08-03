@@ -24,6 +24,10 @@ from src.validation.structural.duplicate_primary_key import (
     DuplicatePrimaryKeyRule,
 )
 
+from src.validation.referential.merchant_exists import (
+    MerchantExistsRule,
+)
+
 class RuleRegistry:
     """
     Registry of all validation rules.
@@ -40,6 +44,7 @@ class RuleRegistry:
             RequiredColumnsRule(dataset_name),
             MissingRequiredValuesRule(dataset_name),
             DuplicatePrimaryKeyRule(dataset_name),
+            MerchantExistsRule(dataset_name),
         ]
 
         return rules
