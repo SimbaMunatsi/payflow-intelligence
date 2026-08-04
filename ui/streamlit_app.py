@@ -11,13 +11,9 @@ import streamlit as st
 API_URL = "http://127.0.0.1:8000"
 
 st.set_page_config(
-
     page_title="PayFlow Intelligence",
-
     page_icon="📊",
-
     layout="wide",
-
 )
 
 # =====================================================
@@ -27,7 +23,7 @@ st.set_page_config(
 st.title("📊 PayFlow Intelligence")
 
 st.caption(
-    "Pipeline Control Center"
+    "Enterprise Payment Operations & Data Quality Platform"
 )
 
 st.divider()
@@ -45,21 +41,15 @@ try:
 
     if health.status_code == 200:
 
-        st.success(
-            "API Connected"
-        )
+        st.success("🟢 API Connected")
 
     else:
 
-        st.error(
-            "API Unavailable"
-        )
+        st.error("🔴 API Unavailable")
 
 except Exception:
 
-    st.error(
-        "Cannot connect to API"
-    )
+    st.error("🔴 Cannot connect to API")
 
 st.divider()
 
@@ -68,16 +58,11 @@ st.divider()
 # =====================================================
 
 if st.button(
-
     "▶ Run Pipeline",
-
     use_container_width=True,
-
 ):
 
-    with st.spinner(
-        "Running pipeline..."
-    ):
+    with st.spinner("Running pipeline..."):
 
         response = requests.post(
             f"{API_URL}/pipeline/run",
@@ -88,140 +73,205 @@ if st.button(
 
         result = response.json()
 
+        # =====================================================
+        # Extract Dashboard Sections
+        # =====================================================
+
+        kpis = result["kpis"]
+
+        pipeline = result["pipeline"]
+
+        quality = result["quality"]
+
+        warehouse = result["warehouse"]
+
+        summary = result["summary"]
+
         st.success(
             "Pipeline completed successfully."
         )
 
         # =====================================================
-        # KPI Metrics
+        # Executive Dashboard
         # =====================================================
 
-        col1, col2, col3 = st.columns(3)
+        st.subheader("📈 Executive Dashboard")
+
+        col1, col2, col3, col4 = st.columns(4)
 
         with col1:
 
             st.metric(
-
                 "Quality Score",
-
-                f"{result['quality_score']}%",
-
+                f"{kpis['quality_score']}%",
             )
 
         with col2:
 
             st.metric(
-
-                "Warehouse Tables",
-
-                result["warehouse_tables"],
-
+                "Rows Processed",
+                f"{kpis['rows_processed']:,}",
             )
 
         with col3:
 
             st.metric(
+                "Warehouse Tables",
+                kpis["warehouse_tables"],
+            )
 
+        with col4:
+
+            st.metric(
                 "Execution Time",
-
-                f"{result['duration_seconds']:.2f}s",
-
+                f"{kpis['execution_time']:.2f}s",
             )
 
         st.divider()
 
         # =====================================================
-        # Pipeline Stages
+        # Pipeline Status
         # =====================================================
 
-        st.subheader(
-            "Pipeline Stages"
-        )
+        st.subheader("⚙️ Pipeline Status")
 
-        for stage, status in result["stages"].items():
+        for stage in pipeline["stages"]:
 
-            if status == "Completed":
+            if stage["status"] == "Completed":
 
                 st.success(
-                    f"{stage.title()} ✓"
+                    f"{stage['name']} ✓"
                 )
 
             else:
 
                 st.error(
-                    f"{stage.title()} ✗"
+                    f"{stage['name']} ✗"
                 )
 
         st.divider()
 
         # =====================================================
-        # Pipeline Execution Summary
+        # Data Quality + Warehouse
+        # =====================================================
+
+        left, right = st.columns(2)
+
+        # -----------------------------------------------------
+
+        with left:
+
+            st.subheader("📊 Data Quality Center")
+
+            for category in quality["categories"]:
+
+                st.metric(
+                    category["name"],
+                    f"{category['pass_rate']}%",
+                )
+
+                st.progress(
+                    category["pass_rate"] / 100
+                )
+
+                st.caption(
+                    f"✅ Passed: {category['passed']}    |    ❌ Failed: {category['failed']}"
+                )
+
+                st.write("")
+
+        # -----------------------------------------------------
+
+        with right:
+
+            st.subheader("🏢 Warehouse Explorer")
+
+            for table in warehouse["tables"]:
+
+                icon = (
+                    "📦"
+                    if table["table_type"] == "Fact"
+                    else "📁"
+                )
+
+                st.write(
+                    f"{icon} **{table['name']}**"
+                )
+
+                st.caption(
+                    f"{table['table_type']} • {table['rows']:,} rows"
+                )
+
+        st.divider()
+
+        # =====================================================
+        # Pipeline Summary
         # =====================================================
 
         st.subheader(
             "📋 Pipeline Execution Summary"
         )
 
-        summary_left, summary_right = st.columns(2)
+        left, right = st.columns(2)
 
-        with summary_left:
+        with left:
 
-            st.markdown(
-                f"""
+            st.markdown(f"""
 **Run Status**
 
 {result["status"].upper()}
 
-**Execution Time**
-
-{result["duration_seconds"]:.2f} seconds
-
 **Datasets Loaded**
 
-{result["datasets_loaded"]}
-
-**Rows Processed**
-
-{result["rows_processed"]:,}
+{summary["datasets_loaded"]}
 
 **Validation Rules**
 
-{result["validation_rules"]}
-"""
-            )
+{summary["validation_rules"]}
 
-        with summary_right:
+**Execution Time**
 
-            st.markdown(
-                f"""
+{kpis["execution_time"]:.2f} seconds
+""")
+
+        with right:
+
+            st.markdown(f"""
 **Rules Passed**
 
-{result["rules_passed"]}
+{summary["rules_passed"]}
 
 **Rules Failed**
 
-{result["rules_failed"]}
+{summary["rules_failed"]}
 
 **Quality Score**
 
-{result["quality_score"]}%
+{kpis["quality_score"]}%
 
 **Warehouse Tables**
 
-{result["warehouse_tables"]}
-
-**Warehouse Success**
-
-{result["warehouse_success_rate"]}%
+{kpis["warehouse_tables"]}
 
 **Run Timestamp**
 
-{result["run_timestamp"]}
-"""
-            )
+{summary["run_timestamp"]}
+""")
 
     else:
 
         st.error(
             "Pipeline execution failed."
         )
+
+        try:
+
+            st.json(
+                response.json()
+            )
+
+        except Exception:
+
+            st.text(
+                response.text
+            )
