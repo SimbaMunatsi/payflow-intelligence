@@ -48,3 +48,22 @@ def run_pipeline():
             status_code=500,
             detail=f"Pipeline execution failed: {str(ex)}",
         ) from ex
+
+@router.get(
+    "/history",
+)
+def get_pipeline_history():
+    """
+    Return pipeline execution history.
+    """
+
+    try:
+
+        return pipeline_service.get_history()
+
+    except Exception as ex:
+
+        raise HTTPException(
+            status_code=500,
+            detail=f"History endpoint failed: {str(ex)}",
+        ) from ex    

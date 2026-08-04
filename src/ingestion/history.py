@@ -83,3 +83,32 @@ class PipelineHistory:
         logger.info(
             f"History updated ({len(updated)} total records)."
         )
+
+    @classmethod
+    def load(cls):
+        """
+        Load the ingestion history.
+
+        Returns
+        -------
+        pandas.DataFrame
+            Historical ingestion records.
+        """
+
+        if not cls.FILE.exists():
+
+            return pd.DataFrame()
+
+        try:
+
+            return pd.read_csv(
+                cls.FILE
+            )
+
+        except EmptyDataError:
+
+            logger.warning(
+                "History file is empty."
+            )
+
+            return pd.DataFrame()    
