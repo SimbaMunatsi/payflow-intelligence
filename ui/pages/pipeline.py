@@ -28,7 +28,7 @@ def render():
 
     if st.button(
         "▶ Run Pipeline",
-        use_container_width=True,
+        width='stretch',
         key="pipeline_run_button",
     ):
 

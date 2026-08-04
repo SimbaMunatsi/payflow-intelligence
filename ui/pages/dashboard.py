@@ -22,7 +22,7 @@ def render():
 
     if st.button(
         "▶ Run Pipeline",
-        use_container_width=True,
+        width='stretch',
     ):
 
         with st.spinner(
