@@ -56,6 +56,9 @@ class PipelineStatus:
 
 @dataclass
 class QualityCategory:
+    """
+    Data quality statistics for a validation category.
+    """
 
     name: str
 
@@ -64,6 +67,8 @@ class QualityCategory:
     passed: int
 
     failed: int
+
+    pass_rate: float
 
 
 @dataclass

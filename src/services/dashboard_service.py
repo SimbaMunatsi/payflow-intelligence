@@ -121,17 +121,31 @@ class DashboardService:
             stats,
         ) in validation_dashboard.summary.categories.items():
 
+            total = stats["total"]
+
+            passed = stats["passed"]
+
+            failed = stats["failed"]
+
+            pass_rate = (
+                round((passed / total) * 100, 1)
+                if total
+                else 0
+            )
+
             categories.append(
 
                 QualityCategory(
 
                     name=category_name,
 
-                    total=stats["total"],
+                    total=total,
 
-                    passed=stats["passed"],
+                    passed=passed,
 
-                    failed=stats["failed"],
+                    failed=failed,
+
+                    pass_rate=pass_rate,
 
                 )
 
