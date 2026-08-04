@@ -92,6 +92,10 @@ if st.button(
             "Pipeline completed successfully."
         )
 
+        # =====================================================
+        # KPI Metrics
+        # =====================================================
+
         col1, col2, col3 = st.columns(3)
 
         with col1:
@@ -100,7 +104,7 @@ if st.button(
 
                 "Quality Score",
 
-                result["quality_score"],
+                f"{result['quality_score']}%",
 
             )
 
@@ -120,17 +124,101 @@ if st.button(
 
                 "Execution Time",
 
-                f'{result["duration_seconds"]:.2f}s',
+                f"{result['duration_seconds']:.2f}s",
 
             )
 
         st.divider()
 
+        # =====================================================
+        # Pipeline Stages
+        # =====================================================
+
         st.subheader(
-            "Latest Pipeline Run"
+            "Pipeline Stages"
         )
 
-        st.json(result)
+        for stage, status in result["stages"].items():
+
+            if status == "Completed":
+
+                st.success(
+                    f"{stage.title()} ✓"
+                )
+
+            else:
+
+                st.error(
+                    f"{stage.title()} ✗"
+                )
+
+        st.divider()
+
+        # =====================================================
+        # Pipeline Execution Summary
+        # =====================================================
+
+        st.subheader(
+            "📋 Pipeline Execution Summary"
+        )
+
+        summary_left, summary_right = st.columns(2)
+
+        with summary_left:
+
+            st.markdown(
+                f"""
+**Run Status**
+
+{result["status"].upper()}
+
+**Execution Time**
+
+{result["duration_seconds"]:.2f} seconds
+
+**Datasets Loaded**
+
+{result["datasets_loaded"]}
+
+**Rows Processed**
+
+{result["rows_processed"]:,}
+
+**Validation Rules**
+
+{result["validation_rules"]}
+"""
+            )
+
+        with summary_right:
+
+            st.markdown(
+                f"""
+**Rules Passed**
+
+{result["rules_passed"]}
+
+**Rules Failed**
+
+{result["rules_failed"]}
+
+**Quality Score**
+
+{result["quality_score"]}%
+
+**Warehouse Tables**
+
+{result["warehouse_tables"]}
+
+**Warehouse Success**
+
+{result["warehouse_success_rate"]}%
+
+**Run Timestamp**
+
+{result["run_timestamp"]}
+"""
+            )
 
     else:
 

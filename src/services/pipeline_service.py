@@ -8,8 +8,10 @@ Author: Simba Munatsi
 Project: PayFlow Intelligence Platform
 """
 
+from datetime import datetime
 from src.pipeline.orchestrator import PipelineOrchestrator
 from src.utils.logger import get_logger
+
 
 logger = get_logger(__name__)
 
@@ -34,7 +36,7 @@ class PipelineService:
         dashboard = result["validation_dashboard"]
 
         warehouse = result["warehouse_summary"]
-
+        
         response = {
 
             "status": "success",
@@ -53,6 +55,45 @@ class PipelineService:
             "warehouse_success_rate":
                 warehouse.success_rate
                 if warehouse else 0,
+
+            "datasets_loaded":
+                result["summary"].successful
+                if result["summary"] else 0,
+
+            "validation_rules":
+                dashboard.summary.total_rules
+                if dashboard else 0,
+
+            "rules_passed":
+                dashboard.summary.passed
+                if dashboard else 0,
+
+            "rules_failed":
+                dashboard.summary.failed
+                if dashboard else 0,
+
+            "rows_processed":
+                sum(
+                    len(df)
+                    for df in result["staging"].values()
+                ),
+
+            "run_timestamp":
+                datetime.now().strftime(
+                    "%Y-%m-%d %H:%M:%S"
+                ),
+
+            "stages": {
+
+                "landing": "Completed",
+
+                "staging": "Completed",
+
+                "validation": "Completed",
+
+                "warehouse": "Completed",
+
+            },
 
         }
 

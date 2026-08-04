@@ -40,4 +40,4 @@ def run_pipeline():
         raise HTTPException(
             status_code=500,
             detail=f"Pipeline execution failed: {str(ex)}",
-        )
+        ) from ex
