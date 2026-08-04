@@ -10,7 +10,7 @@ Project: PayFlow Intelligence Platform
 from fastapi import FastAPI
 
 from src.api.routes.health import router as health_router
-#from src.api.routes.pipeline import router as pipeline_router
+from src.api.routes.pipeline import router as pipeline_router
 
 app = FastAPI(
 
@@ -28,9 +28,9 @@ app.include_router(
     health_router
 )
 
-# app.include_router(
-#     pipeline_router
-# )
+app.include_router(
+     pipeline_router
+ )
 
 
 @app.get("/")
