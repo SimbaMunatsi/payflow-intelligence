@@ -9,7 +9,7 @@ Project: PayFlow Intelligence Platform
 
 from fastapi import APIRouter, HTTPException
 
-from src.api.schemas import PipelineResponse
+from src.services.dashboard_service import DashboardService
 from src.services.pipeline_service import PipelineService
 
 router = APIRouter(
@@ -18,22 +18,29 @@ router = APIRouter(
 )
 
 pipeline_service = PipelineService()
+dashboard_service = DashboardService()
 
 
-@router.post(
-    "/run",
-    response_model=PipelineResponse,
-)
+@router.post("/run")
 def run_pipeline():
     """
-    Execute the complete PayFlow Intelligence pipeline.
+    Execute the PayFlow Intelligence pipeline and
+    return the dashboard model.
     """
 
     try:
 
-        result = pipeline_service.run_pipeline()
+        pipeline_result = (
+            pipeline_service.run_pipeline()
+        )
 
-        return PipelineResponse(**result)
+        dashboard = (
+            dashboard_service.build_dashboard(
+                pipeline_result
+            )
+        )
+
+        return dashboard
 
     except Exception as ex:
 
