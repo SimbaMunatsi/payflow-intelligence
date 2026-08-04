@@ -44,3 +44,20 @@ def run_pipeline():
     response.raise_for_status()
 
     return response.json()
+
+def get_pipeline_history():
+    """
+    Fetch pipeline history.
+    """
+
+    response = requests.get(
+
+        f"{API_URL}/pipeline/history",
+
+        timeout=30,
+
+    )
+
+    response.raise_for_status()
+
+    return response.json()

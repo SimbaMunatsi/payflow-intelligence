@@ -10,9 +10,9 @@ Project: PayFlow Intelligence Platform
 
 from src.pipeline.orchestrator import PipelineOrchestrator
 from src.utils.logger import get_logger
+from src.ingestion.history import PipelineHistory
 
 logger = get_logger(__name__)
-
 
 class PipelineService:
     """
@@ -25,8 +25,7 @@ class PipelineService:
 
     def run_pipeline(self):
         """
-        Execute the pipeline and return the
-        complete orchestration result.
+        Execute the pipeline.
         """
 
         logger.info("=" * 60)
@@ -40,3 +39,14 @@ class PipelineService:
         )
 
         return result
+
+    def get_history(self):
+        """
+        Return pipeline execution history.
+        """
+
+        history = PipelineHistory.load()
+
+        return history.to_dict(
+            orient="records"
+        )
