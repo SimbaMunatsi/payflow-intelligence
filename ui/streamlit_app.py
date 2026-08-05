@@ -73,7 +73,7 @@ elif page == "📄 Reports":
 
     reports.render()
 
-elif page == "🤖 AI Insights":
+elif page == "🤖 AI_Insights":
 
     ai.render()
 
