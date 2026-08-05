@@ -10,7 +10,7 @@ Project: PayFlow Intelligence Platform
 
 import streamlit as st
 
-from components.api import run_pipeline
+from components.api import get_dashboard, run_pipeline
 
 
 def render():
@@ -19,6 +19,24 @@ def render():
     """
 
     st.subheader("📊 Executive Dashboard")
+
+    st.subheader("📅 Analysis Period")
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+
+        start_date = st.date_input(
+            "Start Date"
+        )
+
+    with col2:
+
+        end_date = st.date_input(
+            "End Date"
+        )
+
+    st.divider()
 
     if st.button(
         "▶ Run Pipeline",
@@ -29,7 +47,10 @@ def render():
             "Running pipeline..."
         ):
 
-            result = run_pipeline()
+            result = get_dashboard(
+                start_date=start_date,
+                end_date=end_date
+            )
 
         render_dashboard(result)
 
@@ -38,7 +59,7 @@ def render():
 # Main Dashboard
 # =====================================================
 
-def render_dashboard(result: dict):
+def render_dashboard(result: dict, start_date=None, end_date=None):
     """
     Render the complete dashboard.
     """
@@ -56,6 +77,18 @@ def render_dashboard(result: dict):
     st.success(
         "Pipeline completed successfully."
     )
+
+    # st.info(
+
+    #     f"Showing results from "
+
+    #     f"**{start_date}** "
+
+    #     f"to "
+
+    #     f"**{end_date}**"
+
+    # )
 
     executive = result["executive"]
 

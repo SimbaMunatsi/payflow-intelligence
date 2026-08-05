@@ -8,6 +8,7 @@ Project: PayFlow Intelligence Platform
 """
 
 from fastapi import APIRouter, HTTPException
+from fastapi import Query
 
 from src.services.dashboard_service import DashboardService
 from src.services.pipeline_service import PipelineService
@@ -22,7 +23,16 @@ dashboard_service = DashboardService()
 
 
 @router.post("/run")
-def run_pipeline():
+def run_pipeline(
+    start_date: str = Query(
+        None,
+        description="Start date for the pipeline execution (YYYY-MM-DD).",
+    ),
+    end_date: str = Query(
+        None,
+        description="End date for the pipeline execution (YYYY-MM-DD).",
+    ),
+):
     """
     Execute the PayFlow Intelligence pipeline and
     return the dashboard model.
@@ -36,7 +46,9 @@ def run_pipeline():
 
         dashboard = (
             dashboard_service.build_dashboard(
-                pipeline_result
+                pipeline_result,
+                start_date=start_date,
+                end_date=end_date,
             )
         )
 
