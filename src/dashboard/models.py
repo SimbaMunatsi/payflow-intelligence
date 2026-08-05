@@ -8,7 +8,9 @@ Project: PayFlow Intelligence Platform
 """
 
 from dataclasses import dataclass, field
-
+from src.services.executive_dashboard.models import (
+    ExecutiveDashboard,
+)
 
 # =====================================================
 # KPI Models
@@ -132,6 +134,8 @@ class DashboardResponse:
     """
 
     status: str
+
+    executive: ExecutiveDashboard
 
     kpis: KPIModel
 
