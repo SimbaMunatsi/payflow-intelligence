@@ -57,6 +57,16 @@ def render_dashboard(result: dict):
         "Pipeline completed successfully."
     )
 
+    executive = result["executive"]
+
+    render_executive_kpis(
+        executive["kpis"]
+    )
+
+    render_business_charts(
+        executive["charts"]
+    )
+
     render_kpis(kpis)
 
     render_pipeline_status(pipeline)
@@ -74,12 +84,119 @@ def render_dashboard(result: dict):
 
 
 # =====================================================
+# Executive KPI Cards
+# =====================================================
+
+def render_executive_kpis(kpis):
+
+    st.subheader(
+        "🏦 Executive Operations Overview"
+    )
+
+    col1, col2, col3, col4 = st.columns(4)
+
+    with col1:
+
+        st.metric(
+            "Transactions",
+            f"{kpis['total_transactions']:,}"
+        )
+
+    with col2:
+
+        st.metric(
+            "Success Rate",
+            f"{kpis['success_rate']:.2f}%"
+        )
+
+    with col3:
+
+        st.metric(
+            "Settlement Rate",
+            f"{kpis['settlement_rate']:.2f}%"
+        )
+
+    with col4:
+
+        st.metric(
+            "Open Tickets",
+            kpis["open_support_tickets"]
+        )
+
+    st.divider()
+
+# =====================================================
+# Business Charts
+# =====================================================
+
+import pandas as pd
+
+
+def render_business_charts(charts):
+
+    st.subheader(
+        "📊 Business Intelligence"
+    )
+
+    for chart in charts:
+
+        st.markdown(
+            f"#### {chart['title']}"
+        )
+
+        df = pd.DataFrame(
+
+            {
+
+                "Category":
+                    chart["labels"],
+
+                "Value":
+                    chart["values"],
+
+            }
+
+        )
+
+        if chart["chart_type"] == "pie":
+
+            st.bar_chart(
+
+                df,
+
+                x="Category",
+
+                y="Value",
+
+                width="stretch",
+
+            )
+
+        else:
+
+            st.bar_chart(
+
+                df,
+
+                x="Category",
+
+                y="Value",
+
+                width="stretch",
+
+            )
+
+        st.write("")
+
+    st.divider()    
+
+# =====================================================
 # KPI Section
 # =====================================================
 
 def render_kpis(kpis):
 
-    st.subheader("📈 Executive Overview")
+    st.subheader("🖥️ System Health")
 
     col1, col2, col3, col4 = st.columns(4)
 

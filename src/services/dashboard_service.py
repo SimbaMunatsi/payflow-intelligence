@@ -21,6 +21,10 @@ from src.dashboard.models import (
     WarehouseSection,
     WarehouseTable,
 )
+
+from src.services.executive_dashboard.service import (
+    ExecutiveDashboardService,
+)
 from src.utils.logger import get_logger
 
 logger = get_logger(__name__)
@@ -31,6 +35,12 @@ class DashboardService:
     Builds the dashboard response from
     the pipeline execution result.
     """
+
+    def __init__(self):
+
+        self.executive_dashboard = (
+            ExecutiveDashboardService()
+        )
 
     def build_dashboard(
         self,
@@ -220,12 +230,22 @@ class DashboardService:
         )
 
         # ==================================================
+        # EXECUTIVE DASHBOARD
+        # ==================================================
+
+        executive = (
+            self.executive_dashboard.build()
+        )
+
+        # ==================================================
         # RESPONSE
         # ==================================================
 
         return DashboardResponse(
 
             status="success",
+
+            executive=executive,
 
             kpis=kpis,
 

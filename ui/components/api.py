@@ -31,9 +31,10 @@ def get_health():
         return False
 
 
-def run_pipeline():
+def get_dashboard():
     """
-    Execute the pipeline.
+    Execute the pipeline and return the
+    complete dashboard.
     """
 
     response = requests.post(
@@ -44,6 +45,10 @@ def run_pipeline():
     response.raise_for_status()
 
     return response.json()
+
+
+# Backwards compatibility
+run_pipeline = get_dashboard
 
 def get_pipeline_history():
     """
