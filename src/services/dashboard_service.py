@@ -45,6 +45,8 @@ class DashboardService:
     def build_dashboard(
         self,
         pipeline_result: dict,
+        start_date=None,
+        end_date=None,
     ) -> DashboardResponse:
 
         logger.info("=" * 60)
@@ -234,7 +236,10 @@ class DashboardService:
         # ==================================================
 
         executive = (
-            self.executive_dashboard.build()
+            self.executive_dashboard.build(
+                start_date=start_date,
+                end_date=end_date,
+            )
         )
 
         # ==================================================

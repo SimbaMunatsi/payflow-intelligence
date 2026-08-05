@@ -7,7 +7,9 @@ analytics warehouse.
 Author: Simba Munatsi
 Project: PayFlow Intelligence Platform
 """
-
+from src.services.filters.date_filter import (
+    DateFilter,
+)
 import pandas as pd
 
 from src.services.executive_dashboard.models import (
@@ -46,24 +48,61 @@ class ExecutiveChartsBuilder:
     # Public
     # =====================================================
 
-    def build(self) -> list[ChartData]:
+    def build(
+        self,
+        start_date=None,
+        end_date=None,
+    ) -> list[ChartData]:
         """
-        Build all executive charts.
+        Build executive charts for the selected
+        date range.
         """
 
         logger.info(
             "Building executive charts."
         )
 
+        transactions = DateFilter.filter(
+
+            self.transactions,
+
+            date_column="initiated_at",
+
+            start_date=start_date,
+
+            end_date=end_date,
+
+        )
+
+        settlements = DateFilter.filter(
+
+            self.settlements,
+
+            date_column="value_date",
+
+            start_date=start_date,
+
+            end_date=end_date,
+
+        )
+
         return [
 
-            self.transaction_volume_by_rail(),
+            self.transaction_volume_by_rail(
+                transactions
+            ),
 
-            self.transaction_status_distribution(),
+            self.transaction_status_distribution(
+                transactions
+            ),
 
-            self.payment_volume_by_currency(),
+            self.payment_volume_by_currency(
+                transactions
+            ),
 
-            self.settlement_value_by_rail(),
+            self.settlement_value_by_rail(
+                settlements
+            ),
 
             self.support_tickets_by_status(),
 
@@ -74,12 +113,12 @@ class ExecutiveChartsBuilder:
     # =====================================================
 
     def transaction_volume_by_rail(
-        self,
+        self, transactions
     ) -> ChartData:
 
         data = (
 
-            self.transactions
+            transactions
 
             .groupby("rail")
 
@@ -108,12 +147,12 @@ class ExecutiveChartsBuilder:
     # =====================================================
 
     def transaction_status_distribution(
-        self,
+        self, transactions
     ) -> ChartData:
 
         data = (
 
-            self.transactions
+            transactions
 
             ["status"]
 
@@ -142,12 +181,12 @@ class ExecutiveChartsBuilder:
     # =====================================================
 
     def payment_volume_by_currency(
-        self,
+        self, transactions
     ) -> ChartData:
 
         data = (
 
-            self.transactions
+            transactions
 
             .assign(
 
@@ -186,12 +225,12 @@ class ExecutiveChartsBuilder:
     # =====================================================
 
     def settlement_value_by_rail(
-        self,
+        self, settlements
     ) -> ChartData:
 
         data = (
 
-            self.settlements
+            settlements
 
             .groupby("rail")
 
@@ -222,7 +261,7 @@ class ExecutiveChartsBuilder:
     # =====================================================
 
     def support_tickets_by_status(
-        self,
+        self, 
     ) -> ChartData:
 
         data = (

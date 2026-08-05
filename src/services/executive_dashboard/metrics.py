@@ -8,6 +8,9 @@ Author: Simba Munatsi
 Project: PayFlow Intelligence Platform
 """
 
+from src.services.filters.date_filter import (
+    DateFilter,
+)
 import pandas as pd
 
 from src.services.executive_dashboard.models import (
@@ -46,30 +49,80 @@ class ExecutiveMetricsCalculator:
     # Public
     # =====================================================
 
-    def calculate(self) -> ExecutiveKPIs:
+    def calculate(
+        self,
+        start_date=None,
+        end_date=None,
+    ) -> ExecutiveKPIs:
         """
-        Calculate all executive KPIs.
+        Calculate executive KPIs for the
+        selected date range.
         """
 
         logger.info(
             "Calculating executive KPIs."
         )
 
+        transactions = DateFilter.filter(
+
+            self.transactions,
+
+            date_column="initiated_at",
+
+            start_date=start_date,
+
+            end_date=end_date,
+
+        )
+
+        settlements = DateFilter.filter(
+
+            self.settlements,
+
+            date_column="value_date",
+
+            start_date=start_date,
+
+            end_date=end_date,
+
+        )
+
         return ExecutiveKPIs(
 
-            total_transactions=self.total_transactions(),
+            total_transactions=
+                self.total_transactions(
+                    transactions
+                ),
 
-            success_rate=self.success_rate(),
+            success_rate=
+                self.success_rate(
+                    transactions
+                ),
 
-            settlement_rate=self.settlement_rate(),
+            settlement_rate=
+                self.settlement_rate(
+                    transactions,
+                    settlements,
+                ),
 
-            total_volume_usd=self.total_volume_usd(),
+            total_volume_usd=
+                self.total_volume_usd(
+                    transactions
+                ),
 
-            total_volume_zwg=self.total_volume_zwg(),
+            total_volume_zwg=
+                self.total_volume_zwg(
+                    transactions
+                ),
 
-            average_settlement_lag=self.average_settlement_lag(),
+            average_settlement_lag=
+                self.average_settlement_lag(
+                    transactions,
+                    settlements,
+                ),
 
-            open_support_tickets=self.open_support_tickets(),
+            open_support_tickets=
+                self.open_support_tickets(),
 
         )
 
@@ -77,21 +130,21 @@ class ExecutiveMetricsCalculator:
     # Individual KPIs
     # =====================================================
 
-    def total_transactions(self) -> int:
+    def total_transactions(self, transactions) -> int:
 
         return len(
-            self.transactions
+            transactions
         )
 
-    def success_rate(self) -> float:
+    def success_rate(self, transactions) -> float:
 
-        if len(self.transactions) == 0:
+        if len(transactions) == 0:
 
             return 0.0
 
         successful = (
 
-            self.transactions["status"]
+            transactions["status"]
 
             .astype(str)
 
@@ -107,36 +160,36 @@ class ExecutiveMetricsCalculator:
 
             successful
 
-            / len(self.transactions)
+            / len(transactions)
 
             * 100
 
         )
 
-    def settlement_rate(self) -> float:
+    def settlement_rate(self, transactions, settlements) -> float:
 
-        if len(self.transactions) == 0:
+        if len(transactions) == 0:
 
             return 0.0
 
         settled = len(
-            self.settlements
+            settlements
         )
 
         return (
 
             settled
 
-            / len(self.transactions)
+            / len(transactions)
 
             * 100
 
         )
 
-    def total_volume_usd(self) -> float:
+    def total_volume_usd(self, transactions) -> float:
 
-        usd = self.transactions[
-            self.transactions["currency"]
+        usd = transactions[
+            transactions["currency"]
             .astype(str)
             .str.upper()
             == "USD"
@@ -148,10 +201,10 @@ class ExecutiveMetricsCalculator:
 
         )
 
-    def total_volume_zwg(self) -> float:
+    def total_volume_zwg(self, transactions) -> float:
 
-        zwg = self.transactions[
-            self.transactions["currency"]
+        zwg = transactions[
+            transactions["currency"]
             .astype(str)
             .str.upper()
             == "ZWG"
@@ -163,15 +216,15 @@ class ExecutiveMetricsCalculator:
 
         )
 
-    def average_settlement_lag(self) -> float:
+    def average_settlement_lag(self, transactions, settlements) -> float:
         """
         Average days between transaction initiation
         and settlement value date.
         """
 
-        merged = self.transactions.merge(
+        merged = transactions.merge(
 
-            self.settlements[
+            settlements[
 
                 [
 

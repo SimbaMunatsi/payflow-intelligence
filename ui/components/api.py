@@ -31,20 +31,46 @@ def get_health():
         return False
 
 
-def get_dashboard():
+def get_dashboard(
+    start_date=None,
+    end_date=None,
+):
     """
     Execute the pipeline and return the
     complete dashboard.
     """
 
+    params = {}
+
+    if start_date:
+
+        params["start_date"] = str(
+            start_date
+        )
+
+    if end_date:
+
+        params["end_date"] = str(
+            end_date
+        )
+
     response = requests.post(
+
         f"{API_URL}/pipeline/run",
+
+        params=params,
+
         timeout=300,
+
     )
 
     response.raise_for_status()
 
     return response.json()
+
+
+# Backwards compatibility
+run_pipeline = get_dashboard
 
 
 # Backwards compatibility

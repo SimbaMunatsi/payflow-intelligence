@@ -2,6 +2,7 @@
 Test Executive Dashboard Service.
 """
 
+from src.services.executive_dashboard import service
 from src.services.executive_dashboard.service import (
     ExecutiveDashboardService,
 )
@@ -11,7 +12,15 @@ def main():
 
     service = ExecutiveDashboardService()
 
-    dashboard = service.build()
+    service = ExecutiveDashboardService()
+
+    dashboard = service.build(
+
+        start_date="2026-04-10",
+
+        end_date="2026-04-20",
+
+    )
 
     print("\n" + "=" * 60)
     print("EXECUTIVE DASHBOARD TEST")

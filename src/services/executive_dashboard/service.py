@@ -39,7 +39,11 @@ class ExecutiveDashboardService:
     # Public
     # =====================================================
 
-    def build(self) -> ExecutiveDashboard:
+    def build(
+        self,
+        start_date=None,
+        end_date=None,
+    ) -> ExecutiveDashboard:
         """
         Build the Executive Dashboard.
         """
@@ -52,9 +56,21 @@ class ExecutiveDashboardService:
 
         dashboard = ExecutiveDashboard(
 
-            kpis=self.metrics.calculate(),
+            kpis=self.metrics.calculate(
 
-            charts=self.charts.build(),
+                start_date=start_date,
+
+                end_date=end_date,
+
+            ),
+
+            charts=self.charts.build(
+
+                start_date=start_date,
+
+                end_date=end_date,
+
+            ),
 
         )
 
@@ -64,9 +80,19 @@ class ExecutiveDashboardService:
 
         return dashboard
 
-    def to_dict(self) -> dict:
+    def to_dict(
+        self,
+        start_date=None,
+        end_date=None,
+    ) -> dict:
         """
         Return dashboard as a serializable dictionary.
         """
 
-        return self.build().to_dict()
+        return self.build(
+
+            start_date=start_date,
+
+            end_date=end_date,
+
+        ).to_dict()
