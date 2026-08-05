@@ -7321,3 +7321,5 @@ TypeError: type NAType doesn't define __round__ method
 2026-08-04 22:52:31 | INFO     | BUILDING DASHBOARD
 2026-08-04 22:52:31 | INFO     | ============================================================
 2026-08-04 22:52:31 | INFO     | Dashboard model created.
+2026-08-05 08:01:24 | INFO     | Calculating executive KPIs.
+2026-08-05 08:04:39 | INFO     | Calculating executive KPIs.
