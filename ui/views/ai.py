@@ -2,7 +2,7 @@
 AI Insights Page.
 
 Provides intelligent operational insights based on
-pipeline execution results.
+pipeline execution results..
 
 Author: Simba Munatsi
 Project: PayFlow Intelligence Platform
@@ -33,7 +33,7 @@ def render():
     ):
 
         with st.spinner(
-            "Analysing pipeline..."
+            "Analysing pipeline...."
         ):
 
             result = run_pipeline()
@@ -69,7 +69,7 @@ def render_insights(result):
     if score >= 90:
 
         st.success(
-            "Excellent overall data quality. No significant operational issues detected."
+            "Excellent overall data quality. No significant operational issues detected.."
         )
 
     elif score >= 80:

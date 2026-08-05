@@ -36,6 +36,8 @@ def render():
             "End Date"
         )
 
+    st.info( "Select dates between 01 March 2026 to 30 April 2026 for the analysis period.")    
+
     st.divider()
 
     if st.button(
