@@ -7324,3 +7324,9 @@ TypeError: type NAType doesn't define __round__ method
 2026-08-05 08:01:24 | INFO     | Calculating executive KPIs.
 2026-08-05 08:04:39 | INFO     | Calculating executive KPIs.
 2026-08-05 08:11:33 | INFO     | Building executive charts.
+2026-08-05 08:16:43 | INFO     | ============================================================
+2026-08-05 08:16:43 | INFO     | BUILDING EXECUTIVE DASHBOARD
+2026-08-05 08:16:43 | INFO     | ============================================================
+2026-08-05 08:16:43 | INFO     | Calculating executive KPIs.
+2026-08-05 08:16:43 | INFO     | Building executive charts.
+2026-08-05 08:16:43 | INFO     | Executive dashboard created successfully.
