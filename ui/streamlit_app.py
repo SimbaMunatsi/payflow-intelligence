@@ -12,14 +12,14 @@ import streamlit as st
 from components.header import render_header
 from components.sidebar import render_sidebar
 
-from pages import dashboard
-from pages import pipeline
-from pages import quality
-from pages import warehouse
-from pages import history
-from pages import reports
-from pages import ai
-from pages import about
+from views import dashboard
+from views import pipeline
+from views import quality
+from views import warehouse
+from views import history
+from views import reports
+from views import ai
+from views import about
 
 # =====================================================
 # Streamlit Configuration
@@ -73,7 +73,7 @@ elif page == "📄 Reports":
 
     reports.render()
 
-elif page == "🤖 AI Insights":
+elif page == "🤖 AI_Insights":
 
     ai.render()
 
