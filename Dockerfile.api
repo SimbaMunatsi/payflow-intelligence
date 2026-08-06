@@ -4,23 +4,37 @@
 
 FROM python:3.12-slim
 
-# Prevent Python from buffering stdout
-ENV PYTHONUNBUFFERED=1
+# -----------------------------------------------------
+# Environment Variables
+# -----------------------------------------------------
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1
 
-# Working directory
+# -----------------------------------------------------
+# Working Directory
+# -----------------------------------------------------
 WORKDIR /app
 
-# Install dependencies
+# -----------------------------------------------------
+# Install Dependencies
+# Copy requirements first for better Docker layer caching
+# -----------------------------------------------------
 COPY requirements.txt .
 
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
-# Copy application
+# -----------------------------------------------------
+# Copy Application Source
+# -----------------------------------------------------
 COPY . .
 
-# Expose API port
+# -----------------------------------------------------
+# Expose FastAPI Port
+# -----------------------------------------------------
 EXPOSE 8000
 
-# Start FastAPI
+# -----------------------------------------------------
+# Start FastAPI Application
+# -----------------------------------------------------
 CMD ["sh", "-c", "uvicorn src.api.app:app --host 0.0.0.0 --port ${PORT:-8000}"]

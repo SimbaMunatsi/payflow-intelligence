@@ -14500,3 +14500,1818 @@ TypeError: type NAType doesn't define __round__ method
 2026-08-05 16:53:09 | INFO     | Date filter applied: None -> None (180720 rows)
 2026-08-05 16:53:09 | INFO     | Date filter applied: None -> None (152414 rows)
 2026-08-05 16:53:09 | INFO     | Executive dashboard created successfully.
+2026-08-06 07:08:53 | INFO     | ============================================================
+2026-08-06 07:08:53 | INFO     | PIPELINE SERVICE
+2026-08-06 07:08:53 | INFO     | ============================================================
+2026-08-06 07:08:53 | INFO     | ============================================================
+2026-08-06 07:08:53 | INFO     | PAYFLOW INTELLIGENCE PIPELINE
+2026-08-06 07:08:53 | INFO     | ============================================================
+2026-08-06 07:08:53 | INFO     | Discovered 5 datasets.
+2026-08-06 07:08:53 | INFO     | Loading merchants.csv
+2026-08-06 07:08:53 | INFO     | merchants.csv loaded successfully (94 rows)
+2026-08-06 07:08:53 | INFO     | Saved merchants.parquet
+2026-08-06 07:08:53 | INFO     | Loading settlements.csv
+2026-08-06 07:08:54 | INFO     | settlements.csv loaded successfully (152,414 rows)
+2026-08-06 07:08:55 | INFO     | Saved settlements.parquet
+2026-08-06 07:08:55 | INFO     | Loading switch_log.csv
+2026-08-06 07:08:57 | INFO     | switch_log.csv loaded successfully (204,983 rows)
+2026-08-06 07:08:57 | INFO     | Saved switch_log.parquet
+2026-08-06 07:08:57 | INFO     | Loading tickets.csv
+2026-08-06 07:08:58 | INFO     | tickets.csv loaded successfully (1,450 rows)
+2026-08-06 07:08:58 | INFO     | Saved tickets.parquet
+2026-08-06 07:08:58 | INFO     | Loading transactions.csv
+2026-08-06 07:09:00 | INFO     | transactions.csv loaded successfully (180,720 rows)
+2026-08-06 07:09:01 | INFO     | Saved transactions.parquet
+2026-08-06 07:09:01 | INFO     | Landing completed (Success=5, Failed=0)
+2026-08-06 07:09:02 | INFO     | History updated (80 total records).
+2026-08-06 07:09:02 | INFO     | Landing Layer completed successfully.
+2026-08-06 07:09:02 | INFO     | ============================================================
+2026-08-06 07:09:02 | INFO     | STARTING STAGING LAYER
+2026-08-06 07:09:02 | INFO     | ============================================================
+2026-08-06 07:09:02 | INFO     | Processing merchants
+2026-08-06 07:09:02 | INFO     | Cleaning merchants
+2026-08-06 07:09:02 | INFO     | Cleaning completed (388 values changed)
+2026-08-06 07:09:02 | INFO     | Standardizing merchants
+2026-08-06 07:09:02 | INFO     | merchants standardized (410 values changed)
+2026-08-06 07:09:02 | INFO     | Saved staging dataset: merchants.parquet
+2026-08-06 07:09:02 | INFO     | Processing settlements
+2026-08-06 07:09:02 | INFO     | Cleaning settlements
+2026-08-06 07:09:05 | INFO     | Cleaning completed (10665 values changed)
+2026-08-06 07:09:05 | INFO     | Standardizing settlements
+2026-08-06 07:09:07 | INFO     | settlements standardized (165841 values changed)
+2026-08-06 07:09:08 | INFO     | Saved staging dataset: settlements.parquet
+2026-08-06 07:09:08 | INFO     | Processing switch_log
+2026-08-06 07:09:08 | INFO     | Cleaning switch_log
+2026-08-06 07:09:09 | INFO     | Cleaning completed (0 values changed)
+2026-08-06 07:09:09 | INFO     | Standardizing switch_log
+2026-08-06 07:09:10 | INFO     | switch_log standardized (0 values changed)
+2026-08-06 07:09:11 | INFO     | Saved staging dataset: switch_log.parquet
+2026-08-06 07:09:11 | INFO     | Processing tickets
+2026-08-06 07:09:11 | INFO     | Cleaning tickets
+2026-08-06 07:09:11 | INFO     | Cleaning completed (408 values changed)
+2026-08-06 07:09:11 | INFO     | Standardizing tickets
+2026-08-06 07:09:11 | INFO     | tickets standardized (3308 values changed)
+2026-08-06 07:09:11 | INFO     | Saved staging dataset: tickets.parquet
+2026-08-06 07:09:11 | INFO     | Processing transactions
+2026-08-06 07:09:11 | INFO     | Cleaning transactions
+2026-08-06 07:09:14 | INFO     | Cleaning completed (180720 values changed)
+2026-08-06 07:09:14 | INFO     | Standardizing transactions
+2026-08-06 07:09:18 | INFO     | transactions standardized (187948 values changed)
+2026-08-06 07:09:18 | INFO     | Saved staging dataset: transactions.parquet
+2026-08-06 07:09:18 | INFO     | ============================================================
+2026-08-06 07:09:18 | INFO     | STAGING LAYER COMPLETED
+2026-08-06 07:09:18 | INFO     | ============================================================
+2026-08-06 07:09:18 | INFO     | Staging Layer completed successfully.
+2026-08-06 07:09:18 | INFO     | ============================================================
+2026-08-06 07:09:18 | INFO     | STARTING VALIDATION LAYER
+2026-08-06 07:09:18 | INFO     | ============================================================
+2026-08-06 07:09:18 | INFO     | Validating merchants
+2026-08-06 07:09:18 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:09:18 | INFO     | [PASS] Required Columns
+2026-08-06 07:09:18 | INFO     | [PASS] Missing Required Values
+2026-08-06 07:09:18 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 07:09:18 | INFO     | [PASS] Merchant Exists
+2026-08-06 07:09:18 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:09:18 | INFO     | [PASS] Net Amount Validation
+2026-08-06 07:09:18 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 07:09:18 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 07:09:18 | INFO     | Validating settlements
+2026-08-06 07:09:18 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:09:18 | INFO     | [PASS] Required Columns
+2026-08-06 07:09:18 | WARNING  | [FAIL] Missing Required Values
+2026-08-06 07:09:18 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 07:09:19 | WARNING  | [FAIL] Merchant Exists
+2026-08-06 07:09:19 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:09:19 | WARNING  | [FAIL] Net Amount Validation
+2026-08-06 07:09:23 | WARNING  | [FAIL] Rail Charges Validation
+2026-08-06 07:09:39 | WARNING  | [FAIL] Settlement Lag Validation
+2026-08-06 07:09:39 | INFO     | Validating switch_log
+2026-08-06 07:09:39 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:09:39 | INFO     | [PASS] Required Columns
+2026-08-06 07:09:39 | INFO     | [PASS] Missing Required Values
+2026-08-06 07:09:39 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 07:09:39 | INFO     | [PASS] Merchant Exists
+2026-08-06 07:09:40 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:09:40 | INFO     | [PASS] Net Amount Validation
+2026-08-06 07:09:40 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 07:09:40 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 07:09:40 | INFO     | Validating tickets
+2026-08-06 07:09:40 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:09:40 | INFO     | [PASS] Required Columns
+2026-08-06 07:09:40 | INFO     | [PASS] Missing Required Values
+2026-08-06 07:09:40 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 07:09:40 | INFO     | [PASS] Merchant Exists
+2026-08-06 07:09:41 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:09:41 | INFO     | [PASS] Net Amount Validation
+2026-08-06 07:09:41 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 07:09:41 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 07:09:41 | INFO     | Validating transactions
+2026-08-06 07:09:41 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:09:41 | INFO     | [PASS] Required Columns
+2026-08-06 07:09:41 | WARNING  | [FAIL] Missing Required Values
+2026-08-06 07:09:41 | WARNING  | [FAIL] Duplicate Primary Keys
+2026-08-06 07:09:42 | INFO     | [PASS] Merchant Exists
+2026-08-06 07:09:42 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:09:42 | INFO     | [PASS] Net Amount Validation
+2026-08-06 07:09:42 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 07:09:42 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 07:09:42 | INFO     | ============================================================
+2026-08-06 07:09:42 | INFO     | VALIDATION LAYER COMPLETED
+2026-08-06 07:09:42 | INFO     | ============================================================
+2026-08-06 07:09:42 | INFO     | Validation Layer completed successfully.
+2026-08-06 07:09:42 | INFO     | ============================================================
+2026-08-06 07:09:42 | INFO     | STARTING WAREHOUSE BUILD
+2026-08-06 07:09:42 | INFO     | ============================================================
+2026-08-06 07:09:42 | INFO     | ============================================================
+2026-08-06 07:09:42 | INFO     | BUILDING DIMENSIONS
+2026-08-06 07:09:42 | INFO     | ============================================================
+2026-08-06 07:09:42 | INFO     | Built dim_merchants (62 rows)
+2026-08-06 07:09:42 | INFO     | Built dim_payment_rails (7 rows)
+2026-08-06 07:09:42 | INFO     | Built dim_dates (61 rows)
+2026-08-06 07:09:42 | INFO     | ============================================================
+2026-08-06 07:09:42 | INFO     | BUILDING FACT TABLES
+2026-08-06 07:09:42 | INFO     | ============================================================
+2026-08-06 07:09:45 | INFO     | Built fact_transactions (180,720 rows)
+2026-08-06 07:09:46 | INFO     | Built fact_settlements (152,414 rows)
+2026-08-06 07:09:47 | INFO     | Built fact_support_tickets (1,450 rows)
+2026-08-06 07:09:47 | INFO     | ============================================================
+2026-08-06 07:09:47 | INFO     | WAREHOUSE BUILD COMPLETE
+2026-08-06 07:09:47 | INFO     | ============================================================
+2026-08-06 07:09:47 | INFO     | Tables Built : 6
+2026-08-06 07:09:47 | INFO     | Success Rate : 100.0%
+2026-08-06 07:09:47 | INFO     | Warehouse Layer completed successfully.
+2026-08-06 07:09:47 | INFO     | ------------------------------------------------------------
+2026-08-06 07:09:47 | INFO     | Pipeline completed in 53.76 seconds
+2026-08-06 07:09:47 | INFO     | Successful datasets : 5
+2026-08-06 07:09:47 | INFO     | Failed datasets     : 0
+2026-08-06 07:09:47 | INFO     | Transformation operations : 10
+2026-08-06 07:09:47 | INFO     | Validation rules executed : 45
+2026-08-06 07:09:47 | INFO     | Data Quality Score : 81
+2026-08-06 07:09:47 | INFO     | Warehouse tables built : 6
+2026-08-06 07:09:47 | INFO     | Warehouse success rate : 100.0%
+2026-08-06 07:09:47 | INFO     | ------------------------------------------------------------
+2026-08-06 07:09:47 | INFO     | Pipeline execution completed.
+2026-08-06 07:09:47 | INFO     | ============================================================
+2026-08-06 07:09:47 | INFO     | BUILDING DASHBOARD
+2026-08-06 07:09:47 | INFO     | ============================================================
+2026-08-06 07:09:47 | INFO     | Dashboard model created.
+2026-08-06 07:09:47 | INFO     | ============================================================
+2026-08-06 07:09:47 | INFO     | BUILDING EXECUTIVE DASHBOARD
+2026-08-06 07:09:47 | INFO     | ============================================================
+2026-08-06 07:09:47 | INFO     | Calculating executive KPIs.
+2026-08-06 07:09:47 | INFO     | Date filter applied: 2026-04-01 00:00:00 -> 2026-04-22 00:00:00 (62706 rows)
+2026-08-06 07:09:47 | INFO     | Date filter applied: 2026-04-01 00:00:00 -> 2026-04-22 00:00:00 (2893 rows)
+2026-08-06 07:09:47 | INFO     | Building executive charts.
+2026-08-06 07:09:47 | INFO     | Date filter applied: 2026-04-01 00:00:00 -> 2026-04-22 00:00:00 (62706 rows)
+2026-08-06 07:09:47 | INFO     | Date filter applied: 2026-04-01 00:00:00 -> 2026-04-22 00:00:00 (2893 rows)
+2026-08-06 07:09:47 | INFO     | Executive dashboard created successfully.
+2026-08-06 07:10:21 | INFO     | ============================================================
+2026-08-06 07:10:21 | INFO     | PIPELINE SERVICE
+2026-08-06 07:10:21 | INFO     | ============================================================
+2026-08-06 07:10:21 | INFO     | ============================================================
+2026-08-06 07:10:21 | INFO     | PAYFLOW INTELLIGENCE PIPELINE
+2026-08-06 07:10:21 | INFO     | ============================================================
+2026-08-06 07:10:21 | INFO     | Discovered 5 datasets.
+2026-08-06 07:10:21 | INFO     | Loading merchants.csv
+2026-08-06 07:10:21 | INFO     | merchants.csv loaded successfully (94 rows)
+2026-08-06 07:10:21 | INFO     | Saved merchants.parquet
+2026-08-06 07:10:21 | INFO     | Loading settlements.csv
+2026-08-06 07:10:22 | INFO     | settlements.csv loaded successfully (152,414 rows)
+2026-08-06 07:10:22 | INFO     | Saved settlements.parquet
+2026-08-06 07:10:22 | INFO     | Loading switch_log.csv
+2026-08-06 07:10:24 | INFO     | switch_log.csv loaded successfully (204,983 rows)
+2026-08-06 07:10:24 | INFO     | Saved switch_log.parquet
+2026-08-06 07:10:24 | INFO     | Loading tickets.csv
+2026-08-06 07:10:24 | INFO     | tickets.csv loaded successfully (1,450 rows)
+2026-08-06 07:10:24 | INFO     | Saved tickets.parquet
+2026-08-06 07:10:24 | INFO     | Loading transactions.csv
+2026-08-06 07:10:26 | INFO     | transactions.csv loaded successfully (180,720 rows)
+2026-08-06 07:10:26 | INFO     | Saved transactions.parquet
+2026-08-06 07:10:26 | INFO     | Landing completed (Success=5, Failed=0)
+2026-08-06 07:10:26 | INFO     | History updated (90 total records).
+2026-08-06 07:10:26 | INFO     | Landing Layer completed successfully.
+2026-08-06 07:10:26 | INFO     | ============================================================
+2026-08-06 07:10:26 | INFO     | STARTING STAGING LAYER
+2026-08-06 07:10:26 | INFO     | ============================================================
+2026-08-06 07:10:26 | INFO     | Processing merchants
+2026-08-06 07:10:26 | INFO     | Cleaning merchants
+2026-08-06 07:10:26 | INFO     | Cleaning completed (388 values changed)
+2026-08-06 07:10:26 | INFO     | Standardizing merchants
+2026-08-06 07:10:26 | INFO     | merchants standardized (410 values changed)
+2026-08-06 07:10:26 | INFO     | Saved staging dataset: merchants.parquet
+2026-08-06 07:10:26 | INFO     | Processing settlements
+2026-08-06 07:10:26 | INFO     | Cleaning settlements
+2026-08-06 07:10:28 | INFO     | Cleaning completed (10665 values changed)
+2026-08-06 07:10:28 | INFO     | Standardizing settlements
+2026-08-06 07:10:31 | INFO     | settlements standardized (165841 values changed)
+2026-08-06 07:10:31 | INFO     | Saved staging dataset: settlements.parquet
+2026-08-06 07:10:31 | INFO     | Processing switch_log
+2026-08-06 07:10:31 | INFO     | Cleaning switch_log
+2026-08-06 07:10:32 | INFO     | Cleaning completed (0 values changed)
+2026-08-06 07:10:32 | INFO     | Standardizing switch_log
+2026-08-06 07:10:34 | INFO     | switch_log standardized (0 values changed)
+2026-08-06 07:10:34 | INFO     | Saved staging dataset: switch_log.parquet
+2026-08-06 07:10:34 | INFO     | Processing tickets
+2026-08-06 07:10:34 | INFO     | Cleaning tickets
+2026-08-06 07:10:34 | INFO     | Cleaning completed (408 values changed)
+2026-08-06 07:10:34 | INFO     | Standardizing tickets
+2026-08-06 07:10:34 | INFO     | tickets standardized (3308 values changed)
+2026-08-06 07:10:34 | INFO     | Saved staging dataset: tickets.parquet
+2026-08-06 07:10:34 | INFO     | Processing transactions
+2026-08-06 07:10:34 | INFO     | Cleaning transactions
+2026-08-06 07:10:37 | INFO     | Cleaning completed (180720 values changed)
+2026-08-06 07:10:37 | INFO     | Standardizing transactions
+2026-08-06 07:10:41 | INFO     | transactions standardized (187948 values changed)
+2026-08-06 07:10:41 | INFO     | Saved staging dataset: transactions.parquet
+2026-08-06 07:10:41 | INFO     | ============================================================
+2026-08-06 07:10:41 | INFO     | STAGING LAYER COMPLETED
+2026-08-06 07:10:41 | INFO     | ============================================================
+2026-08-06 07:10:41 | INFO     | Staging Layer completed successfully.
+2026-08-06 07:10:41 | INFO     | ============================================================
+2026-08-06 07:10:41 | INFO     | STARTING VALIDATION LAYER
+2026-08-06 07:10:41 | INFO     | ============================================================
+2026-08-06 07:10:41 | INFO     | Validating merchants
+2026-08-06 07:10:41 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:10:41 | INFO     | [PASS] Required Columns
+2026-08-06 07:10:41 | INFO     | [PASS] Missing Required Values
+2026-08-06 07:10:41 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 07:10:41 | INFO     | [PASS] Merchant Exists
+2026-08-06 07:10:41 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:10:41 | INFO     | [PASS] Net Amount Validation
+2026-08-06 07:10:41 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 07:10:41 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 07:10:41 | INFO     | Validating settlements
+2026-08-06 07:10:41 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:10:41 | INFO     | [PASS] Required Columns
+2026-08-06 07:10:41 | WARNING  | [FAIL] Missing Required Values
+2026-08-06 07:10:41 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 07:10:42 | WARNING  | [FAIL] Merchant Exists
+2026-08-06 07:10:42 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:10:42 | WARNING  | [FAIL] Net Amount Validation
+2026-08-06 07:10:46 | WARNING  | [FAIL] Rail Charges Validation
+2026-08-06 07:11:02 | WARNING  | [FAIL] Settlement Lag Validation
+2026-08-06 07:11:02 | INFO     | Validating switch_log
+2026-08-06 07:11:02 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:11:02 | INFO     | [PASS] Required Columns
+2026-08-06 07:11:02 | INFO     | [PASS] Missing Required Values
+2026-08-06 07:11:02 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 07:11:02 | INFO     | [PASS] Merchant Exists
+2026-08-06 07:11:03 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:11:03 | INFO     | [PASS] Net Amount Validation
+2026-08-06 07:11:03 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 07:11:03 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 07:11:03 | INFO     | Validating tickets
+2026-08-06 07:11:03 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:11:03 | INFO     | [PASS] Required Columns
+2026-08-06 07:11:03 | INFO     | [PASS] Missing Required Values
+2026-08-06 07:11:03 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 07:11:03 | INFO     | [PASS] Merchant Exists
+2026-08-06 07:11:04 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:11:04 | INFO     | [PASS] Net Amount Validation
+2026-08-06 07:11:04 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 07:11:04 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 07:11:04 | INFO     | Validating transactions
+2026-08-06 07:11:04 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:11:04 | INFO     | [PASS] Required Columns
+2026-08-06 07:11:04 | WARNING  | [FAIL] Missing Required Values
+2026-08-06 07:11:04 | WARNING  | [FAIL] Duplicate Primary Keys
+2026-08-06 07:11:05 | INFO     | [PASS] Merchant Exists
+2026-08-06 07:11:05 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:11:05 | INFO     | [PASS] Net Amount Validation
+2026-08-06 07:11:05 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 07:11:05 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 07:11:05 | INFO     | ============================================================
+2026-08-06 07:11:05 | INFO     | VALIDATION LAYER COMPLETED
+2026-08-06 07:11:05 | INFO     | ============================================================
+2026-08-06 07:11:05 | INFO     | Validation Layer completed successfully.
+2026-08-06 07:11:05 | INFO     | ============================================================
+2026-08-06 07:11:05 | INFO     | STARTING WAREHOUSE BUILD
+2026-08-06 07:11:05 | INFO     | ============================================================
+2026-08-06 07:11:05 | INFO     | ============================================================
+2026-08-06 07:11:05 | INFO     | BUILDING DIMENSIONS
+2026-08-06 07:11:05 | INFO     | ============================================================
+2026-08-06 07:11:05 | INFO     | Built dim_merchants (62 rows)
+2026-08-06 07:11:05 | INFO     | Built dim_payment_rails (7 rows)
+2026-08-06 07:11:05 | INFO     | Built dim_dates (61 rows)
+2026-08-06 07:11:05 | INFO     | ============================================================
+2026-08-06 07:11:05 | INFO     | BUILDING FACT TABLES
+2026-08-06 07:11:05 | INFO     | ============================================================
+2026-08-06 07:11:09 | INFO     | Built fact_transactions (180,720 rows)
+2026-08-06 07:11:10 | INFO     | Built fact_settlements (152,414 rows)
+2026-08-06 07:11:10 | INFO     | Built fact_support_tickets (1,450 rows)
+2026-08-06 07:11:10 | INFO     | ============================================================
+2026-08-06 07:11:10 | INFO     | WAREHOUSE BUILD COMPLETE
+2026-08-06 07:11:10 | INFO     | ============================================================
+2026-08-06 07:11:10 | INFO     | Tables Built : 6
+2026-08-06 07:11:10 | INFO     | Success Rate : 100.0%
+2026-08-06 07:11:10 | INFO     | Warehouse Layer completed successfully.
+2026-08-06 07:11:10 | INFO     | ------------------------------------------------------------
+2026-08-06 07:11:10 | INFO     | Pipeline completed in 49.08 seconds
+2026-08-06 07:11:10 | INFO     | Successful datasets : 5
+2026-08-06 07:11:10 | INFO     | Failed datasets     : 0
+2026-08-06 07:11:10 | INFO     | Transformation operations : 10
+2026-08-06 07:11:10 | INFO     | Validation rules executed : 45
+2026-08-06 07:11:10 | INFO     | Data Quality Score : 81
+2026-08-06 07:11:10 | INFO     | Warehouse tables built : 6
+2026-08-06 07:11:10 | INFO     | Warehouse success rate : 100.0%
+2026-08-06 07:11:10 | INFO     | ------------------------------------------------------------
+2026-08-06 07:11:10 | INFO     | Pipeline execution completed.
+2026-08-06 07:11:10 | INFO     | ============================================================
+2026-08-06 07:11:10 | INFO     | BUILDING DASHBOARD
+2026-08-06 07:11:10 | INFO     | ============================================================
+2026-08-06 07:11:10 | INFO     | Dashboard model created.
+2026-08-06 07:11:10 | INFO     | ============================================================
+2026-08-06 07:11:10 | INFO     | BUILDING EXECUTIVE DASHBOARD
+2026-08-06 07:11:10 | INFO     | ============================================================
+2026-08-06 07:11:10 | INFO     | Calculating executive KPIs.
+2026-08-06 07:11:11 | INFO     | Date filter applied: None -> None (180720 rows)
+2026-08-06 07:11:11 | INFO     | Date filter applied: None -> None (152414 rows)
+2026-08-06 07:11:11 | INFO     | Building executive charts.
+2026-08-06 07:11:11 | INFO     | Date filter applied: None -> None (180720 rows)
+2026-08-06 07:11:11 | INFO     | Date filter applied: None -> None (152414 rows)
+2026-08-06 07:11:11 | INFO     | Executive dashboard created successfully.
+2026-08-06 07:11:21 | INFO     | ============================================================
+2026-08-06 07:11:21 | INFO     | PIPELINE SERVICE
+2026-08-06 07:11:21 | INFO     | ============================================================
+2026-08-06 07:11:21 | INFO     | ============================================================
+2026-08-06 07:11:21 | INFO     | PAYFLOW INTELLIGENCE PIPELINE
+2026-08-06 07:11:21 | INFO     | ============================================================
+2026-08-06 07:11:21 | INFO     | Discovered 5 datasets.
+2026-08-06 07:11:21 | INFO     | Loading merchants.csv
+2026-08-06 07:11:21 | INFO     | merchants.csv loaded successfully (94 rows)
+2026-08-06 07:11:21 | INFO     | Saved merchants.parquet
+2026-08-06 07:11:21 | INFO     | Loading settlements.csv
+2026-08-06 07:11:23 | INFO     | settlements.csv loaded successfully (152,414 rows)
+2026-08-06 07:11:23 | INFO     | Saved settlements.parquet
+2026-08-06 07:11:23 | INFO     | Loading switch_log.csv
+2026-08-06 07:11:24 | INFO     | switch_log.csv loaded successfully (204,983 rows)
+2026-08-06 07:11:25 | INFO     | Saved switch_log.parquet
+2026-08-06 07:11:25 | INFO     | Loading tickets.csv
+2026-08-06 07:11:25 | INFO     | tickets.csv loaded successfully (1,450 rows)
+2026-08-06 07:11:25 | INFO     | Saved tickets.parquet
+2026-08-06 07:11:25 | INFO     | Loading transactions.csv
+2026-08-06 07:11:26 | INFO     | transactions.csv loaded successfully (180,720 rows)
+2026-08-06 07:11:27 | INFO     | Saved transactions.parquet
+2026-08-06 07:11:27 | INFO     | Landing completed (Success=5, Failed=0)
+2026-08-06 07:11:27 | INFO     | History updated (105 total records).
+2026-08-06 07:11:27 | INFO     | Landing Layer completed successfully.
+2026-08-06 07:11:27 | INFO     | ============================================================
+2026-08-06 07:11:27 | INFO     | STARTING STAGING LAYER
+2026-08-06 07:11:27 | INFO     | ============================================================
+2026-08-06 07:11:27 | INFO     | Processing merchants
+2026-08-06 07:11:27 | INFO     | Cleaning merchants
+2026-08-06 07:11:27 | INFO     | Cleaning completed (388 values changed)
+2026-08-06 07:11:27 | INFO     | Standardizing merchants
+2026-08-06 07:11:27 | INFO     | merchants standardized (410 values changed)
+2026-08-06 07:11:27 | INFO     | Saved staging dataset: merchants.parquet
+2026-08-06 07:11:27 | INFO     | Processing settlements
+2026-08-06 07:11:27 | INFO     | Cleaning settlements
+2026-08-06 07:11:28 | INFO     | Cleaning completed (10665 values changed)
+2026-08-06 07:11:28 | INFO     | Standardizing settlements
+2026-08-06 07:11:31 | INFO     | settlements standardized (165841 values changed)
+2026-08-06 07:11:31 | INFO     | Saved staging dataset: settlements.parquet
+2026-08-06 07:11:31 | INFO     | Processing switch_log
+2026-08-06 07:11:31 | INFO     | Cleaning switch_log
+2026-08-06 07:11:32 | INFO     | Cleaning completed (0 values changed)
+2026-08-06 07:11:32 | INFO     | Standardizing switch_log
+2026-08-06 07:11:34 | INFO     | switch_log standardized (0 values changed)
+2026-08-06 07:11:34 | INFO     | Saved staging dataset: switch_log.parquet
+2026-08-06 07:11:34 | INFO     | Processing tickets
+2026-08-06 07:11:34 | INFO     | Cleaning tickets
+2026-08-06 07:11:34 | INFO     | Cleaning completed (408 values changed)
+2026-08-06 07:11:34 | INFO     | Standardizing tickets
+2026-08-06 07:11:34 | INFO     | tickets standardized (3308 values changed)
+2026-08-06 07:11:34 | INFO     | Saved staging dataset: tickets.parquet
+2026-08-06 07:11:34 | INFO     | Processing transactions
+2026-08-06 07:11:34 | INFO     | Cleaning transactions
+2026-08-06 07:11:37 | INFO     | Cleaning completed (180720 values changed)
+2026-08-06 07:11:37 | INFO     | Standardizing transactions
+2026-08-06 07:11:40 | INFO     | transactions standardized (187948 values changed)
+2026-08-06 07:11:41 | INFO     | Saved staging dataset: transactions.parquet
+2026-08-06 07:11:41 | INFO     | ============================================================
+2026-08-06 07:11:41 | INFO     | STAGING LAYER COMPLETED
+2026-08-06 07:11:41 | INFO     | ============================================================
+2026-08-06 07:11:41 | INFO     | Staging Layer completed successfully.
+2026-08-06 07:11:41 | INFO     | ============================================================
+2026-08-06 07:11:41 | INFO     | STARTING VALIDATION LAYER
+2026-08-06 07:11:41 | INFO     | ============================================================
+2026-08-06 07:11:41 | INFO     | Validating merchants
+2026-08-06 07:11:41 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:11:41 | INFO     | [PASS] Required Columns
+2026-08-06 07:11:41 | INFO     | [PASS] Missing Required Values
+2026-08-06 07:11:41 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 07:11:41 | INFO     | [PASS] Merchant Exists
+2026-08-06 07:11:41 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:11:41 | INFO     | [PASS] Net Amount Validation
+2026-08-06 07:11:41 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 07:11:41 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 07:11:41 | INFO     | Validating settlements
+2026-08-06 07:11:41 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:11:41 | INFO     | [PASS] Required Columns
+2026-08-06 07:11:41 | WARNING  | [FAIL] Missing Required Values
+2026-08-06 07:11:41 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 07:11:41 | WARNING  | [FAIL] Merchant Exists
+2026-08-06 07:11:41 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:11:41 | WARNING  | [FAIL] Net Amount Validation
+2026-08-06 07:11:45 | WARNING  | [FAIL] Rail Charges Validation
+2026-08-06 07:12:01 | WARNING  | [FAIL] Settlement Lag Validation
+2026-08-06 07:12:01 | INFO     | Validating switch_log
+2026-08-06 07:12:01 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:12:01 | INFO     | [PASS] Required Columns
+2026-08-06 07:12:01 | INFO     | [PASS] Missing Required Values
+2026-08-06 07:12:01 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 07:12:01 | INFO     | [PASS] Merchant Exists
+2026-08-06 07:12:02 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:12:02 | INFO     | [PASS] Net Amount Validation
+2026-08-06 07:12:02 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 07:12:02 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 07:12:02 | INFO     | Validating tickets
+2026-08-06 07:12:02 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:12:02 | INFO     | [PASS] Required Columns
+2026-08-06 07:12:02 | INFO     | [PASS] Missing Required Values
+2026-08-06 07:12:02 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 07:12:02 | INFO     | [PASS] Merchant Exists
+2026-08-06 07:12:03 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:12:03 | INFO     | [PASS] Net Amount Validation
+2026-08-06 07:12:03 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 07:12:03 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 07:12:03 | INFO     | Validating transactions
+2026-08-06 07:12:03 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:12:03 | INFO     | [PASS] Required Columns
+2026-08-06 07:12:03 | WARNING  | [FAIL] Missing Required Values
+2026-08-06 07:12:03 | WARNING  | [FAIL] Duplicate Primary Keys
+2026-08-06 07:12:03 | INFO     | [PASS] Merchant Exists
+2026-08-06 07:12:03 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:12:03 | INFO     | [PASS] Net Amount Validation
+2026-08-06 07:12:03 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 07:12:03 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 07:12:03 | INFO     | ============================================================
+2026-08-06 07:12:03 | INFO     | VALIDATION LAYER COMPLETED
+2026-08-06 07:12:03 | INFO     | ============================================================
+2026-08-06 07:12:03 | INFO     | Validation Layer completed successfully.
+2026-08-06 07:12:03 | INFO     | ============================================================
+2026-08-06 07:12:03 | INFO     | STARTING WAREHOUSE BUILD
+2026-08-06 07:12:03 | INFO     | ============================================================
+2026-08-06 07:12:03 | INFO     | ============================================================
+2026-08-06 07:12:03 | INFO     | BUILDING DIMENSIONS
+2026-08-06 07:12:03 | INFO     | ============================================================
+2026-08-06 07:12:03 | INFO     | Built dim_merchants (62 rows)
+2026-08-06 07:12:03 | INFO     | Built dim_payment_rails (7 rows)
+2026-08-06 07:12:03 | INFO     | Built dim_dates (61 rows)
+2026-08-06 07:12:03 | INFO     | ============================================================
+2026-08-06 07:12:03 | INFO     | BUILDING FACT TABLES
+2026-08-06 07:12:03 | INFO     | ============================================================
+2026-08-06 07:12:07 | INFO     | Built fact_transactions (180,720 rows)
+2026-08-06 07:12:08 | INFO     | Built fact_settlements (152,414 rows)
+2026-08-06 07:12:08 | INFO     | Built fact_support_tickets (1,450 rows)
+2026-08-06 07:12:08 | INFO     | ============================================================
+2026-08-06 07:12:08 | INFO     | WAREHOUSE BUILD COMPLETE
+2026-08-06 07:12:08 | INFO     | ============================================================
+2026-08-06 07:12:08 | INFO     | Tables Built : 6
+2026-08-06 07:12:08 | INFO     | Success Rate : 100.0%
+2026-08-06 07:12:08 | INFO     | Warehouse Layer completed successfully.
+2026-08-06 07:12:08 | INFO     | ------------------------------------------------------------
+2026-08-06 07:12:08 | INFO     | Pipeline completed in 46.65 seconds
+2026-08-06 07:12:08 | INFO     | Successful datasets : 5
+2026-08-06 07:12:08 | INFO     | Failed datasets     : 0
+2026-08-06 07:12:08 | INFO     | Transformation operations : 10
+2026-08-06 07:12:08 | INFO     | Validation rules executed : 45
+2026-08-06 07:12:08 | INFO     | Data Quality Score : 81
+2026-08-06 07:12:08 | INFO     | Warehouse tables built : 6
+2026-08-06 07:12:08 | INFO     | Warehouse success rate : 100.0%
+2026-08-06 07:12:08 | INFO     | ------------------------------------------------------------
+2026-08-06 07:12:08 | INFO     | Pipeline execution completed.
+2026-08-06 07:12:08 | INFO     | ============================================================
+2026-08-06 07:12:08 | INFO     | BUILDING DASHBOARD
+2026-08-06 07:12:08 | INFO     | ============================================================
+2026-08-06 07:12:08 | INFO     | Dashboard model created.
+2026-08-06 07:12:08 | INFO     | ============================================================
+2026-08-06 07:12:08 | INFO     | BUILDING EXECUTIVE DASHBOARD
+2026-08-06 07:12:08 | INFO     | ============================================================
+2026-08-06 07:12:08 | INFO     | Calculating executive KPIs.
+2026-08-06 07:12:08 | INFO     | Date filter applied: None -> None (180720 rows)
+2026-08-06 07:12:08 | INFO     | Date filter applied: None -> None (152414 rows)
+2026-08-06 07:12:08 | INFO     | Building executive charts.
+2026-08-06 07:12:08 | INFO     | Date filter applied: None -> None (180720 rows)
+2026-08-06 07:12:09 | INFO     | Date filter applied: None -> None (152414 rows)
+2026-08-06 07:12:09 | INFO     | Executive dashboard created successfully.
+2026-08-06 07:12:21 | INFO     | ============================================================
+2026-08-06 07:12:21 | INFO     | PIPELINE SERVICE
+2026-08-06 07:12:21 | INFO     | ============================================================
+2026-08-06 07:12:21 | INFO     | ============================================================
+2026-08-06 07:12:21 | INFO     | PAYFLOW INTELLIGENCE PIPELINE
+2026-08-06 07:12:21 | INFO     | ============================================================
+2026-08-06 07:12:21 | INFO     | Discovered 5 datasets.
+2026-08-06 07:12:21 | INFO     | Loading merchants.csv
+2026-08-06 07:12:21 | INFO     | merchants.csv loaded successfully (94 rows)
+2026-08-06 07:12:21 | INFO     | Saved merchants.parquet
+2026-08-06 07:12:21 | INFO     | Loading settlements.csv
+2026-08-06 07:12:21 | INFO     | settlements.csv loaded successfully (152,414 rows)
+2026-08-06 07:12:22 | INFO     | Saved settlements.parquet
+2026-08-06 07:12:22 | INFO     | Loading switch_log.csv
+2026-08-06 07:12:23 | INFO     | switch_log.csv loaded successfully (204,983 rows)
+2026-08-06 07:12:23 | INFO     | Saved switch_log.parquet
+2026-08-06 07:12:23 | INFO     | Loading tickets.csv
+2026-08-06 07:12:23 | INFO     | tickets.csv loaded successfully (1,450 rows)
+2026-08-06 07:12:23 | INFO     | Saved tickets.parquet
+2026-08-06 07:12:23 | INFO     | Loading transactions.csv
+2026-08-06 07:12:25 | INFO     | transactions.csv loaded successfully (180,720 rows)
+2026-08-06 07:12:25 | INFO     | Saved transactions.parquet
+2026-08-06 07:12:25 | INFO     | Landing completed (Success=5, Failed=0)
+2026-08-06 07:12:25 | INFO     | History updated (125 total records).
+2026-08-06 07:12:25 | INFO     | Landing Layer completed successfully.
+2026-08-06 07:12:25 | INFO     | ============================================================
+2026-08-06 07:12:25 | INFO     | STARTING STAGING LAYER
+2026-08-06 07:12:25 | INFO     | ============================================================
+2026-08-06 07:12:25 | INFO     | Processing merchants
+2026-08-06 07:12:25 | INFO     | Cleaning merchants
+2026-08-06 07:12:25 | INFO     | Cleaning completed (388 values changed)
+2026-08-06 07:12:25 | INFO     | Standardizing merchants
+2026-08-06 07:12:26 | INFO     | merchants standardized (410 values changed)
+2026-08-06 07:12:26 | INFO     | Saved staging dataset: merchants.parquet
+2026-08-06 07:12:26 | INFO     | Processing settlements
+2026-08-06 07:12:26 | INFO     | Cleaning settlements
+2026-08-06 07:12:27 | INFO     | Cleaning completed (10665 values changed)
+2026-08-06 07:12:27 | INFO     | Standardizing settlements
+2026-08-06 07:12:30 | INFO     | settlements standardized (165841 values changed)
+2026-08-06 07:12:30 | INFO     | Saved staging dataset: settlements.parquet
+2026-08-06 07:12:30 | INFO     | Processing switch_log
+2026-08-06 07:12:30 | INFO     | Cleaning switch_log
+2026-08-06 07:12:31 | INFO     | Cleaning completed (0 values changed)
+2026-08-06 07:12:31 | INFO     | Standardizing switch_log
+2026-08-06 07:12:33 | INFO     | switch_log standardized (0 values changed)
+2026-08-06 07:12:33 | INFO     | Saved staging dataset: switch_log.parquet
+2026-08-06 07:12:33 | INFO     | Processing tickets
+2026-08-06 07:12:33 | INFO     | Cleaning tickets
+2026-08-06 07:12:33 | INFO     | Cleaning completed (408 values changed)
+2026-08-06 07:12:33 | INFO     | Standardizing tickets
+2026-08-06 07:12:33 | INFO     | tickets standardized (3308 values changed)
+2026-08-06 07:12:33 | INFO     | Saved staging dataset: tickets.parquet
+2026-08-06 07:12:33 | INFO     | Processing transactions
+2026-08-06 07:12:33 | INFO     | Cleaning transactions
+2026-08-06 07:12:36 | INFO     | Cleaning completed (180720 values changed)
+2026-08-06 07:12:36 | INFO     | Standardizing transactions
+2026-08-06 07:12:40 | INFO     | transactions standardized (187948 values changed)
+2026-08-06 07:12:40 | INFO     | Saved staging dataset: transactions.parquet
+2026-08-06 07:12:40 | INFO     | ============================================================
+2026-08-06 07:12:40 | INFO     | STAGING LAYER COMPLETED
+2026-08-06 07:12:40 | INFO     | ============================================================
+2026-08-06 07:12:40 | INFO     | Staging Layer completed successfully.
+2026-08-06 07:12:40 | INFO     | ============================================================
+2026-08-06 07:12:40 | INFO     | STARTING VALIDATION LAYER
+2026-08-06 07:12:40 | INFO     | ============================================================
+2026-08-06 07:12:40 | INFO     | Validating merchants
+2026-08-06 07:12:40 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:12:40 | INFO     | [PASS] Required Columns
+2026-08-06 07:12:40 | INFO     | [PASS] Missing Required Values
+2026-08-06 07:12:40 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 07:12:40 | INFO     | [PASS] Merchant Exists
+2026-08-06 07:12:40 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:12:40 | INFO     | [PASS] Net Amount Validation
+2026-08-06 07:12:40 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 07:12:40 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 07:12:40 | INFO     | Validating settlements
+2026-08-06 07:12:40 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:12:40 | INFO     | [PASS] Required Columns
+2026-08-06 07:12:40 | WARNING  | [FAIL] Missing Required Values
+2026-08-06 07:12:40 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 07:12:41 | WARNING  | [FAIL] Merchant Exists
+2026-08-06 07:12:41 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:12:41 | WARNING  | [FAIL] Net Amount Validation
+2026-08-06 07:12:45 | WARNING  | [FAIL] Rail Charges Validation
+2026-08-06 07:13:00 | WARNING  | [FAIL] Settlement Lag Validation
+2026-08-06 07:13:00 | INFO     | Validating switch_log
+2026-08-06 07:13:00 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:13:00 | INFO     | [PASS] Required Columns
+2026-08-06 07:13:00 | INFO     | [PASS] Missing Required Values
+2026-08-06 07:13:00 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 07:13:00 | INFO     | [PASS] Merchant Exists
+2026-08-06 07:13:02 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:13:02 | INFO     | [PASS] Net Amount Validation
+2026-08-06 07:13:02 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 07:13:02 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 07:13:02 | INFO     | Validating tickets
+2026-08-06 07:13:02 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:13:02 | INFO     | [PASS] Required Columns
+2026-08-06 07:13:02 | INFO     | [PASS] Missing Required Values
+2026-08-06 07:13:02 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 07:13:02 | INFO     | [PASS] Merchant Exists
+2026-08-06 07:13:02 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:13:02 | INFO     | [PASS] Net Amount Validation
+2026-08-06 07:13:02 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 07:13:02 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 07:13:02 | INFO     | Validating transactions
+2026-08-06 07:13:02 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:13:02 | INFO     | [PASS] Required Columns
+2026-08-06 07:13:02 | WARNING  | [FAIL] Missing Required Values
+2026-08-06 07:13:02 | WARNING  | [FAIL] Duplicate Primary Keys
+2026-08-06 07:13:03 | INFO     | [PASS] Merchant Exists
+2026-08-06 07:13:03 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:13:03 | INFO     | [PASS] Net Amount Validation
+2026-08-06 07:13:03 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 07:13:03 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 07:13:03 | INFO     | ============================================================
+2026-08-06 07:13:03 | INFO     | VALIDATION LAYER COMPLETED
+2026-08-06 07:13:03 | INFO     | ============================================================
+2026-08-06 07:13:03 | INFO     | Validation Layer completed successfully.
+2026-08-06 07:13:03 | INFO     | ============================================================
+2026-08-06 07:13:03 | INFO     | STARTING WAREHOUSE BUILD
+2026-08-06 07:13:03 | INFO     | ============================================================
+2026-08-06 07:13:03 | INFO     | ============================================================
+2026-08-06 07:13:03 | INFO     | BUILDING DIMENSIONS
+2026-08-06 07:13:03 | INFO     | ============================================================
+2026-08-06 07:13:03 | INFO     | Built dim_merchants (62 rows)
+2026-08-06 07:13:03 | INFO     | Built dim_payment_rails (7 rows)
+2026-08-06 07:13:03 | INFO     | Built dim_dates (61 rows)
+2026-08-06 07:13:03 | INFO     | ============================================================
+2026-08-06 07:13:03 | INFO     | BUILDING FACT TABLES
+2026-08-06 07:13:03 | INFO     | ============================================================
+2026-08-06 07:13:06 | INFO     | Built fact_transactions (180,720 rows)
+2026-08-06 07:13:07 | INFO     | Built fact_settlements (152,414 rows)
+2026-08-06 07:13:08 | INFO     | Built fact_support_tickets (1,450 rows)
+2026-08-06 07:13:08 | INFO     | ============================================================
+2026-08-06 07:13:08 | INFO     | WAREHOUSE BUILD COMPLETE
+2026-08-06 07:13:08 | INFO     | ============================================================
+2026-08-06 07:13:08 | INFO     | Tables Built : 6
+2026-08-06 07:13:08 | INFO     | Success Rate : 100.0%
+2026-08-06 07:13:08 | INFO     | Warehouse Layer completed successfully.
+2026-08-06 07:13:08 | INFO     | ------------------------------------------------------------
+2026-08-06 07:13:08 | INFO     | Pipeline completed in 46.93 seconds
+2026-08-06 07:13:08 | INFO     | Successful datasets : 5
+2026-08-06 07:13:08 | INFO     | Failed datasets     : 0
+2026-08-06 07:13:08 | INFO     | Transformation operations : 10
+2026-08-06 07:13:08 | INFO     | Validation rules executed : 45
+2026-08-06 07:13:08 | INFO     | Data Quality Score : 81
+2026-08-06 07:13:08 | INFO     | Warehouse tables built : 6
+2026-08-06 07:13:08 | INFO     | Warehouse success rate : 100.0%
+2026-08-06 07:13:08 | INFO     | ------------------------------------------------------------
+2026-08-06 07:13:08 | INFO     | Pipeline execution completed.
+2026-08-06 07:13:08 | INFO     | ============================================================
+2026-08-06 07:13:08 | INFO     | BUILDING DASHBOARD
+2026-08-06 07:13:08 | INFO     | ============================================================
+2026-08-06 07:13:08 | INFO     | Dashboard model created.
+2026-08-06 07:13:08 | INFO     | ============================================================
+2026-08-06 07:13:08 | INFO     | BUILDING EXECUTIVE DASHBOARD
+2026-08-06 07:13:08 | INFO     | ============================================================
+2026-08-06 07:13:08 | INFO     | Calculating executive KPIs.
+2026-08-06 07:13:08 | INFO     | Date filter applied: None -> None (180720 rows)
+2026-08-06 07:13:08 | INFO     | Date filter applied: None -> None (152414 rows)
+2026-08-06 07:13:08 | INFO     | Building executive charts.
+2026-08-06 07:13:08 | INFO     | Date filter applied: None -> None (180720 rows)
+2026-08-06 07:13:08 | INFO     | Date filter applied: None -> None (152414 rows)
+2026-08-06 07:13:08 | INFO     | Executive dashboard created successfully.
+2026-08-06 07:16:18 | INFO     | ============================================================
+2026-08-06 07:16:18 | INFO     | PIPELINE SERVICE
+2026-08-06 07:16:18 | INFO     | ============================================================
+2026-08-06 07:16:18 | INFO     | ============================================================
+2026-08-06 07:16:18 | INFO     | PAYFLOW INTELLIGENCE PIPELINE
+2026-08-06 07:16:18 | INFO     | ============================================================
+2026-08-06 07:16:18 | INFO     | Discovered 5 datasets.
+2026-08-06 07:16:18 | INFO     | Loading merchants.csv
+2026-08-06 07:16:18 | INFO     | merchants.csv loaded successfully (94 rows)
+2026-08-06 07:16:18 | INFO     | Saved merchants.parquet
+2026-08-06 07:16:18 | INFO     | Loading settlements.csv
+2026-08-06 07:16:19 | INFO     | settlements.csv loaded successfully (152,414 rows)
+2026-08-06 07:16:19 | INFO     | Saved settlements.parquet
+2026-08-06 07:16:19 | INFO     | Loading switch_log.csv
+2026-08-06 07:16:20 | INFO     | switch_log.csv loaded successfully (204,983 rows)
+2026-08-06 07:16:20 | INFO     | Saved switch_log.parquet
+2026-08-06 07:16:20 | INFO     | Loading tickets.csv
+2026-08-06 07:16:20 | INFO     | tickets.csv loaded successfully (1,450 rows)
+2026-08-06 07:16:20 | INFO     | Saved tickets.parquet
+2026-08-06 07:16:20 | INFO     | Loading transactions.csv
+2026-08-06 07:16:22 | INFO     | transactions.csv loaded successfully (180,720 rows)
+2026-08-06 07:16:22 | INFO     | Saved transactions.parquet
+2026-08-06 07:16:22 | INFO     | Landing completed (Success=5, Failed=0)
+2026-08-06 07:16:22 | INFO     | History updated (150 total records).
+2026-08-06 07:16:22 | INFO     | Landing Layer completed successfully.
+2026-08-06 07:16:22 | INFO     | ============================================================
+2026-08-06 07:16:22 | INFO     | STARTING STAGING LAYER
+2026-08-06 07:16:22 | INFO     | ============================================================
+2026-08-06 07:16:22 | INFO     | Processing merchants
+2026-08-06 07:16:22 | INFO     | Cleaning merchants
+2026-08-06 07:16:22 | INFO     | Cleaning completed (388 values changed)
+2026-08-06 07:16:22 | INFO     | Standardizing merchants
+2026-08-06 07:16:22 | INFO     | merchants standardized (410 values changed)
+2026-08-06 07:16:22 | INFO     | Saved staging dataset: merchants.parquet
+2026-08-06 07:16:22 | INFO     | Processing settlements
+2026-08-06 07:16:22 | INFO     | Cleaning settlements
+2026-08-06 07:16:24 | INFO     | Cleaning completed (10665 values changed)
+2026-08-06 07:16:24 | INFO     | Standardizing settlements
+2026-08-06 07:16:26 | INFO     | settlements standardized (165841 values changed)
+2026-08-06 07:16:27 | INFO     | Saved staging dataset: settlements.parquet
+2026-08-06 07:16:27 | INFO     | Processing switch_log
+2026-08-06 07:16:27 | INFO     | Cleaning switch_log
+2026-08-06 07:16:28 | INFO     | Cleaning completed (0 values changed)
+2026-08-06 07:16:28 | INFO     | Standardizing switch_log
+2026-08-06 07:16:29 | INFO     | switch_log standardized (0 values changed)
+2026-08-06 07:16:29 | INFO     | Saved staging dataset: switch_log.parquet
+2026-08-06 07:16:29 | INFO     | Processing tickets
+2026-08-06 07:16:29 | INFO     | Cleaning tickets
+2026-08-06 07:16:29 | INFO     | Cleaning completed (408 values changed)
+2026-08-06 07:16:29 | INFO     | Standardizing tickets
+2026-08-06 07:16:29 | INFO     | tickets standardized (3308 values changed)
+2026-08-06 07:16:29 | INFO     | Saved staging dataset: tickets.parquet
+2026-08-06 07:16:29 | INFO     | Processing transactions
+2026-08-06 07:16:29 | INFO     | Cleaning transactions
+2026-08-06 07:16:32 | INFO     | Cleaning completed (180720 values changed)
+2026-08-06 07:16:32 | INFO     | Standardizing transactions
+2026-08-06 07:16:36 | INFO     | transactions standardized (187948 values changed)
+2026-08-06 07:16:36 | INFO     | Saved staging dataset: transactions.parquet
+2026-08-06 07:16:36 | INFO     | ============================================================
+2026-08-06 07:16:36 | INFO     | STAGING LAYER COMPLETED
+2026-08-06 07:16:36 | INFO     | ============================================================
+2026-08-06 07:16:36 | INFO     | Staging Layer completed successfully.
+2026-08-06 07:16:36 | INFO     | ============================================================
+2026-08-06 07:16:36 | INFO     | STARTING VALIDATION LAYER
+2026-08-06 07:16:36 | INFO     | ============================================================
+2026-08-06 07:16:36 | INFO     | Validating merchants
+2026-08-06 07:16:36 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:16:36 | INFO     | [PASS] Required Columns
+2026-08-06 07:16:36 | INFO     | [PASS] Missing Required Values
+2026-08-06 07:16:36 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 07:16:36 | INFO     | [PASS] Merchant Exists
+2026-08-06 07:16:36 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:16:36 | INFO     | [PASS] Net Amount Validation
+2026-08-06 07:16:36 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 07:16:36 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 07:16:36 | INFO     | Validating settlements
+2026-08-06 07:16:36 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:16:36 | INFO     | [PASS] Required Columns
+2026-08-06 07:16:36 | WARNING  | [FAIL] Missing Required Values
+2026-08-06 07:16:36 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 07:16:36 | WARNING  | [FAIL] Merchant Exists
+2026-08-06 07:16:36 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:16:36 | WARNING  | [FAIL] Net Amount Validation
+2026-08-06 07:16:40 | WARNING  | [FAIL] Rail Charges Validation
+2026-08-06 07:16:55 | WARNING  | [FAIL] Settlement Lag Validation
+2026-08-06 07:16:55 | INFO     | Validating switch_log
+2026-08-06 07:16:55 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:16:55 | INFO     | [PASS] Required Columns
+2026-08-06 07:16:55 | INFO     | [PASS] Missing Required Values
+2026-08-06 07:16:55 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 07:16:55 | INFO     | [PASS] Merchant Exists
+2026-08-06 07:16:57 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:16:57 | INFO     | [PASS] Net Amount Validation
+2026-08-06 07:16:57 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 07:16:57 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 07:16:57 | INFO     | Validating tickets
+2026-08-06 07:16:57 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:16:57 | INFO     | [PASS] Required Columns
+2026-08-06 07:16:57 | INFO     | [PASS] Missing Required Values
+2026-08-06 07:16:57 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 07:16:57 | INFO     | [PASS] Merchant Exists
+2026-08-06 07:16:57 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:16:57 | INFO     | [PASS] Net Amount Validation
+2026-08-06 07:16:57 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 07:16:57 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 07:16:57 | INFO     | Validating transactions
+2026-08-06 07:16:57 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:16:57 | INFO     | [PASS] Required Columns
+2026-08-06 07:16:57 | WARNING  | [FAIL] Missing Required Values
+2026-08-06 07:16:57 | WARNING  | [FAIL] Duplicate Primary Keys
+2026-08-06 07:16:58 | INFO     | [PASS] Merchant Exists
+2026-08-06 07:16:58 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:16:58 | INFO     | [PASS] Net Amount Validation
+2026-08-06 07:16:58 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 07:16:58 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 07:16:58 | INFO     | ============================================================
+2026-08-06 07:16:58 | INFO     | VALIDATION LAYER COMPLETED
+2026-08-06 07:16:58 | INFO     | ============================================================
+2026-08-06 07:16:58 | INFO     | Validation Layer completed successfully.
+2026-08-06 07:16:58 | INFO     | ============================================================
+2026-08-06 07:16:58 | INFO     | STARTING WAREHOUSE BUILD
+2026-08-06 07:16:58 | INFO     | ============================================================
+2026-08-06 07:16:58 | INFO     | ============================================================
+2026-08-06 07:16:58 | INFO     | BUILDING DIMENSIONS
+2026-08-06 07:16:58 | INFO     | ============================================================
+2026-08-06 07:16:58 | INFO     | Built dim_merchants (62 rows)
+2026-08-06 07:16:58 | INFO     | Built dim_payment_rails (7 rows)
+2026-08-06 07:16:58 | INFO     | Built dim_dates (61 rows)
+2026-08-06 07:16:58 | INFO     | ============================================================
+2026-08-06 07:16:58 | INFO     | BUILDING FACT TABLES
+2026-08-06 07:16:58 | INFO     | ============================================================
+2026-08-06 07:17:02 | INFO     | Built fact_transactions (180,720 rows)
+2026-08-06 07:17:03 | INFO     | Built fact_settlements (152,414 rows)
+2026-08-06 07:17:03 | INFO     | Built fact_support_tickets (1,450 rows)
+2026-08-06 07:17:03 | INFO     | ============================================================
+2026-08-06 07:17:03 | INFO     | WAREHOUSE BUILD COMPLETE
+2026-08-06 07:17:03 | INFO     | ============================================================
+2026-08-06 07:17:03 | INFO     | Tables Built : 6
+2026-08-06 07:17:03 | INFO     | Success Rate : 100.0%
+2026-08-06 07:17:03 | INFO     | Warehouse Layer completed successfully.
+2026-08-06 07:17:03 | INFO     | ------------------------------------------------------------
+2026-08-06 07:17:03 | INFO     | Pipeline completed in 45.55 seconds
+2026-08-06 07:17:03 | INFO     | Successful datasets : 5
+2026-08-06 07:17:03 | INFO     | Failed datasets     : 0
+2026-08-06 07:17:03 | INFO     | Transformation operations : 10
+2026-08-06 07:17:03 | INFO     | Validation rules executed : 45
+2026-08-06 07:17:03 | INFO     | Data Quality Score : 81
+2026-08-06 07:17:03 | INFO     | Warehouse tables built : 6
+2026-08-06 07:17:03 | INFO     | Warehouse success rate : 100.0%
+2026-08-06 07:17:03 | INFO     | ------------------------------------------------------------
+2026-08-06 07:17:03 | INFO     | Pipeline execution completed.
+2026-08-06 07:17:03 | INFO     | ============================================================
+2026-08-06 07:17:03 | INFO     | BUILDING DASHBOARD
+2026-08-06 07:17:03 | INFO     | ============================================================
+2026-08-06 07:17:03 | INFO     | Dashboard model created.
+2026-08-06 07:17:03 | INFO     | ============================================================
+2026-08-06 07:17:03 | INFO     | BUILDING EXECUTIVE DASHBOARD
+2026-08-06 07:17:03 | INFO     | ============================================================
+2026-08-06 07:17:03 | INFO     | Calculating executive KPIs.
+2026-08-06 07:17:03 | INFO     | Date filter applied: None -> None (180720 rows)
+2026-08-06 07:17:03 | INFO     | Date filter applied: None -> None (152414 rows)
+2026-08-06 07:17:04 | INFO     | Building executive charts.
+2026-08-06 07:17:04 | INFO     | Date filter applied: None -> None (180720 rows)
+2026-08-06 07:17:04 | INFO     | Date filter applied: None -> None (152414 rows)
+2026-08-06 07:17:04 | INFO     | Executive dashboard created successfully.
+2026-08-06 07:19:49 | INFO     | ============================================================
+2026-08-06 07:19:49 | INFO     | PIPELINE SERVICE
+2026-08-06 07:19:49 | INFO     | ============================================================
+2026-08-06 07:19:49 | INFO     | ============================================================
+2026-08-06 07:19:49 | INFO     | PAYFLOW INTELLIGENCE PIPELINE
+2026-08-06 07:19:49 | INFO     | ============================================================
+2026-08-06 07:19:49 | INFO     | Discovered 5 datasets.
+2026-08-06 07:19:49 | INFO     | Loading merchants.csv
+2026-08-06 07:19:49 | INFO     | merchants.csv loaded successfully (94 rows)
+2026-08-06 07:19:49 | INFO     | Saved merchants.parquet
+2026-08-06 07:19:49 | INFO     | Loading settlements.csv
+2026-08-06 07:19:50 | INFO     | settlements.csv loaded successfully (152,414 rows)
+2026-08-06 07:19:50 | INFO     | Saved settlements.parquet
+2026-08-06 07:19:50 | INFO     | Loading switch_log.csv
+2026-08-06 07:19:52 | INFO     | switch_log.csv loaded successfully (204,983 rows)
+2026-08-06 07:19:52 | INFO     | Saved switch_log.parquet
+2026-08-06 07:19:52 | INFO     | Loading tickets.csv
+2026-08-06 07:19:52 | INFO     | tickets.csv loaded successfully (1,450 rows)
+2026-08-06 07:19:52 | INFO     | Saved tickets.parquet
+2026-08-06 07:19:52 | INFO     | Loading transactions.csv
+2026-08-06 07:19:54 | INFO     | transactions.csv loaded successfully (180,720 rows)
+2026-08-06 07:19:54 | INFO     | Saved transactions.parquet
+2026-08-06 07:19:54 | INFO     | Landing completed (Success=5, Failed=0)
+2026-08-06 07:19:54 | INFO     | History updated (180 total records).
+2026-08-06 07:19:54 | INFO     | Landing Layer completed successfully.
+2026-08-06 07:19:54 | INFO     | ============================================================
+2026-08-06 07:19:54 | INFO     | STARTING STAGING LAYER
+2026-08-06 07:19:54 | INFO     | ============================================================
+2026-08-06 07:19:54 | INFO     | Processing merchants
+2026-08-06 07:19:54 | INFO     | Cleaning merchants
+2026-08-06 07:19:54 | INFO     | Cleaning completed (388 values changed)
+2026-08-06 07:19:54 | INFO     | Standardizing merchants
+2026-08-06 07:19:54 | INFO     | merchants standardized (410 values changed)
+2026-08-06 07:19:54 | INFO     | Saved staging dataset: merchants.parquet
+2026-08-06 07:19:54 | INFO     | Processing settlements
+2026-08-06 07:19:54 | INFO     | Cleaning settlements
+2026-08-06 07:19:56 | INFO     | Cleaning completed (10665 values changed)
+2026-08-06 07:19:56 | INFO     | Standardizing settlements
+2026-08-06 07:19:58 | INFO     | settlements standardized (165841 values changed)
+2026-08-06 07:19:59 | INFO     | Saved staging dataset: settlements.parquet
+2026-08-06 07:19:59 | INFO     | Processing switch_log
+2026-08-06 07:19:59 | INFO     | Cleaning switch_log
+2026-08-06 07:20:00 | INFO     | Cleaning completed (0 values changed)
+2026-08-06 07:20:00 | INFO     | Standardizing switch_log
+2026-08-06 07:20:01 | INFO     | switch_log standardized (0 values changed)
+2026-08-06 07:20:02 | INFO     | Saved staging dataset: switch_log.parquet
+2026-08-06 07:20:02 | INFO     | Processing tickets
+2026-08-06 07:20:02 | INFO     | Cleaning tickets
+2026-08-06 07:20:02 | INFO     | Cleaning completed (408 values changed)
+2026-08-06 07:20:02 | INFO     | Standardizing tickets
+2026-08-06 07:20:02 | INFO     | tickets standardized (3308 values changed)
+2026-08-06 07:20:02 | INFO     | Saved staging dataset: tickets.parquet
+2026-08-06 07:20:02 | INFO     | Processing transactions
+2026-08-06 07:20:02 | INFO     | Cleaning transactions
+2026-08-06 07:20:04 | INFO     | Cleaning completed (180720 values changed)
+2026-08-06 07:20:04 | INFO     | Standardizing transactions
+2026-08-06 07:20:09 | INFO     | transactions standardized (187948 values changed)
+2026-08-06 07:20:09 | INFO     | Saved staging dataset: transactions.parquet
+2026-08-06 07:20:09 | INFO     | ============================================================
+2026-08-06 07:20:09 | INFO     | STAGING LAYER COMPLETED
+2026-08-06 07:20:09 | INFO     | ============================================================
+2026-08-06 07:20:09 | INFO     | Staging Layer completed successfully.
+2026-08-06 07:20:09 | INFO     | ============================================================
+2026-08-06 07:20:09 | INFO     | STARTING VALIDATION LAYER
+2026-08-06 07:20:09 | INFO     | ============================================================
+2026-08-06 07:20:09 | INFO     | Validating merchants
+2026-08-06 07:20:09 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:20:09 | INFO     | [PASS] Required Columns
+2026-08-06 07:20:09 | INFO     | [PASS] Missing Required Values
+2026-08-06 07:20:09 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 07:20:09 | INFO     | [PASS] Merchant Exists
+2026-08-06 07:20:09 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:20:09 | INFO     | [PASS] Net Amount Validation
+2026-08-06 07:20:09 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 07:20:09 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 07:20:09 | INFO     | Validating settlements
+2026-08-06 07:20:09 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:20:09 | INFO     | [PASS] Required Columns
+2026-08-06 07:20:09 | WARNING  | [FAIL] Missing Required Values
+2026-08-06 07:20:09 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 07:20:10 | WARNING  | [FAIL] Merchant Exists
+2026-08-06 07:20:10 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:20:10 | WARNING  | [FAIL] Net Amount Validation
+2026-08-06 07:20:14 | WARNING  | [FAIL] Rail Charges Validation
+2026-08-06 07:20:32 | WARNING  | [FAIL] Settlement Lag Validation
+2026-08-06 07:20:32 | INFO     | Validating switch_log
+2026-08-06 07:20:32 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:20:32 | INFO     | [PASS] Required Columns
+2026-08-06 07:20:32 | INFO     | [PASS] Missing Required Values
+2026-08-06 07:20:32 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 07:20:32 | INFO     | [PASS] Merchant Exists
+2026-08-06 07:20:33 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:20:33 | INFO     | [PASS] Net Amount Validation
+2026-08-06 07:20:33 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 07:20:33 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 07:20:33 | INFO     | Validating tickets
+2026-08-06 07:20:33 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:20:33 | INFO     | [PASS] Required Columns
+2026-08-06 07:20:33 | INFO     | [PASS] Missing Required Values
+2026-08-06 07:20:33 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 07:20:33 | INFO     | [PASS] Merchant Exists
+2026-08-06 07:20:34 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:20:34 | INFO     | [PASS] Net Amount Validation
+2026-08-06 07:20:34 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 07:20:34 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 07:20:34 | INFO     | Validating transactions
+2026-08-06 07:20:34 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 07:20:34 | INFO     | [PASS] Required Columns
+2026-08-06 07:20:34 | WARNING  | [FAIL] Missing Required Values
+2026-08-06 07:20:34 | WARNING  | [FAIL] Duplicate Primary Keys
+2026-08-06 07:20:35 | INFO     | [PASS] Merchant Exists
+2026-08-06 07:20:35 | INFO     | [PASS] Transaction Exists
+2026-08-06 07:20:35 | INFO     | [PASS] Net Amount Validation
+2026-08-06 07:20:35 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 07:20:35 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 07:20:35 | INFO     | ============================================================
+2026-08-06 07:20:35 | INFO     | VALIDATION LAYER COMPLETED
+2026-08-06 07:20:35 | INFO     | ============================================================
+2026-08-06 07:20:35 | INFO     | Validation Layer completed successfully.
+2026-08-06 07:20:35 | INFO     | ============================================================
+2026-08-06 07:20:35 | INFO     | STARTING WAREHOUSE BUILD
+2026-08-06 07:20:35 | INFO     | ============================================================
+2026-08-06 07:20:35 | INFO     | ============================================================
+2026-08-06 07:20:35 | INFO     | BUILDING DIMENSIONS
+2026-08-06 07:20:35 | INFO     | ============================================================
+2026-08-06 07:20:35 | INFO     | Built dim_merchants (62 rows)
+2026-08-06 07:20:35 | INFO     | Built dim_payment_rails (7 rows)
+2026-08-06 07:20:35 | INFO     | Built dim_dates (61 rows)
+2026-08-06 07:20:35 | INFO     | ============================================================
+2026-08-06 07:20:35 | INFO     | BUILDING FACT TABLES
+2026-08-06 07:20:35 | INFO     | ============================================================
+2026-08-06 07:20:38 | INFO     | Built fact_transactions (180,720 rows)
+2026-08-06 07:20:39 | INFO     | Built fact_settlements (152,414 rows)
+2026-08-06 07:20:40 | INFO     | Built fact_support_tickets (1,450 rows)
+2026-08-06 07:20:40 | INFO     | ============================================================
+2026-08-06 07:20:40 | INFO     | WAREHOUSE BUILD COMPLETE
+2026-08-06 07:20:40 | INFO     | ============================================================
+2026-08-06 07:20:40 | INFO     | Tables Built : 6
+2026-08-06 07:20:40 | INFO     | Success Rate : 100.0%
+2026-08-06 07:20:40 | INFO     | Warehouse Layer completed successfully.
+2026-08-06 07:20:40 | INFO     | ------------------------------------------------------------
+2026-08-06 07:20:40 | INFO     | Pipeline completed in 50.31 seconds
+2026-08-06 07:20:40 | INFO     | Successful datasets : 5
+2026-08-06 07:20:40 | INFO     | Failed datasets     : 0
+2026-08-06 07:20:40 | INFO     | Transformation operations : 10
+2026-08-06 07:20:40 | INFO     | Validation rules executed : 45
+2026-08-06 07:20:40 | INFO     | Data Quality Score : 81
+2026-08-06 07:20:40 | INFO     | Warehouse tables built : 6
+2026-08-06 07:20:40 | INFO     | Warehouse success rate : 100.0%
+2026-08-06 07:20:40 | INFO     | ------------------------------------------------------------
+2026-08-06 07:20:40 | INFO     | Pipeline execution completed.
+2026-08-06 07:20:40 | INFO     | ============================================================
+2026-08-06 07:20:40 | INFO     | BUILDING DASHBOARD
+2026-08-06 07:20:40 | INFO     | ============================================================
+2026-08-06 07:20:40 | INFO     | Dashboard model created.
+2026-08-06 07:20:40 | INFO     | ============================================================
+2026-08-06 07:20:40 | INFO     | BUILDING EXECUTIVE DASHBOARD
+2026-08-06 07:20:40 | INFO     | ============================================================
+2026-08-06 07:20:40 | INFO     | Calculating executive KPIs.
+2026-08-06 07:20:40 | INFO     | Date filter applied: None -> None (180720 rows)
+2026-08-06 07:20:40 | INFO     | Date filter applied: None -> None (152414 rows)
+2026-08-06 07:20:40 | INFO     | Building executive charts.
+2026-08-06 07:20:40 | INFO     | Date filter applied: None -> None (180720 rows)
+2026-08-06 07:20:40 | INFO     | Date filter applied: None -> None (152414 rows)
+2026-08-06 07:20:40 | INFO     | Executive dashboard created successfully.
+2026-08-06 11:13:51 | INFO     | ============================================================
+2026-08-06 11:13:51 | INFO     | PIPELINE SERVICE
+2026-08-06 11:13:51 | INFO     | ============================================================
+2026-08-06 11:13:51 | INFO     | ============================================================
+2026-08-06 11:13:51 | INFO     | PAYFLOW INTELLIGENCE PIPELINE
+2026-08-06 11:13:51 | INFO     | ============================================================
+2026-08-06 11:13:51 | INFO     | Discovered 5 datasets.
+2026-08-06 11:13:51 | INFO     | Loading merchants.csv
+2026-08-06 11:13:51 | INFO     | merchants.csv loaded successfully (94 rows)
+2026-08-06 11:13:51 | INFO     | Saved merchants.parquet
+2026-08-06 11:13:51 | INFO     | Loading settlements.csv
+2026-08-06 11:13:52 | INFO     | settlements.csv loaded successfully (152,414 rows)
+2026-08-06 11:13:52 | INFO     | Saved settlements.parquet
+2026-08-06 11:13:52 | INFO     | Loading switch_log.csv
+2026-08-06 11:13:54 | INFO     | switch_log.csv loaded successfully (204,983 rows)
+2026-08-06 11:13:54 | INFO     | Saved switch_log.parquet
+2026-08-06 11:13:54 | INFO     | Loading tickets.csv
+2026-08-06 11:13:55 | INFO     | tickets.csv loaded successfully (1,450 rows)
+2026-08-06 11:13:55 | INFO     | Saved tickets.parquet
+2026-08-06 11:13:55 | INFO     | Loading transactions.csv
+2026-08-06 11:13:56 | INFO     | transactions.csv loaded successfully (180,720 rows)
+2026-08-06 11:13:57 | INFO     | Saved transactions.parquet
+2026-08-06 11:13:57 | INFO     | Landing completed (Success=5, Failed=0)
+2026-08-06 11:13:57 | INFO     | History updated (185 total records).
+2026-08-06 11:13:57 | INFO     | Landing Layer completed successfully.
+2026-08-06 11:13:57 | INFO     | ============================================================
+2026-08-06 11:13:57 | INFO     | STARTING STAGING LAYER
+2026-08-06 11:13:57 | INFO     | ============================================================
+2026-08-06 11:13:57 | INFO     | Processing merchants
+2026-08-06 11:13:57 | INFO     | Cleaning merchants
+2026-08-06 11:13:57 | INFO     | Cleaning completed (388 values changed)
+2026-08-06 11:13:57 | INFO     | Standardizing merchants
+2026-08-06 11:13:57 | INFO     | merchants standardized (410 values changed)
+2026-08-06 11:13:57 | INFO     | Saved staging dataset: merchants.parquet
+2026-08-06 11:13:57 | INFO     | Processing settlements
+2026-08-06 11:13:57 | INFO     | Cleaning settlements
+2026-08-06 11:13:59 | INFO     | Cleaning completed (10665 values changed)
+2026-08-06 11:13:59 | INFO     | Standardizing settlements
+2026-08-06 11:14:01 | INFO     | settlements standardized (165841 values changed)
+2026-08-06 11:14:01 | INFO     | Saved staging dataset: settlements.parquet
+2026-08-06 11:14:01 | INFO     | Processing switch_log
+2026-08-06 11:14:01 | INFO     | Cleaning switch_log
+2026-08-06 11:14:02 | INFO     | Cleaning completed (0 values changed)
+2026-08-06 11:14:02 | INFO     | Standardizing switch_log
+2026-08-06 11:14:04 | INFO     | switch_log standardized (0 values changed)
+2026-08-06 11:14:04 | INFO     | Saved staging dataset: switch_log.parquet
+2026-08-06 11:14:04 | INFO     | Processing tickets
+2026-08-06 11:14:05 | INFO     | Cleaning tickets
+2026-08-06 11:14:05 | INFO     | Cleaning completed (408 values changed)
+2026-08-06 11:14:05 | INFO     | Standardizing tickets
+2026-08-06 11:14:05 | INFO     | tickets standardized (3308 values changed)
+2026-08-06 11:14:05 | INFO     | Saved staging dataset: tickets.parquet
+2026-08-06 11:14:05 | INFO     | Processing transactions
+2026-08-06 11:14:05 | INFO     | Cleaning transactions
+2026-08-06 11:14:07 | INFO     | Cleaning completed (180720 values changed)
+2026-08-06 11:14:07 | INFO     | Standardizing transactions
+2026-08-06 11:14:11 | INFO     | transactions standardized (187948 values changed)
+2026-08-06 11:14:11 | INFO     | Saved staging dataset: transactions.parquet
+2026-08-06 11:14:11 | INFO     | ============================================================
+2026-08-06 11:14:11 | INFO     | STAGING LAYER COMPLETED
+2026-08-06 11:14:11 | INFO     | ============================================================
+2026-08-06 11:14:11 | INFO     | Staging Layer completed successfully.
+2026-08-06 11:14:11 | INFO     | ============================================================
+2026-08-06 11:14:11 | INFO     | STARTING VALIDATION LAYER
+2026-08-06 11:14:11 | INFO     | ============================================================
+2026-08-06 11:14:11 | INFO     | Validating merchants
+2026-08-06 11:14:11 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 11:14:11 | INFO     | [PASS] Required Columns
+2026-08-06 11:14:11 | INFO     | [PASS] Missing Required Values
+2026-08-06 11:14:11 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 11:14:11 | INFO     | [PASS] Merchant Exists
+2026-08-06 11:14:11 | INFO     | [PASS] Transaction Exists
+2026-08-06 11:14:11 | INFO     | [PASS] Net Amount Validation
+2026-08-06 11:14:11 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 11:14:11 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 11:14:11 | INFO     | Validating settlements
+2026-08-06 11:14:11 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 11:14:11 | INFO     | [PASS] Required Columns
+2026-08-06 11:14:11 | WARNING  | [FAIL] Missing Required Values
+2026-08-06 11:14:12 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 11:14:12 | WARNING  | [FAIL] Merchant Exists
+2026-08-06 11:14:12 | INFO     | [PASS] Transaction Exists
+2026-08-06 11:14:12 | WARNING  | [FAIL] Net Amount Validation
+2026-08-06 11:14:16 | WARNING  | [FAIL] Rail Charges Validation
+2026-08-06 11:14:32 | WARNING  | [FAIL] Settlement Lag Validation
+2026-08-06 11:14:32 | INFO     | Validating switch_log
+2026-08-06 11:14:32 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 11:14:32 | INFO     | [PASS] Required Columns
+2026-08-06 11:14:32 | INFO     | [PASS] Missing Required Values
+2026-08-06 11:14:32 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 11:14:32 | INFO     | [PASS] Merchant Exists
+2026-08-06 11:14:33 | INFO     | [PASS] Transaction Exists
+2026-08-06 11:14:33 | INFO     | [PASS] Net Amount Validation
+2026-08-06 11:14:33 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 11:14:33 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 11:14:33 | INFO     | Validating tickets
+2026-08-06 11:14:33 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 11:14:33 | INFO     | [PASS] Required Columns
+2026-08-06 11:14:33 | INFO     | [PASS] Missing Required Values
+2026-08-06 11:14:33 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 11:14:33 | INFO     | [PASS] Merchant Exists
+2026-08-06 11:14:33 | INFO     | [PASS] Transaction Exists
+2026-08-06 11:14:33 | INFO     | [PASS] Net Amount Validation
+2026-08-06 11:14:33 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 11:14:33 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 11:14:33 | INFO     | Validating transactions
+2026-08-06 11:14:33 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 11:14:33 | INFO     | [PASS] Required Columns
+2026-08-06 11:14:33 | WARNING  | [FAIL] Missing Required Values
+2026-08-06 11:14:33 | WARNING  | [FAIL] Duplicate Primary Keys
+2026-08-06 11:14:34 | INFO     | [PASS] Merchant Exists
+2026-08-06 11:14:34 | INFO     | [PASS] Transaction Exists
+2026-08-06 11:14:34 | INFO     | [PASS] Net Amount Validation
+2026-08-06 11:14:34 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 11:14:34 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 11:14:34 | INFO     | ============================================================
+2026-08-06 11:14:34 | INFO     | VALIDATION LAYER COMPLETED
+2026-08-06 11:14:34 | INFO     | ============================================================
+2026-08-06 11:14:34 | INFO     | Validation Layer completed successfully.
+2026-08-06 11:14:34 | INFO     | ============================================================
+2026-08-06 11:14:34 | INFO     | STARTING WAREHOUSE BUILD
+2026-08-06 11:14:34 | INFO     | ============================================================
+2026-08-06 11:14:34 | INFO     | ============================================================
+2026-08-06 11:14:34 | INFO     | BUILDING DIMENSIONS
+2026-08-06 11:14:34 | INFO     | ============================================================
+2026-08-06 11:14:34 | INFO     | Built dim_merchants (62 rows)
+2026-08-06 11:14:34 | INFO     | Built dim_payment_rails (7 rows)
+2026-08-06 11:14:34 | INFO     | Built dim_dates (61 rows)
+2026-08-06 11:14:34 | INFO     | ============================================================
+2026-08-06 11:14:34 | INFO     | BUILDING FACT TABLES
+2026-08-06 11:14:34 | INFO     | ============================================================
+2026-08-06 11:14:38 | INFO     | Built fact_transactions (180,720 rows)
+2026-08-06 11:14:39 | INFO     | Built fact_settlements (152,414 rows)
+2026-08-06 11:14:39 | INFO     | Built fact_support_tickets (1,450 rows)
+2026-08-06 11:14:39 | INFO     | ============================================================
+2026-08-06 11:14:39 | INFO     | WAREHOUSE BUILD COMPLETE
+2026-08-06 11:14:39 | INFO     | ============================================================
+2026-08-06 11:14:39 | INFO     | Tables Built : 6
+2026-08-06 11:14:39 | INFO     | Success Rate : 100.0%
+2026-08-06 11:14:39 | INFO     | Warehouse Layer completed successfully.
+2026-08-06 11:14:39 | INFO     | ------------------------------------------------------------
+2026-08-06 11:14:39 | INFO     | Pipeline completed in 47.87 seconds
+2026-08-06 11:14:39 | INFO     | Successful datasets : 5
+2026-08-06 11:14:39 | INFO     | Failed datasets     : 0
+2026-08-06 11:14:39 | INFO     | Transformation operations : 10
+2026-08-06 11:14:39 | INFO     | Validation rules executed : 45
+2026-08-06 11:14:39 | INFO     | Data Quality Score : 81
+2026-08-06 11:14:39 | INFO     | Warehouse tables built : 6
+2026-08-06 11:14:39 | INFO     | Warehouse success rate : 100.0%
+2026-08-06 11:14:39 | INFO     | ------------------------------------------------------------
+2026-08-06 11:14:39 | INFO     | Pipeline execution completed.
+2026-08-06 11:14:39 | INFO     | ============================================================
+2026-08-06 11:14:39 | INFO     | BUILDING DASHBOARD
+2026-08-06 11:14:39 | INFO     | ============================================================
+2026-08-06 11:14:39 | INFO     | Dashboard model created.
+2026-08-06 11:14:39 | INFO     | ============================================================
+2026-08-06 11:14:39 | INFO     | BUILDING EXECUTIVE DASHBOARD
+2026-08-06 11:14:39 | INFO     | ============================================================
+2026-08-06 11:14:39 | INFO     | Calculating executive KPIs.
+2026-08-06 11:14:39 | INFO     | Date filter applied: 2026-04-01 00:00:00 -> 2026-04-20 00:00:00 (55640 rows)
+2026-08-06 11:14:39 | INFO     | Date filter applied: 2026-04-01 00:00:00 -> 2026-04-20 00:00:00 (2893 rows)
+2026-08-06 11:14:39 | INFO     | Building executive charts.
+2026-08-06 11:14:39 | INFO     | Date filter applied: 2026-04-01 00:00:00 -> 2026-04-20 00:00:00 (55640 rows)
+2026-08-06 11:14:39 | INFO     | Date filter applied: 2026-04-01 00:00:00 -> 2026-04-20 00:00:00 (2893 rows)
+2026-08-06 11:14:40 | INFO     | Executive dashboard created successfully.
+2026-08-06 11:14:52 | INFO     | ============================================================
+2026-08-06 11:14:52 | INFO     | PIPELINE SERVICE
+2026-08-06 11:14:52 | INFO     | ============================================================
+2026-08-06 11:14:52 | INFO     | ============================================================
+2026-08-06 11:14:52 | INFO     | PAYFLOW INTELLIGENCE PIPELINE
+2026-08-06 11:14:52 | INFO     | ============================================================
+2026-08-06 11:14:52 | INFO     | Discovered 5 datasets.
+2026-08-06 11:14:52 | INFO     | Loading merchants.csv
+2026-08-06 11:14:52 | INFO     | merchants.csv loaded successfully (94 rows)
+2026-08-06 11:14:52 | INFO     | Saved merchants.parquet
+2026-08-06 11:14:52 | INFO     | Loading settlements.csv
+2026-08-06 11:14:53 | INFO     | settlements.csv loaded successfully (152,414 rows)
+2026-08-06 11:14:53 | INFO     | Saved settlements.parquet
+2026-08-06 11:14:53 | INFO     | Loading switch_log.csv
+2026-08-06 11:14:54 | INFO     | switch_log.csv loaded successfully (204,983 rows)
+2026-08-06 11:14:54 | INFO     | Saved switch_log.parquet
+2026-08-06 11:14:54 | INFO     | Loading tickets.csv
+2026-08-06 11:14:54 | INFO     | tickets.csv loaded successfully (1,450 rows)
+2026-08-06 11:14:54 | INFO     | Saved tickets.parquet
+2026-08-06 11:14:54 | INFO     | Loading transactions.csv
+2026-08-06 11:14:56 | INFO     | transactions.csv loaded successfully (180,720 rows)
+2026-08-06 11:14:56 | INFO     | Saved transactions.parquet
+2026-08-06 11:14:56 | INFO     | Landing completed (Success=5, Failed=0)
+2026-08-06 11:14:56 | INFO     | History updated (195 total records).
+2026-08-06 11:14:56 | INFO     | Landing Layer completed successfully.
+2026-08-06 11:14:56 | INFO     | ============================================================
+2026-08-06 11:14:56 | INFO     | STARTING STAGING LAYER
+2026-08-06 11:14:56 | INFO     | ============================================================
+2026-08-06 11:14:56 | INFO     | Processing merchants
+2026-08-06 11:14:56 | INFO     | Cleaning merchants
+2026-08-06 11:14:56 | INFO     | Cleaning completed (388 values changed)
+2026-08-06 11:14:56 | INFO     | Standardizing merchants
+2026-08-06 11:14:56 | INFO     | merchants standardized (410 values changed)
+2026-08-06 11:14:56 | INFO     | Saved staging dataset: merchants.parquet
+2026-08-06 11:14:56 | INFO     | Processing settlements
+2026-08-06 11:14:56 | INFO     | Cleaning settlements
+2026-08-06 11:14:58 | INFO     | Cleaning completed (10665 values changed)
+2026-08-06 11:14:58 | INFO     | Standardizing settlements
+2026-08-06 11:15:00 | INFO     | settlements standardized (165841 values changed)
+2026-08-06 11:15:00 | INFO     | Saved staging dataset: settlements.parquet
+2026-08-06 11:15:00 | INFO     | Processing switch_log
+2026-08-06 11:15:00 | INFO     | Cleaning switch_log
+2026-08-06 11:15:02 | INFO     | Cleaning completed (0 values changed)
+2026-08-06 11:15:02 | INFO     | Standardizing switch_log
+2026-08-06 11:15:03 | INFO     | switch_log standardized (0 values changed)
+2026-08-06 11:15:04 | INFO     | Saved staging dataset: switch_log.parquet
+2026-08-06 11:15:04 | INFO     | Processing tickets
+2026-08-06 11:15:04 | INFO     | Cleaning tickets
+2026-08-06 11:15:04 | INFO     | Cleaning completed (408 values changed)
+2026-08-06 11:15:04 | INFO     | Standardizing tickets
+2026-08-06 11:15:04 | INFO     | tickets standardized (3308 values changed)
+2026-08-06 11:15:04 | INFO     | Saved staging dataset: tickets.parquet
+2026-08-06 11:15:04 | INFO     | Processing transactions
+2026-08-06 11:15:04 | INFO     | Cleaning transactions
+2026-08-06 11:15:07 | INFO     | Cleaning completed (180720 values changed)
+2026-08-06 11:15:07 | INFO     | Standardizing transactions
+2026-08-06 11:15:10 | INFO     | transactions standardized (187948 values changed)
+2026-08-06 11:15:10 | INFO     | Saved staging dataset: transactions.parquet
+2026-08-06 11:15:10 | INFO     | ============================================================
+2026-08-06 11:15:10 | INFO     | STAGING LAYER COMPLETED
+2026-08-06 11:15:10 | INFO     | ============================================================
+2026-08-06 11:15:10 | INFO     | Staging Layer completed successfully.
+2026-08-06 11:15:10 | INFO     | ============================================================
+2026-08-06 11:15:10 | INFO     | STARTING VALIDATION LAYER
+2026-08-06 11:15:10 | INFO     | ============================================================
+2026-08-06 11:15:10 | INFO     | Validating merchants
+2026-08-06 11:15:10 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 11:15:10 | INFO     | [PASS] Required Columns
+2026-08-06 11:15:10 | INFO     | [PASS] Missing Required Values
+2026-08-06 11:15:10 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 11:15:10 | INFO     | [PASS] Merchant Exists
+2026-08-06 11:15:10 | INFO     | [PASS] Transaction Exists
+2026-08-06 11:15:10 | INFO     | [PASS] Net Amount Validation
+2026-08-06 11:15:10 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 11:15:10 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 11:15:10 | INFO     | Validating settlements
+2026-08-06 11:15:10 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 11:15:10 | INFO     | [PASS] Required Columns
+2026-08-06 11:15:10 | WARNING  | [FAIL] Missing Required Values
+2026-08-06 11:15:10 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 11:15:11 | WARNING  | [FAIL] Merchant Exists
+2026-08-06 11:15:11 | INFO     | [PASS] Transaction Exists
+2026-08-06 11:15:11 | WARNING  | [FAIL] Net Amount Validation
+2026-08-06 11:15:15 | WARNING  | [FAIL] Rail Charges Validation
+2026-08-06 11:15:31 | WARNING  | [FAIL] Settlement Lag Validation
+2026-08-06 11:15:31 | INFO     | Validating switch_log
+2026-08-06 11:15:31 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 11:15:31 | INFO     | [PASS] Required Columns
+2026-08-06 11:15:31 | INFO     | [PASS] Missing Required Values
+2026-08-06 11:15:31 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 11:15:31 | INFO     | [PASS] Merchant Exists
+2026-08-06 11:15:32 | INFO     | [PASS] Transaction Exists
+2026-08-06 11:15:32 | INFO     | [PASS] Net Amount Validation
+2026-08-06 11:15:32 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 11:15:32 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 11:15:32 | INFO     | Validating tickets
+2026-08-06 11:15:32 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 11:15:32 | INFO     | [PASS] Required Columns
+2026-08-06 11:15:32 | INFO     | [PASS] Missing Required Values
+2026-08-06 11:15:32 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 11:15:32 | INFO     | [PASS] Merchant Exists
+2026-08-06 11:15:32 | INFO     | [PASS] Transaction Exists
+2026-08-06 11:15:32 | INFO     | [PASS] Net Amount Validation
+2026-08-06 11:15:32 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 11:15:32 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 11:15:32 | INFO     | Validating transactions
+2026-08-06 11:15:32 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 11:15:32 | INFO     | [PASS] Required Columns
+2026-08-06 11:15:32 | WARNING  | [FAIL] Missing Required Values
+2026-08-06 11:15:33 | WARNING  | [FAIL] Duplicate Primary Keys
+2026-08-06 11:15:33 | INFO     | [PASS] Merchant Exists
+2026-08-06 11:15:33 | INFO     | [PASS] Transaction Exists
+2026-08-06 11:15:33 | INFO     | [PASS] Net Amount Validation
+2026-08-06 11:15:33 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 11:15:33 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 11:15:33 | INFO     | ============================================================
+2026-08-06 11:15:33 | INFO     | VALIDATION LAYER COMPLETED
+2026-08-06 11:15:33 | INFO     | ============================================================
+2026-08-06 11:15:33 | INFO     | Validation Layer completed successfully.
+2026-08-06 11:15:33 | INFO     | ============================================================
+2026-08-06 11:15:33 | INFO     | STARTING WAREHOUSE BUILD
+2026-08-06 11:15:33 | INFO     | ============================================================
+2026-08-06 11:15:33 | INFO     | ============================================================
+2026-08-06 11:15:33 | INFO     | BUILDING DIMENSIONS
+2026-08-06 11:15:33 | INFO     | ============================================================
+2026-08-06 11:15:33 | INFO     | Built dim_merchants (62 rows)
+2026-08-06 11:15:33 | INFO     | Built dim_payment_rails (7 rows)
+2026-08-06 11:15:33 | INFO     | Built dim_dates (61 rows)
+2026-08-06 11:15:33 | INFO     | ============================================================
+2026-08-06 11:15:33 | INFO     | BUILDING FACT TABLES
+2026-08-06 11:15:33 | INFO     | ============================================================
+2026-08-06 11:15:37 | INFO     | Built fact_transactions (180,720 rows)
+2026-08-06 11:15:38 | INFO     | Built fact_settlements (152,414 rows)
+2026-08-06 11:15:38 | INFO     | Built fact_support_tickets (1,450 rows)
+2026-08-06 11:15:38 | INFO     | ============================================================
+2026-08-06 11:15:38 | INFO     | WAREHOUSE BUILD COMPLETE
+2026-08-06 11:15:38 | INFO     | ============================================================
+2026-08-06 11:15:38 | INFO     | Tables Built : 6
+2026-08-06 11:15:38 | INFO     | Success Rate : 100.0%
+2026-08-06 11:15:38 | INFO     | Warehouse Layer completed successfully.
+2026-08-06 11:15:38 | INFO     | ------------------------------------------------------------
+2026-08-06 11:15:38 | INFO     | Pipeline completed in 46.25 seconds
+2026-08-06 11:15:38 | INFO     | Successful datasets : 5
+2026-08-06 11:15:38 | INFO     | Failed datasets     : 0
+2026-08-06 11:15:38 | INFO     | Transformation operations : 10
+2026-08-06 11:15:38 | INFO     | Validation rules executed : 45
+2026-08-06 11:15:38 | INFO     | Data Quality Score : 81
+2026-08-06 11:15:38 | INFO     | Warehouse tables built : 6
+2026-08-06 11:15:38 | INFO     | Warehouse success rate : 100.0%
+2026-08-06 11:15:38 | INFO     | ------------------------------------------------------------
+2026-08-06 11:15:38 | INFO     | Pipeline execution completed.
+2026-08-06 11:15:38 | INFO     | ============================================================
+2026-08-06 11:15:38 | INFO     | BUILDING DASHBOARD
+2026-08-06 11:15:38 | INFO     | ============================================================
+2026-08-06 11:15:38 | INFO     | Dashboard model created.
+2026-08-06 11:15:38 | INFO     | ============================================================
+2026-08-06 11:15:38 | INFO     | BUILDING EXECUTIVE DASHBOARD
+2026-08-06 11:15:38 | INFO     | ============================================================
+2026-08-06 11:15:38 | INFO     | Calculating executive KPIs.
+2026-08-06 11:15:38 | INFO     | Date filter applied: None -> None (180720 rows)
+2026-08-06 11:15:38 | INFO     | Date filter applied: None -> None (152414 rows)
+2026-08-06 11:15:38 | INFO     | Building executive charts.
+2026-08-06 11:15:38 | INFO     | Date filter applied: None -> None (180720 rows)
+2026-08-06 11:15:38 | INFO     | Date filter applied: None -> None (152414 rows)
+2026-08-06 11:15:38 | INFO     | Executive dashboard created successfully.
+2026-08-06 11:15:45 | INFO     | ============================================================
+2026-08-06 11:15:45 | INFO     | PIPELINE SERVICE
+2026-08-06 11:15:45 | INFO     | ============================================================
+2026-08-06 11:15:45 | INFO     | ============================================================
+2026-08-06 11:15:45 | INFO     | PAYFLOW INTELLIGENCE PIPELINE
+2026-08-06 11:15:45 | INFO     | ============================================================
+2026-08-06 11:15:45 | INFO     | Discovered 5 datasets.
+2026-08-06 11:15:45 | INFO     | Loading merchants.csv
+2026-08-06 11:15:45 | INFO     | merchants.csv loaded successfully (94 rows)
+2026-08-06 11:15:46 | INFO     | Saved merchants.parquet
+2026-08-06 11:15:46 | INFO     | Loading settlements.csv
+2026-08-06 11:15:46 | INFO     | settlements.csv loaded successfully (152,414 rows)
+2026-08-06 11:15:46 | INFO     | Saved settlements.parquet
+2026-08-06 11:15:46 | INFO     | Loading switch_log.csv
+2026-08-06 11:15:48 | INFO     | switch_log.csv loaded successfully (204,983 rows)
+2026-08-06 11:15:48 | INFO     | Saved switch_log.parquet
+2026-08-06 11:15:48 | INFO     | Loading tickets.csv
+2026-08-06 11:15:48 | INFO     | tickets.csv loaded successfully (1,450 rows)
+2026-08-06 11:15:48 | INFO     | Saved tickets.parquet
+2026-08-06 11:15:48 | INFO     | Loading transactions.csv
+2026-08-06 11:15:50 | INFO     | transactions.csv loaded successfully (180,720 rows)
+2026-08-06 11:15:50 | INFO     | Saved transactions.parquet
+2026-08-06 11:15:50 | INFO     | Landing completed (Success=5, Failed=0)
+2026-08-06 11:15:50 | INFO     | History updated (210 total records).
+2026-08-06 11:15:50 | INFO     | Landing Layer completed successfully.
+2026-08-06 11:15:50 | INFO     | ============================================================
+2026-08-06 11:15:50 | INFO     | STARTING STAGING LAYER
+2026-08-06 11:15:50 | INFO     | ============================================================
+2026-08-06 11:15:50 | INFO     | Processing merchants
+2026-08-06 11:15:50 | INFO     | Cleaning merchants
+2026-08-06 11:15:50 | INFO     | Cleaning completed (388 values changed)
+2026-08-06 11:15:50 | INFO     | Standardizing merchants
+2026-08-06 11:15:50 | INFO     | merchants standardized (410 values changed)
+2026-08-06 11:15:50 | INFO     | Saved staging dataset: merchants.parquet
+2026-08-06 11:15:50 | INFO     | Processing settlements
+2026-08-06 11:15:50 | INFO     | Cleaning settlements
+2026-08-06 11:15:52 | INFO     | Cleaning completed (10665 values changed)
+2026-08-06 11:15:52 | INFO     | Standardizing settlements
+2026-08-06 11:15:55 | INFO     | settlements standardized (165841 values changed)
+2026-08-06 11:15:55 | INFO     | Saved staging dataset: settlements.parquet
+2026-08-06 11:15:55 | INFO     | Processing switch_log
+2026-08-06 11:15:55 | INFO     | Cleaning switch_log
+2026-08-06 11:15:56 | INFO     | Cleaning completed (0 values changed)
+2026-08-06 11:15:56 | INFO     | Standardizing switch_log
+2026-08-06 11:15:57 | INFO     | switch_log standardized (0 values changed)
+2026-08-06 11:15:57 | INFO     | Saved staging dataset: switch_log.parquet
+2026-08-06 11:15:57 | INFO     | Processing tickets
+2026-08-06 11:15:57 | INFO     | Cleaning tickets
+2026-08-06 11:15:58 | INFO     | Cleaning completed (408 values changed)
+2026-08-06 11:15:58 | INFO     | Standardizing tickets
+2026-08-06 11:15:58 | INFO     | tickets standardized (3308 values changed)
+2026-08-06 11:15:58 | INFO     | Saved staging dataset: tickets.parquet
+2026-08-06 11:15:58 | INFO     | Processing transactions
+2026-08-06 11:15:58 | INFO     | Cleaning transactions
+2026-08-06 11:16:00 | INFO     | Cleaning completed (180720 values changed)
+2026-08-06 11:16:00 | INFO     | Standardizing transactions
+2026-08-06 11:16:04 | INFO     | transactions standardized (187948 values changed)
+2026-08-06 11:16:04 | INFO     | Saved staging dataset: transactions.parquet
+2026-08-06 11:16:04 | INFO     | ============================================================
+2026-08-06 11:16:04 | INFO     | STAGING LAYER COMPLETED
+2026-08-06 11:16:04 | INFO     | ============================================================
+2026-08-06 11:16:04 | INFO     | Staging Layer completed successfully.
+2026-08-06 11:16:04 | INFO     | ============================================================
+2026-08-06 11:16:04 | INFO     | STARTING VALIDATION LAYER
+2026-08-06 11:16:04 | INFO     | ============================================================
+2026-08-06 11:16:04 | INFO     | Validating merchants
+2026-08-06 11:16:04 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 11:16:04 | INFO     | [PASS] Required Columns
+2026-08-06 11:16:04 | INFO     | [PASS] Missing Required Values
+2026-08-06 11:16:04 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 11:16:04 | INFO     | [PASS] Merchant Exists
+2026-08-06 11:16:04 | INFO     | [PASS] Transaction Exists
+2026-08-06 11:16:04 | INFO     | [PASS] Net Amount Validation
+2026-08-06 11:16:04 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 11:16:04 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 11:16:04 | INFO     | Validating settlements
+2026-08-06 11:16:04 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 11:16:04 | INFO     | [PASS] Required Columns
+2026-08-06 11:16:04 | WARNING  | [FAIL] Missing Required Values
+2026-08-06 11:16:04 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 11:16:05 | WARNING  | [FAIL] Merchant Exists
+2026-08-06 11:16:05 | INFO     | [PASS] Transaction Exists
+2026-08-06 11:16:05 | WARNING  | [FAIL] Net Amount Validation
+2026-08-06 11:16:09 | WARNING  | [FAIL] Rail Charges Validation
+2026-08-06 11:16:24 | WARNING  | [FAIL] Settlement Lag Validation
+2026-08-06 11:16:24 | INFO     | Validating switch_log
+2026-08-06 11:16:24 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 11:16:24 | INFO     | [PASS] Required Columns
+2026-08-06 11:16:24 | INFO     | [PASS] Missing Required Values
+2026-08-06 11:16:24 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 11:16:24 | INFO     | [PASS] Merchant Exists
+2026-08-06 11:16:26 | INFO     | [PASS] Transaction Exists
+2026-08-06 11:16:26 | INFO     | [PASS] Net Amount Validation
+2026-08-06 11:16:26 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 11:16:26 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 11:16:26 | INFO     | Validating tickets
+2026-08-06 11:16:26 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 11:16:26 | INFO     | [PASS] Required Columns
+2026-08-06 11:16:26 | INFO     | [PASS] Missing Required Values
+2026-08-06 11:16:26 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 11:16:26 | INFO     | [PASS] Merchant Exists
+2026-08-06 11:16:26 | INFO     | [PASS] Transaction Exists
+2026-08-06 11:16:26 | INFO     | [PASS] Net Amount Validation
+2026-08-06 11:16:26 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 11:16:26 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 11:16:26 | INFO     | Validating transactions
+2026-08-06 11:16:26 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 11:16:26 | INFO     | [PASS] Required Columns
+2026-08-06 11:16:26 | WARNING  | [FAIL] Missing Required Values
+2026-08-06 11:16:26 | WARNING  | [FAIL] Duplicate Primary Keys
+2026-08-06 11:16:27 | INFO     | [PASS] Merchant Exists
+2026-08-06 11:16:27 | INFO     | [PASS] Transaction Exists
+2026-08-06 11:16:27 | INFO     | [PASS] Net Amount Validation
+2026-08-06 11:16:27 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 11:16:27 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 11:16:27 | INFO     | ============================================================
+2026-08-06 11:16:27 | INFO     | VALIDATION LAYER COMPLETED
+2026-08-06 11:16:27 | INFO     | ============================================================
+2026-08-06 11:16:27 | INFO     | Validation Layer completed successfully.
+2026-08-06 11:16:27 | INFO     | ============================================================
+2026-08-06 11:16:27 | INFO     | STARTING WAREHOUSE BUILD
+2026-08-06 11:16:27 | INFO     | ============================================================
+2026-08-06 11:16:27 | INFO     | ============================================================
+2026-08-06 11:16:27 | INFO     | BUILDING DIMENSIONS
+2026-08-06 11:16:27 | INFO     | ============================================================
+2026-08-06 11:16:27 | INFO     | Built dim_merchants (62 rows)
+2026-08-06 11:16:27 | INFO     | Built dim_payment_rails (7 rows)
+2026-08-06 11:16:27 | INFO     | Built dim_dates (61 rows)
+2026-08-06 11:16:27 | INFO     | ============================================================
+2026-08-06 11:16:27 | INFO     | BUILDING FACT TABLES
+2026-08-06 11:16:27 | INFO     | ============================================================
+2026-08-06 11:16:30 | INFO     | Built fact_transactions (180,720 rows)
+2026-08-06 11:16:32 | INFO     | Built fact_settlements (152,414 rows)
+2026-08-06 11:16:32 | INFO     | Built fact_support_tickets (1,450 rows)
+2026-08-06 11:16:32 | INFO     | ============================================================
+2026-08-06 11:16:32 | INFO     | WAREHOUSE BUILD COMPLETE
+2026-08-06 11:16:32 | INFO     | ============================================================
+2026-08-06 11:16:32 | INFO     | Tables Built : 6
+2026-08-06 11:16:32 | INFO     | Success Rate : 100.0%
+2026-08-06 11:16:32 | INFO     | Warehouse Layer completed successfully.
+2026-08-06 11:16:32 | INFO     | ------------------------------------------------------------
+2026-08-06 11:16:32 | INFO     | Pipeline completed in 46.11 seconds
+2026-08-06 11:16:32 | INFO     | Successful datasets : 5
+2026-08-06 11:16:32 | INFO     | Failed datasets     : 0
+2026-08-06 11:16:32 | INFO     | Transformation operations : 10
+2026-08-06 11:16:32 | INFO     | Validation rules executed : 45
+2026-08-06 11:16:32 | INFO     | Data Quality Score : 81
+2026-08-06 11:16:32 | INFO     | Warehouse tables built : 6
+2026-08-06 11:16:32 | INFO     | Warehouse success rate : 100.0%
+2026-08-06 11:16:32 | INFO     | ------------------------------------------------------------
+2026-08-06 11:16:32 | INFO     | Pipeline execution completed.
+2026-08-06 11:16:32 | INFO     | ============================================================
+2026-08-06 11:16:32 | INFO     | BUILDING DASHBOARD
+2026-08-06 11:16:32 | INFO     | ============================================================
+2026-08-06 11:16:32 | INFO     | Dashboard model created.
+2026-08-06 11:16:32 | INFO     | ============================================================
+2026-08-06 11:16:32 | INFO     | BUILDING EXECUTIVE DASHBOARD
+2026-08-06 11:16:32 | INFO     | ============================================================
+2026-08-06 11:16:32 | INFO     | Calculating executive KPIs.
+2026-08-06 11:16:32 | INFO     | Date filter applied: None -> None (180720 rows)
+2026-08-06 11:16:32 | INFO     | Date filter applied: None -> None (152414 rows)
+2026-08-06 11:16:32 | INFO     | Building executive charts.
+2026-08-06 11:16:32 | INFO     | Date filter applied: None -> None (180720 rows)
+2026-08-06 11:16:32 | INFO     | Date filter applied: None -> None (152414 rows)
+2026-08-06 11:16:32 | INFO     | Executive dashboard created successfully.
+2026-08-06 11:16:40 | INFO     | ============================================================
+2026-08-06 11:16:40 | INFO     | PIPELINE SERVICE
+2026-08-06 11:16:40 | INFO     | ============================================================
+2026-08-06 11:16:40 | INFO     | ============================================================
+2026-08-06 11:16:40 | INFO     | PAYFLOW INTELLIGENCE PIPELINE
+2026-08-06 11:16:40 | INFO     | ============================================================
+2026-08-06 11:16:40 | INFO     | Discovered 5 datasets.
+2026-08-06 11:16:40 | INFO     | Loading merchants.csv
+2026-08-06 11:16:40 | INFO     | merchants.csv loaded successfully (94 rows)
+2026-08-06 11:16:40 | INFO     | Saved merchants.parquet
+2026-08-06 11:16:40 | INFO     | Loading settlements.csv
+2026-08-06 11:16:41 | INFO     | settlements.csv loaded successfully (152,414 rows)
+2026-08-06 11:16:41 | INFO     | Saved settlements.parquet
+2026-08-06 11:16:41 | INFO     | Loading switch_log.csv
+2026-08-06 11:16:42 | INFO     | switch_log.csv loaded successfully (204,983 rows)
+2026-08-06 11:16:43 | INFO     | Saved switch_log.parquet
+2026-08-06 11:16:43 | INFO     | Loading tickets.csv
+2026-08-06 11:16:43 | INFO     | tickets.csv loaded successfully (1,450 rows)
+2026-08-06 11:16:43 | INFO     | Saved tickets.parquet
+2026-08-06 11:16:43 | INFO     | Loading transactions.csv
+2026-08-06 11:16:44 | INFO     | transactions.csv loaded successfully (180,720 rows)
+2026-08-06 11:16:45 | INFO     | Saved transactions.parquet
+2026-08-06 11:16:45 | INFO     | Landing completed (Success=5, Failed=0)
+2026-08-06 11:16:45 | INFO     | History updated (230 total records).
+2026-08-06 11:16:45 | INFO     | Landing Layer completed successfully.
+2026-08-06 11:16:45 | INFO     | ============================================================
+2026-08-06 11:16:45 | INFO     | STARTING STAGING LAYER
+2026-08-06 11:16:45 | INFO     | ============================================================
+2026-08-06 11:16:45 | INFO     | Processing merchants
+2026-08-06 11:16:45 | INFO     | Cleaning merchants
+2026-08-06 11:16:45 | INFO     | Cleaning completed (388 values changed)
+2026-08-06 11:16:45 | INFO     | Standardizing merchants
+2026-08-06 11:16:45 | INFO     | merchants standardized (410 values changed)
+2026-08-06 11:16:45 | INFO     | Saved staging dataset: merchants.parquet
+2026-08-06 11:16:45 | INFO     | Processing settlements
+2026-08-06 11:16:45 | INFO     | Cleaning settlements
+2026-08-06 11:16:46 | INFO     | Cleaning completed (10665 values changed)
+2026-08-06 11:16:46 | INFO     | Standardizing settlements
+2026-08-06 11:16:49 | INFO     | settlements standardized (165841 values changed)
+2026-08-06 11:16:49 | INFO     | Saved staging dataset: settlements.parquet
+2026-08-06 11:16:49 | INFO     | Processing switch_log
+2026-08-06 11:16:49 | INFO     | Cleaning switch_log
+2026-08-06 11:16:50 | INFO     | Cleaning completed (0 values changed)
+2026-08-06 11:16:50 | INFO     | Standardizing switch_log
+2026-08-06 11:16:51 | INFO     | switch_log standardized (0 values changed)
+2026-08-06 11:16:52 | INFO     | Saved staging dataset: switch_log.parquet
+2026-08-06 11:16:52 | INFO     | Processing tickets
+2026-08-06 11:16:52 | INFO     | Cleaning tickets
+2026-08-06 11:16:52 | INFO     | Cleaning completed (408 values changed)
+2026-08-06 11:16:52 | INFO     | Standardizing tickets
+2026-08-06 11:16:52 | INFO     | tickets standardized (3308 values changed)
+2026-08-06 11:16:52 | INFO     | Saved staging dataset: tickets.parquet
+2026-08-06 11:16:52 | INFO     | Processing transactions
+2026-08-06 11:16:52 | INFO     | Cleaning transactions
+2026-08-06 11:16:54 | INFO     | Cleaning completed (180720 values changed)
+2026-08-06 11:16:54 | INFO     | Standardizing transactions
+2026-08-06 11:16:58 | INFO     | transactions standardized (187948 values changed)
+2026-08-06 11:16:58 | INFO     | Saved staging dataset: transactions.parquet
+2026-08-06 11:16:58 | INFO     | ============================================================
+2026-08-06 11:16:58 | INFO     | STAGING LAYER COMPLETED
+2026-08-06 11:16:58 | INFO     | ============================================================
+2026-08-06 11:16:58 | INFO     | Staging Layer completed successfully.
+2026-08-06 11:16:58 | INFO     | ============================================================
+2026-08-06 11:16:58 | INFO     | STARTING VALIDATION LAYER
+2026-08-06 11:16:58 | INFO     | ============================================================
+2026-08-06 11:16:58 | INFO     | Validating merchants
+2026-08-06 11:16:58 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 11:16:58 | INFO     | [PASS] Required Columns
+2026-08-06 11:16:58 | INFO     | [PASS] Missing Required Values
+2026-08-06 11:16:58 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 11:16:58 | INFO     | [PASS] Merchant Exists
+2026-08-06 11:16:58 | INFO     | [PASS] Transaction Exists
+2026-08-06 11:16:58 | INFO     | [PASS] Net Amount Validation
+2026-08-06 11:16:58 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 11:16:58 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 11:16:58 | INFO     | Validating settlements
+2026-08-06 11:16:58 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 11:16:58 | INFO     | [PASS] Required Columns
+2026-08-06 11:16:58 | WARNING  | [FAIL] Missing Required Values
+2026-08-06 11:16:58 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 11:16:59 | WARNING  | [FAIL] Merchant Exists
+2026-08-06 11:16:59 | INFO     | [PASS] Transaction Exists
+2026-08-06 11:16:59 | WARNING  | [FAIL] Net Amount Validation
+2026-08-06 11:17:03 | WARNING  | [FAIL] Rail Charges Validation
+2026-08-06 11:17:18 | WARNING  | [FAIL] Settlement Lag Validation
+2026-08-06 11:17:18 | INFO     | Validating switch_log
+2026-08-06 11:17:18 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 11:17:18 | INFO     | [PASS] Required Columns
+2026-08-06 11:17:18 | INFO     | [PASS] Missing Required Values
+2026-08-06 11:17:18 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 11:17:18 | INFO     | [PASS] Merchant Exists
+2026-08-06 11:17:19 | INFO     | [PASS] Transaction Exists
+2026-08-06 11:17:19 | INFO     | [PASS] Net Amount Validation
+2026-08-06 11:17:19 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 11:17:19 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 11:17:19 | INFO     | Validating tickets
+2026-08-06 11:17:19 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 11:17:19 | INFO     | [PASS] Required Columns
+2026-08-06 11:17:19 | INFO     | [PASS] Missing Required Values
+2026-08-06 11:17:19 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-06 11:17:19 | INFO     | [PASS] Merchant Exists
+2026-08-06 11:17:19 | INFO     | [PASS] Transaction Exists
+2026-08-06 11:17:19 | INFO     | [PASS] Net Amount Validation
+2026-08-06 11:17:19 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 11:17:19 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 11:17:19 | INFO     | Validating transactions
+2026-08-06 11:17:19 | INFO     | [PASS] Dataset Not Empty
+2026-08-06 11:17:19 | INFO     | [PASS] Required Columns
+2026-08-06 11:17:19 | WARNING  | [FAIL] Missing Required Values
+2026-08-06 11:17:19 | WARNING  | [FAIL] Duplicate Primary Keys
+2026-08-06 11:17:20 | INFO     | [PASS] Merchant Exists
+2026-08-06 11:17:20 | INFO     | [PASS] Transaction Exists
+2026-08-06 11:17:20 | INFO     | [PASS] Net Amount Validation
+2026-08-06 11:17:20 | INFO     | [PASS] Rail Charges Validation
+2026-08-06 11:17:20 | INFO     | [PASS] Settlement Lag Validation
+2026-08-06 11:17:20 | INFO     | ============================================================
+2026-08-06 11:17:20 | INFO     | VALIDATION LAYER COMPLETED
+2026-08-06 11:17:20 | INFO     | ============================================================
+2026-08-06 11:17:20 | INFO     | Validation Layer completed successfully.
+2026-08-06 11:17:20 | INFO     | ============================================================
+2026-08-06 11:17:20 | INFO     | STARTING WAREHOUSE BUILD
+2026-08-06 11:17:20 | INFO     | ============================================================
+2026-08-06 11:17:20 | INFO     | ============================================================
+2026-08-06 11:17:20 | INFO     | BUILDING DIMENSIONS
+2026-08-06 11:17:20 | INFO     | ============================================================
+2026-08-06 11:17:20 | INFO     | Built dim_merchants (62 rows)
+2026-08-06 11:17:20 | INFO     | Built dim_payment_rails (7 rows)
+2026-08-06 11:17:20 | INFO     | Built dim_dates (61 rows)
+2026-08-06 11:17:20 | INFO     | ============================================================
+2026-08-06 11:17:20 | INFO     | BUILDING FACT TABLES
+2026-08-06 11:17:20 | INFO     | ============================================================
+2026-08-06 11:17:24 | INFO     | Built fact_transactions (180,720 rows)
+2026-08-06 11:17:25 | INFO     | Built fact_settlements (152,414 rows)
+2026-08-06 11:17:25 | INFO     | Built fact_support_tickets (1,450 rows)
+2026-08-06 11:17:25 | INFO     | ============================================================
+2026-08-06 11:17:25 | INFO     | WAREHOUSE BUILD COMPLETE
+2026-08-06 11:17:25 | INFO     | ============================================================
+2026-08-06 11:17:25 | INFO     | Tables Built : 6
+2026-08-06 11:17:25 | INFO     | Success Rate : 100.0%
+2026-08-06 11:17:25 | INFO     | Warehouse Layer completed successfully.
+2026-08-06 11:17:25 | INFO     | ------------------------------------------------------------
+2026-08-06 11:17:25 | INFO     | Pipeline completed in 45.47 seconds
+2026-08-06 11:17:25 | INFO     | Successful datasets : 5
+2026-08-06 11:17:25 | INFO     | Failed datasets     : 0
+2026-08-06 11:17:25 | INFO     | Transformation operations : 10
+2026-08-06 11:17:25 | INFO     | Validation rules executed : 45
+2026-08-06 11:17:25 | INFO     | Data Quality Score : 81
+2026-08-06 11:17:25 | INFO     | Warehouse tables built : 6
+2026-08-06 11:17:25 | INFO     | Warehouse success rate : 100.0%
+2026-08-06 11:17:25 | INFO     | ------------------------------------------------------------
+2026-08-06 11:17:25 | INFO     | Pipeline execution completed.
+2026-08-06 11:17:25 | INFO     | ============================================================
+2026-08-06 11:17:25 | INFO     | BUILDING DASHBOARD
+2026-08-06 11:17:25 | INFO     | ============================================================
+2026-08-06 11:17:25 | INFO     | Dashboard model created.
+2026-08-06 11:17:25 | INFO     | ============================================================
+2026-08-06 11:17:25 | INFO     | BUILDING EXECUTIVE DASHBOARD
+2026-08-06 11:17:25 | INFO     | ============================================================
+2026-08-06 11:17:25 | INFO     | Calculating executive KPIs.
+2026-08-06 11:17:25 | INFO     | Date filter applied: None -> None (180720 rows)
+2026-08-06 11:17:25 | INFO     | Date filter applied: None -> None (152414 rows)
+2026-08-06 11:17:26 | INFO     | Building executive charts.
+2026-08-06 11:17:26 | INFO     | Date filter applied: None -> None (180720 rows)
+2026-08-06 11:17:26 | INFO     | Date filter applied: None -> None (152414 rows)
+2026-08-06 11:17:26 | INFO     | Executive dashboard created successfully.
+2026-08-07 00:16:09 | INFO     | ============================================================
+2026-08-07 00:16:09 | INFO     | PIPELINE SERVICE
+2026-08-07 00:16:09 | INFO     | ============================================================
+2026-08-07 00:16:09 | INFO     | ============================================================
+2026-08-07 00:16:09 | INFO     | PAYFLOW INTELLIGENCE PIPELINE
+2026-08-07 00:16:09 | INFO     | ============================================================
+2026-08-07 00:16:09 | INFO     | Discovered 5 datasets.
+2026-08-07 00:16:09 | INFO     | Loading merchants.csv
+2026-08-07 00:16:09 | INFO     | merchants.csv loaded successfully (94 rows)
+2026-08-07 00:16:09 | INFO     | Saved merchants.parquet
+2026-08-07 00:16:09 | INFO     | Loading settlements.csv
+2026-08-07 00:16:10 | INFO     | settlements.csv loaded successfully (152,414 rows)
+2026-08-07 00:16:11 | INFO     | Saved settlements.parquet
+2026-08-07 00:16:11 | INFO     | Loading switch_log.csv
+2026-08-07 00:16:13 | INFO     | switch_log.csv loaded successfully (204,983 rows)
+2026-08-07 00:16:13 | INFO     | Saved switch_log.parquet
+2026-08-07 00:16:13 | INFO     | Loading tickets.csv
+2026-08-07 00:16:13 | INFO     | tickets.csv loaded successfully (1,450 rows)
+2026-08-07 00:16:13 | INFO     | Saved tickets.parquet
+2026-08-07 00:16:13 | INFO     | Loading transactions.csv
+2026-08-07 00:16:16 | INFO     | transactions.csv loaded successfully (180,720 rows)
+2026-08-07 00:16:16 | INFO     | Saved transactions.parquet
+2026-08-07 00:16:16 | INFO     | Landing completed (Success=5, Failed=0)
+2026-08-07 00:16:17 | INFO     | History updated (235 total records).
+2026-08-07 00:16:17 | INFO     | Landing Layer completed successfully.
+2026-08-07 00:16:17 | INFO     | ============================================================
+2026-08-07 00:16:17 | INFO     | STARTING STAGING LAYER
+2026-08-07 00:16:17 | INFO     | ============================================================
+2026-08-07 00:16:17 | INFO     | Processing merchants
+2026-08-07 00:16:17 | INFO     | Cleaning merchants
+2026-08-07 00:16:17 | INFO     | Cleaning completed (388 values changed)
+2026-08-07 00:16:17 | INFO     | Standardizing merchants
+2026-08-07 00:16:18 | INFO     | merchants standardized (410 values changed)
+2026-08-07 00:16:18 | INFO     | Saved staging dataset: merchants.parquet
+2026-08-07 00:16:18 | INFO     | Processing settlements
+2026-08-07 00:16:18 | INFO     | Cleaning settlements
+2026-08-07 00:16:21 | INFO     | Cleaning completed (10665 values changed)
+2026-08-07 00:16:21 | INFO     | Standardizing settlements
+2026-08-07 00:16:25 | INFO     | settlements standardized (165841 values changed)
+2026-08-07 00:16:25 | INFO     | Saved staging dataset: settlements.parquet
+2026-08-07 00:16:25 | INFO     | Processing switch_log
+2026-08-07 00:16:25 | INFO     | Cleaning switch_log
+2026-08-07 00:16:27 | INFO     | Cleaning completed (0 values changed)
+2026-08-07 00:16:27 | INFO     | Standardizing switch_log
+2026-08-07 00:16:30 | INFO     | switch_log standardized (0 values changed)
+2026-08-07 00:16:30 | INFO     | Saved staging dataset: switch_log.parquet
+2026-08-07 00:16:30 | INFO     | Processing tickets
+2026-08-07 00:16:30 | INFO     | Cleaning tickets
+2026-08-07 00:16:31 | INFO     | Cleaning completed (408 values changed)
+2026-08-07 00:16:31 | INFO     | Standardizing tickets
+2026-08-07 00:16:31 | INFO     | tickets standardized (3308 values changed)
+2026-08-07 00:16:31 | INFO     | Saved staging dataset: tickets.parquet
+2026-08-07 00:16:31 | INFO     | Processing transactions
+2026-08-07 00:16:31 | INFO     | Cleaning transactions
+2026-08-07 00:16:34 | INFO     | Cleaning completed (180720 values changed)
+2026-08-07 00:16:34 | INFO     | Standardizing transactions
+2026-08-07 00:16:37 | INFO     | transactions standardized (187948 values changed)
+2026-08-07 00:16:38 | INFO     | Saved staging dataset: transactions.parquet
+2026-08-07 00:16:38 | INFO     | ============================================================
+2026-08-07 00:16:38 | INFO     | STAGING LAYER COMPLETED
+2026-08-07 00:16:38 | INFO     | ============================================================
+2026-08-07 00:16:38 | INFO     | Staging Layer completed successfully.
+2026-08-07 00:16:38 | INFO     | ============================================================
+2026-08-07 00:16:38 | INFO     | STARTING VALIDATION LAYER
+2026-08-07 00:16:38 | INFO     | ============================================================
+2026-08-07 00:16:38 | INFO     | Validating merchants
+2026-08-07 00:16:38 | INFO     | [PASS] Dataset Not Empty
+2026-08-07 00:16:38 | INFO     | [PASS] Required Columns
+2026-08-07 00:16:38 | INFO     | [PASS] Missing Required Values
+2026-08-07 00:16:38 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-07 00:16:38 | INFO     | [PASS] Merchant Exists
+2026-08-07 00:16:38 | INFO     | [PASS] Transaction Exists
+2026-08-07 00:16:38 | INFO     | [PASS] Net Amount Validation
+2026-08-07 00:16:38 | INFO     | [PASS] Rail Charges Validation
+2026-08-07 00:16:38 | INFO     | [PASS] Settlement Lag Validation
+2026-08-07 00:16:38 | INFO     | Validating settlements
+2026-08-07 00:16:38 | INFO     | [PASS] Dataset Not Empty
+2026-08-07 00:16:38 | INFO     | [PASS] Required Columns
+2026-08-07 00:16:38 | WARNING  | [FAIL] Missing Required Values
+2026-08-07 00:16:38 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-07 00:16:39 | WARNING  | [FAIL] Merchant Exists
+2026-08-07 00:16:39 | INFO     | [PASS] Transaction Exists
+2026-08-07 00:16:40 | WARNING  | [FAIL] Net Amount Validation
+2026-08-07 00:16:45 | WARNING  | [FAIL] Rail Charges Validation
+2026-08-07 00:17:02 | WARNING  | [FAIL] Settlement Lag Validation
+2026-08-07 00:17:02 | INFO     | Validating switch_log
+2026-08-07 00:17:02 | INFO     | [PASS] Dataset Not Empty
+2026-08-07 00:17:02 | INFO     | [PASS] Required Columns
+2026-08-07 00:17:02 | INFO     | [PASS] Missing Required Values
+2026-08-07 00:17:02 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-07 00:17:02 | INFO     | [PASS] Merchant Exists
+2026-08-07 00:17:04 | INFO     | [PASS] Transaction Exists
+2026-08-07 00:17:04 | INFO     | [PASS] Net Amount Validation
+2026-08-07 00:17:04 | INFO     | [PASS] Rail Charges Validation
+2026-08-07 00:17:04 | INFO     | [PASS] Settlement Lag Validation
+2026-08-07 00:17:04 | INFO     | Validating tickets
+2026-08-07 00:17:04 | INFO     | [PASS] Dataset Not Empty
+2026-08-07 00:17:04 | INFO     | [PASS] Required Columns
+2026-08-07 00:17:04 | INFO     | [PASS] Missing Required Values
+2026-08-07 00:17:04 | INFO     | [PASS] Duplicate Primary Keys
+2026-08-07 00:17:04 | INFO     | [PASS] Merchant Exists
+2026-08-07 00:17:04 | INFO     | [PASS] Transaction Exists
+2026-08-07 00:17:04 | INFO     | [PASS] Net Amount Validation
+2026-08-07 00:17:04 | INFO     | [PASS] Rail Charges Validation
+2026-08-07 00:17:04 | INFO     | [PASS] Settlement Lag Validation
+2026-08-07 00:17:04 | INFO     | Validating transactions
+2026-08-07 00:17:04 | INFO     | [PASS] Dataset Not Empty
+2026-08-07 00:17:04 | INFO     | [PASS] Required Columns
+2026-08-07 00:17:04 | WARNING  | [FAIL] Missing Required Values
+2026-08-07 00:17:05 | WARNING  | [FAIL] Duplicate Primary Keys
+2026-08-07 00:17:05 | INFO     | [PASS] Merchant Exists
+2026-08-07 00:17:05 | INFO     | [PASS] Transaction Exists
+2026-08-07 00:17:05 | INFO     | [PASS] Net Amount Validation
+2026-08-07 00:17:05 | INFO     | [PASS] Rail Charges Validation
+2026-08-07 00:17:05 | INFO     | [PASS] Settlement Lag Validation
+2026-08-07 00:17:05 | INFO     | ============================================================
+2026-08-07 00:17:05 | INFO     | VALIDATION LAYER COMPLETED
+2026-08-07 00:17:05 | INFO     | ============================================================
+2026-08-07 00:17:05 | INFO     | Validation Layer completed successfully.
+2026-08-07 00:17:05 | INFO     | ============================================================
+2026-08-07 00:17:05 | INFO     | STARTING WAREHOUSE BUILD
+2026-08-07 00:17:05 | INFO     | ============================================================
+2026-08-07 00:17:05 | INFO     | ============================================================
+2026-08-07 00:17:05 | INFO     | BUILDING DIMENSIONS
+2026-08-07 00:17:05 | INFO     | ============================================================
+2026-08-07 00:17:05 | INFO     | Built dim_merchants (62 rows)
+2026-08-07 00:17:05 | INFO     | Built dim_payment_rails (7 rows)
+2026-08-07 00:17:05 | INFO     | Built dim_dates (61 rows)
+2026-08-07 00:17:05 | INFO     | ============================================================
+2026-08-07 00:17:05 | INFO     | BUILDING FACT TABLES
+2026-08-07 00:17:05 | INFO     | ============================================================
+2026-08-07 00:17:09 | INFO     | Built fact_transactions (180,720 rows)
+2026-08-07 00:17:11 | INFO     | Built fact_settlements (152,414 rows)
+2026-08-07 00:17:11 | INFO     | Built fact_support_tickets (1,450 rows)
+2026-08-07 00:17:11 | INFO     | ============================================================
+2026-08-07 00:17:11 | INFO     | WAREHOUSE BUILD COMPLETE
+2026-08-07 00:17:11 | INFO     | ============================================================
+2026-08-07 00:17:11 | INFO     | Tables Built : 6
+2026-08-07 00:17:11 | INFO     | Success Rate : 100.0%
+2026-08-07 00:17:11 | INFO     | Warehouse Layer completed successfully.
+2026-08-07 00:17:11 | INFO     | ------------------------------------------------------------
+2026-08-07 00:17:11 | INFO     | Pipeline completed in 61.98 seconds
+2026-08-07 00:17:11 | INFO     | Successful datasets : 5
+2026-08-07 00:17:11 | INFO     | Failed datasets     : 0
+2026-08-07 00:17:11 | INFO     | Transformation operations : 10
+2026-08-07 00:17:11 | INFO     | Validation rules executed : 45
+2026-08-07 00:17:11 | INFO     | Data Quality Score : 81
+2026-08-07 00:17:11 | INFO     | Warehouse tables built : 6
+2026-08-07 00:17:11 | INFO     | Warehouse success rate : 100.0%
+2026-08-07 00:17:11 | INFO     | ------------------------------------------------------------
+2026-08-07 00:17:11 | INFO     | Pipeline execution completed.
+2026-08-07 00:17:11 | INFO     | ============================================================
+2026-08-07 00:17:11 | INFO     | BUILDING DASHBOARD
+2026-08-07 00:17:11 | INFO     | ============================================================
+2026-08-07 00:17:11 | INFO     | Dashboard model created.
+2026-08-07 00:17:11 | INFO     | ============================================================
+2026-08-07 00:17:11 | INFO     | BUILDING EXECUTIVE DASHBOARD
+2026-08-07 00:17:11 | INFO     | ============================================================
+2026-08-07 00:17:11 | INFO     | Calculating executive KPIs.
+2026-08-07 00:17:11 | INFO     | Date filter applied: 2026-03-02 00:00:00 -> 2026-04-21 00:00:00 (143284 rows)
+2026-08-07 00:17:11 | INFO     | Date filter applied: 2026-03-02 00:00:00 -> 2026-04-21 00:00:00 (8052 rows)
+2026-08-07 00:17:11 | INFO     | Building executive charts.
+2026-08-07 00:17:11 | INFO     | Date filter applied: 2026-03-02 00:00:00 -> 2026-04-21 00:00:00 (143284 rows)
+2026-08-07 00:17:12 | INFO     | Date filter applied: 2026-03-02 00:00:00 -> 2026-04-21 00:00:00 (8052 rows)
+2026-08-07 00:17:12 | INFO     | Executive dashboard created successfully.

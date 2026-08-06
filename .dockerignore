@@ -26,6 +26,7 @@ htmlcov/
 
 # Documentation
 docs/
+README.md.
 
 # Notebook
 .ipynb_checkpoints/
